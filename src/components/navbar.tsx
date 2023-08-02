@@ -2,12 +2,13 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 
 const navigation = [
-  { name: 'About', href: '#', current: true },
-  { name: 'Support', href: '#', current: false },
+  { name: 'About', href: '/about', current: true },
+  { name: 'Support', href: '/support', current: false },
   { name: 'Volunteers', href: '#', current: false },
   { name: 'Get Involved', href: '#', current: false },
   { name: 'Donate', href: '#', current: false },
@@ -19,6 +20,10 @@ function classNames(...classes: string[]) {
 }
 
 export default function Navbar() {
+
+  const pathname = usePathname();
+  console.log(pathname)
+
   return (
     <Disclosure as="nav" className="bg-white border-rounded m-5 rounded-xl drop-shadow-xl">
       {({ open }) => (
@@ -38,23 +43,39 @@ export default function Navbar() {
               </div>
               <div className="flex flex-1 items-center justify-between sm:items-stretch">
                 <div className="text-black flex flex-shrink-0 items-center">
-                  <h1>Wheels of Mercy</h1>
+                  <Link
+                    key={'Wheels of Mercy'}
+                    href={'/'}
+                  >
+                    <p className='font-4xl'>Wheels of Mercy</p>
+                  </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex items-center justify-center">
-                    {navigation.map((item) => (
-                      <a
+                    {navigation.map((item) => {
+                      return (<Link
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-black text-white rounded-full' : 'text-black hover:bg-accent hover:rounded-full hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium'
+                          item.href === pathname ? 'bg-black text-white rounded-full px-3 py-2 font-medium' : 'text-black hover:bg-accent hover:rounded-full hover:text-white rounded-md px-3 py-2 text-lg font-medium'
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.href === pathname ? 'page' : undefined}
                       >
                         {item.name}
-                      </a>
-                    ))}
+                      </Link>
+                      )
+                      // <a
+                      //   key={item.name}
+                      //   href={item.href}
+                      //   className={classNames(
+                      //     item.current ? 'bg-black text-white rounded-full' : 'text-black hover:bg-accent hover:rounded-full hover:text-white',
+                      //     'rounded-md px-3 py-2 text-lg font-medium'
+                      //   )}
+                      //   aria-current={item.current ? 'page' : undefined}
+                      // >
+                      //   {item.name}
+                      // </a>
+                    })}
                   </div>
                 </div>
               </div>
