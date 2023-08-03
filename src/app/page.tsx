@@ -23,12 +23,10 @@ export default function Home() {
             }}
           />
         </div> */}
-        <div className="mx-auto py-32 sm:py-48 lg:py-56">
+        <div className="mx-auto">
           <div className="text-center">
             <div className='flex justify-around items-center'>
-              <p className="text-9xl font-bold tracking-tight text-black sm:text-6xl">
-                Wheels of Mercy
-              </p>
+              
               <div className=''>
                 <Image
                   src="/assets/images/wheelsOfMercyLogo.png"
@@ -39,7 +37,7 @@ export default function Home() {
               </div>
             </div>
             <p className="max-w-2xl mx-auto mt-6 text-lg leading-8 text-black">
-              Wheels of Mercy is a 501(c)3 Public Charity that collects used wheelchairs, repairs and refurbishes them; and gives them to people who need but cannot afford them
+              Giving the Gift of Mobility
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
