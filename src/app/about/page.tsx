@@ -2,19 +2,14 @@ import { LifebuoyIcon, NewspaperIcon, PhoneIcon } from '@heroicons/react/20/soli
 
 const cards = [
     {
-        name: 'Sales',
-        description: 'Consectetur vel non. Rerum ut consequatur nobis unde. Enim est quo corrupti consequatur.',
+        name: 'Founder',
+        description: 'Wheels of Mercy was founded in 2005 by Charles Monson following a transformational near-death experience',
         icon: PhoneIcon,
     },
     {
-        name: 'Technical Support',
-        description: 'Quod possimus sit modi rerum exercitationem quaerat atque tenetur ullam.',
+        name: 'Charles Monson',
+        description: '“Even the poorest in America have access to custom wheelchairs through programs like Medi-Caid and Medicare, which replace those wheelchairs every five to seven years. There are millions of wheelchairs that do nothing more than collect dust in garages and basements all across the country. Wheels of Mercy seeks to transform those unused wheelchairs into the life-changing mobility equipment that will allow people with disabilities around the world to get off the floor and out of bed.”',
         icon: LifebuoyIcon,
-    },
-    {
-        name: 'Media Inquiries',
-        description: 'Ratione et porro eligendi est sed ratione rerum itaque. Placeat accusantium impedit eum odit.',
-        icon: NewspaperIcon,
     },
 ]
 

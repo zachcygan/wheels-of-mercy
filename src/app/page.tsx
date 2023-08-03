@@ -23,18 +23,18 @@ export default function Home() {
             }}
           />
         </div> */}
-        <div className="mx-auto max-w-7xl py-32 sm:py-48 lg:py-56">
+        <div className="mx-auto py-32 sm:py-48 lg:py-56">
           <div className="text-center">
-            <div className='flex justify-between items-center'>
-              <h1 className="text-4xl font-bold tracking-tight text-black sm:text-6xl">
+            <div className='flex justify-around items-center'>
+              <p className="text-9xl font-bold tracking-tight text-black sm:text-6xl">
                 Wheels of Mercy
-              </h1>
+              </p>
               <div className=''>
                 <Image
                   src="/assets/images/wheelsOfMercyLogo.png"
                   alt="wheelchair"
-                  width={500}
-                  height={500}
+                  width={1000}
+                  height={1000}
                 />
               </div>
             </div>
