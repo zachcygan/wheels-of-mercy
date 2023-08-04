@@ -1,8 +1,9 @@
 'use client'
-import { Fragment } from 'react'
+import { Fragment, useEffect } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { usePathname } from 'next/navigation'
+import { useMotionValue, useVelocity, motion, useTransform } from "framer-motion"
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -19,12 +20,29 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar() {
 
+export default function Navbar() {
   const pathname = usePathname();
-  console.log(pathname)
+  console.log(pathname);
+  const x = useMotionValue(0);
+  const giggleAnimation = useTransform(x, [-100, 0, 100], [-10, 0, 10]);
+  // Map the x position to the animation range
+
+
+  const handleHoverStart = () => {
+    // Reset the x value and start the animation
+    x.set(0);
+  };
+
+  const handleHoverEnd = () => {
+    // Return the item to the center when the mouse leaves
+    x.set(0);
+  };
+
+
 
   return (
+
     <Disclosure as="nav" className="bg-white border-rounded m-5 rounded-xl drop-shadow-xl">
       {({ open }) => (
         <>
@@ -61,7 +79,7 @@ export default function Navbar() {
                         )}
                         aria-current={item.href === pathname ? 'page' : undefined}
                       >
-                        {item.name}
+                          {item.name}
                       </Link>
                       )
                       // <a
