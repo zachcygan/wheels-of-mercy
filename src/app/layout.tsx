@@ -18,7 +18,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
       <body className=''>
         <header className='mx-auto bg-white p-5'>
 
