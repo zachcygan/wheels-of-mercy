@@ -1,6 +1,5 @@
 'use client';
 import { useState } from "react";
-import { Carousel } from 'react-responsive-carousel';
 
 
 export default function Hero() {
