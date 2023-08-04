@@ -1,6 +1,8 @@
 'use client'
 import { useState } from 'react'
 import { EmblaOptionsType } from 'embla-carousel-react'
+import EmblaCarousel from 'embla-carousel'
+import Autoplay from 'embla-carousel-autoplay'
 import Hero from '../components/hero'
 import Carousel from '../components/carousel'
 
@@ -14,7 +16,7 @@ export default function Home() {
   return (
     <div className='bg-white'>
       <Hero />
-      {/* <Carousel slides={slides} options={options}/> */}
+      <Carousel slides={slides} options={options}/>
     </div>
   )
 }
