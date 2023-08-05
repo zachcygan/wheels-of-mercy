@@ -6,7 +6,7 @@ import Autoplay from 'embla-carousel-autoplay'
 import Hero from '../components/hero'
 import Carousel from '../components/carousel'
 
-const options: EmblaOptionsType = {  }
+const options: EmblaOptionsType = { loop: true }
 const slideCount = 4
 const slides = Array.from(Array(slideCount).keys())
 
