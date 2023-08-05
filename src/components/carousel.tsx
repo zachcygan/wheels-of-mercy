@@ -43,7 +43,7 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
 
     return (
         <div className='max-w-4xl mx-auto'>
-            <div className="embla">
+            <div className="embla relative">
                 <div className="embla__viewport" ref={emblaRef}>
                     <div className="embla__container">
                         {slides.map((index) => (
@@ -60,8 +60,10 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
                         ))}
                     </div>
                 </div>
-                <PrevButton emblaApi={ emblaApi } />
-                <NextButton emblaApi={ emblaApi } />
+                <div className='embla__buttons-container scale-[.96]'>
+                    <PrevButton emblaApi={ emblaApi } />
+                    <NextButton emblaApi={ emblaApi } />
+                </div>
                 {/* <button className='bg-black' onClick={scrollNext}> Next </button> */}
             </div>
             <div className="embla__dots">
@@ -73,6 +75,7 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
                     />
                 ))}
             </div>
+            
         </div>
     )
 }

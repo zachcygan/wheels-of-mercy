@@ -33,7 +33,7 @@ body {
 .embla {
   --slide-spacing: 1rem;
   --slide-size: 100%;
-  --slide-height: 29rem;
+  --slide-height: 31rem;
   padding: 1.6rem;
 }
 .embla__viewport {
@@ -159,5 +159,15 @@ body {
 .embla__dot.is-selected:after {
   background-color: #1bcacd;
   opacity: 1;
+}
+
+.embla__buttons-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px; /* Adjust as needed */
 }
 
