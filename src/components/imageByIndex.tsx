@@ -1,7 +1,7 @@
-import image1 from '/public/assets/images/coco.jpg'
-import image2 from '/public/assets/images/coco.jpg'
-import image3 from '/public/assets/images/coco.jpg'
-import image4 from '/public/assets/images/coco.jpg'
+import image1 from '/public/assets/images/carouselImage1.jpg'
+import image2 from '/public/assets/images/carouselImage2.jpg'
+import image3 from '/public/assets/images/carouselImage3.jpg'
+import image4 from '/public/assets/images/carouselImage4.jpg'
 
 type StaticImageData = {
     src: string;
