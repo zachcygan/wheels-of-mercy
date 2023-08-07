@@ -33,7 +33,7 @@ body {
 .embla {
   --slide-spacing: 1rem;
   --slide-size: 100%;
-  --slide-height: 31rem;
+  --slide-height: 34rem;
   padding: 1.6rem;
 }
 .embla__viewport {
@@ -54,7 +54,8 @@ body {
 .embla__slide__img {
   display: block;
   height: var(--slide-height);
-  width: 100%;
+  max-width: none;
+  margin: auto;
   object-fit: cover;
 }
 .embla__slide__number {
