@@ -64,7 +64,6 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
                     <PrevButton emblaApi={ emblaApi } />
                     <NextButton emblaApi={ emblaApi } />
                 </div>
-                {/* <button className='bg-black' onClick={scrollNext}> Next </button> */}
             </div>
             <div className="embla__dots">
                 {scrollSnaps.map((_, index) => (
