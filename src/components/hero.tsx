@@ -5,6 +5,7 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Carousel from './carousel';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const options: EmblaOptionsType = { loop: true }
 const slideCount = 4
@@ -37,7 +38,8 @@ export default function Example() {
                 Data to enrich your online business
               </h1> */}
               <p className="mt-6 text-lg leading-8 text-gray-800">
-              Wheels of Mercy is a 501(c)3 Public Charity that collects used wheelchairs, repairs and refurbishes them; and gives them to people who need but cannot afford them
+              Wheels of Mercy is a 501(c)3 Public Charity that collects used wheelchairs, 
+              repairs and refurbishes them; and gives them to people who need but cannot afford them
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <a
@@ -46,9 +48,9 @@ export default function Example() {
                 >
                   Get started
                 </a>
-                <a href="#" className="text-sm font-semibold leading-6 text-gray-800">
-                  Learn more <span aria-hidden="true">→</span>
-                </a>
+                <Link href="/about" className="text-sm font-semibold leading-6 text-gray-800 hover:ring-1 hover:rounded-full p-1">
+                    Learn more <span aria-hidden="true">→</span>
+                </Link>
               </div>
             </div>
             <div className='mt-16 rounded-md bg-white/5 shadow-2xl ring-1 ring-black/10 sm:mt-24'>
