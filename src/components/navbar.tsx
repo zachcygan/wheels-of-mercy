@@ -43,7 +43,7 @@ export default function Navbar() {
 
   return (
 
-    <Disclosure as="nav" className="bg-white border-rounded rounded-xl drop-shadow-xl max-w-6xl mx-auto">
+    <Disclosure as="nav" className="bg-white rounded-full drop-shadow-xl max-w-6xl mx-auto">
       {({ open }) => (
         <>
           <div className="mx-auto px-2 sm:px-6 lg:px-8">
@@ -65,7 +65,12 @@ export default function Navbar() {
                     key={'Wheels of Mercy'}
                     href={'/'}
                   >
-                    <p className='font-bold text-3xl'>Wheels of Mercy</p>
+                    <Image
+                      src="/assets/images/wheelsOfMercy.png"
+                      alt="Wheels of Mercy"
+                      width={250}
+                      height={70}
+                    />
                   </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">

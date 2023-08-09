@@ -16,7 +16,9 @@ export default function Home() {
   return (
     <div className='bg-white'>
       <Hero />
-      <Carousel slides={slides} options={options}/>
+      <div className='border'>
+        <Carousel slides={slides} options={options}/>
+      </div>
     </div>
   )
 }
