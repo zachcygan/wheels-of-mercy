@@ -42,8 +42,7 @@ export default function Navbar() {
 
 
   return (
-
-    <Disclosure as="nav" className="bg-white rounded-full drop-shadow-xl max-w-6xl mx-auto">
+    <Disclosure as="nav" className="bg-white rounded-full ring-2 ring-blue-500 drop-shadow-xl max-w-7xl mx-auto">
       {({ open }) => (
         <>
           <div className="mx-auto px-2 sm:px-6 lg:px-8">
@@ -60,16 +59,17 @@ export default function Navbar() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-between sm:items-stretch">
-                <div className="text-black flex flex-shrink-0 items-center">
+                <div className="text-black flex flex-shrink-0 items-center justify-center">
                   <Link
                     key={'Wheels of Mercy'}
                     href={'/'}
+                    className='flex items-center justify-center'
                   >
                     <Image
-                      src="/assets/images/wheelsOfMercy.png"
+                      src="/assets/images/wheelsOfMercyCrop.png"
                       alt="Wheels of Mercy"
-                      width={250}
-                      height={70}
+                      width={200}
+                      height={50}
                     />
                   </Link>
                 </div>
