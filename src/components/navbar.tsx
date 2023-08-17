@@ -10,9 +10,9 @@ import Link from 'next/link'
 const navigation = [
   { name: 'About', href: '/about', current: true },
   { name: 'Support', href: '/support', current: false },
-  { name: 'Volunteers', href: '#', current: false },
   { name: 'Get Involved', href: '#', current: false },
   { name: 'Donate', href: '#', current: false },
+  { name: 'Frequently Asked Questions', href: '#', current: false },
   { name: 'Contact', href: '#', current: false },
 ]
 
@@ -24,25 +24,10 @@ function classNames(...classes: string[]) {
 export default function Navbar() {
   const pathname = usePathname();
   console.log(pathname);
-  const x = useMotionValue(0);
-  const giggleAnimation = useTransform(x, [-100, 0, 100], [-10, 0, 10]);
-  // Map the x position to the animation range
-
-
-  const handleHoverStart = () => {
-    // Reset the x value and start the animation
-    x.set(0);
-  };
-
-  const handleHoverEnd = () => {
-    // Return the item to the center when the mouse leaves
-    x.set(0);
-  };
-
 
 
   return (
-    <Disclosure as="nav" className="bg-white ring-1 ring-accent rounded-full drop-shadow-xl max-w-7xl mx-auto">
+    <Disclosure as="nav" className="bg-white ring-1 ring-accent rounded-full drop-shadow max-w-7xl mx-auto">
       {({ open }) => (
         <>
           <div className="mx-auto px-2 sm:px-6 lg:px-8">
@@ -84,20 +69,9 @@ export default function Navbar() {
                         )}
                         aria-current={item.href === pathname ? 'page' : undefined}
                       >
-                          {item.name}
+                        {item.name}
                       </Link>
                       )
-                      // <a
-                      //   key={item.name}
-                      //   href={item.href}
-                      //   className={classNames(
-                      //     item.current ? 'bg-black text-white rounded-full' : 'text-black hover:bg-accent hover:rounded-full hover:text-white',
-                      //     'rounded-md px-3 py-2 text-lg font-medium'
-                      //   )}
-                      //   aria-current={item.current ? 'page' : undefined}
-                      // >
-                      //   {item.name}
-                      // </a>
                     })}
                   </div>
                 </div>
