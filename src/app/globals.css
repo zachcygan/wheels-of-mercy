@@ -31,9 +31,9 @@ body {
 }
 
 .embla {
-  --slide-spacing: 1rem;
+  --slide-spacing: 1.2rem;
   --slide-size: 100%;
-  --slide-height: 34rem;
+  --slide-height: 20rem;
   padding: 1.6rem;
 }
 .embla__viewport {
