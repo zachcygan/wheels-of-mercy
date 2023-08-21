@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className=''>
+      <body className='bg-white'>
         <header className='mx-auto bg-w pt-2 pb-2'>
           <Navbar />
         </header>
