@@ -18,14 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='bg-white'>
-        <header className='mx-auto bg-white pt-2 pb-2'>
+      <body className=''>
+        <header className='mx-auto bg-w pt-2 pb-2'>
           <Navbar />
         </header>
         {children}
         <Footer />
       </body>
-      <script src="./node_modules/preline/dist/preline.js"></script>
     </html>
   )
 }

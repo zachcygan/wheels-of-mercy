@@ -1,5 +1,4 @@
 'use client'
-import Faq from '../../components/faq'
 import Founded from '../../components/founded'
 
 export default function About() {
@@ -16,7 +15,6 @@ export default function About() {
                 </div>
             </div>
             <Founded />
-            <Faq />
         </div>
 
     )
