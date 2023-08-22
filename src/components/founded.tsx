@@ -21,7 +21,7 @@ export default function Founded() {
               <p className="mt-4 text-4xl font-bold tracking-tight text-gray-900 text-center lg:text-left">
                 Founder
               </p>
-              <p className="mt-4 text-gray-500 text-center lg:text-left">
+              <p className="mt-4 text-gray-500 text-center text-xl lg:text-left">
                 Wheels of Mercy was founded in 2005 by Charles Monson following a transformations near-death experience
               </p>
             </div>

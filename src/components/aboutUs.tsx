@@ -7,7 +7,7 @@ export default function AboutUs() {
             
             <div className="bg-white max-w-7xl mx-auto pt-10">
             <h2 className="text-4xl font-bold text-gray-900 text-center sm:text-6xl">About Wheels of Mercy</h2>
-                <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 sm:px-6 sm:py-20 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+                <div className="mx-auto grid max-w-2xl text-xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 sm:px-6 sm:py-20 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
                     <div>
 
                         <p className="mt-4 text-gray-500">
@@ -39,7 +39,7 @@ export default function AboutUs() {
                             maintains the integrity of the skin and spine, while it enables mobility.
                         </p>
                     </div>
-                    <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8 ">
+                    <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8 bg-white/5">
                         <div className='relative hover:scale-110'>
                             <Img
                                 src='/assets/images/about3.jpg'
