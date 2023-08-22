@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Hero from '../components/hero'
+import OurStory from '../components/ourStory'
 import { Transition } from '@headlessui/react'
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       leaveFrom='transform translate-x-0 opacity-100'
       leaveTo='transform -translate-x-full opacity-0'>
       <Hero />
+      <OurStory />
     </Transition>
   )
 }

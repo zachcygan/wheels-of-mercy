@@ -49,14 +49,13 @@ export default function Example() {
             Wheels of Mercy is a 501(c)3 Public Charity that collects used wheelchairs,
             repairs and refurbishes them; and gives them to people who need but cannot afford them
           </p>
-          <div className='mt-16 rounded-md bg-white/5 shadow-2xl ring-1 ring-black/10 sm:mt-24'>
-            <Carousel slides={slides} options={options} />
-          </div>
         </div>
       </div>
       <div>
-        <div className='flex items-center justify-center'>
-          
+        <div className='flex items-center justify-center '>
+          <div className='rounded-md bg-white/5 shadow-2xl ring-1 ring-black/10 '>
+            <Carousel slides={slides} options={options} />
+          </div>
         </div>
         {/* <Image
               src="/assets/images/carouselImage2.jpg"
@@ -66,7 +65,7 @@ export default function Example() {
               className='mt-16 rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10 sm:mt-24'
             /> */}
       </div>
-      <div className="flex items-center justify-center gap-x-6">
+      {/* <div className="flex items-center justify-center gap-x-6">
         <a
           href="#"
           className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
@@ -76,7 +75,7 @@ export default function Example() {
         <Link href="/about" className="text-sm font-semibold leading-6 text-gray-800 hover:ring-1 hover:rounded-full p-1">
           Learn more <span aria-hidden="true">→</span>
         </Link>
-      </div>
+      </div> */}
 
     </div>
   )
