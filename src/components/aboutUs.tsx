@@ -39,19 +39,22 @@ export default function AboutUs() {
                             maintains the integrity of the skin and spine, while it enables mobility.
                         </p>
                     </div>
-                    <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
-                        <div className='relative'>
+                    <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8 ">
+                        <div className='relative hover:scale-110'>
                             <Img
                                 src='/assets/images/about3.jpg'
                                 alt='Bad wheel chair'
-                                fill
+                                width={500}
+                                height={500}
+                                className='rounded-xl '
                             />
                         </div>
-                        <div className='relative'>
+                        <div className='relative hover:scale-110'>
                             <Img
                                 src='/assets/images/about2.jpg'
                                 alt='Bad spine'
                                 fill
+                                className='rounded-xl'
                             />
                         </div>
                         <div className='relative'>
@@ -59,6 +62,7 @@ export default function AboutUs() {
                                 src='/assets/images/about1.jpg'
                                 alt='Good wheel chair'
                                 fill
+                                className='rounded-xl hover:scale-110'
                             />
                         </div>
                         <div className='relative'>
@@ -66,6 +70,7 @@ export default function AboutUs() {
                                 src='/assets/images/about4.jpg'
                                 alt='Good spine'
                                 fill
+                                className='rounded-xl hover:scale-110'
                             />
                         </div>
                     </div>
