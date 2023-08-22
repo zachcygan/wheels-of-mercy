@@ -10,8 +10,6 @@ module.exports = {
       colors: {
         'accent': '#9ca3af',
         'primary': '#2E2E2E',
-        'gray': '#6b7280',
-        
       },
     },
   },

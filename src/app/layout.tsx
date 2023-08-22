@@ -22,7 +22,9 @@ export default function RootLayout({
         <header className='mx-auto bg-w pt-2 pb-2'>
           <Navbar />
         </header>
-        {children}
+        <div className='min-h-[73vh]'>
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

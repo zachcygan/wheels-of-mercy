@@ -2,7 +2,7 @@
 
 export default function OurStory() {
     return (
-        <div className='bg-white'>
+        <div className='max-w-7xl mx-auto'>
             <div className="bg-white px-6 py-14 sm:py-20 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
                     <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Our Story</h2>
