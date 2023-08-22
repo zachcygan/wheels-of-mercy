@@ -7,7 +7,7 @@ export default function About() {
     return (
         <div className='bg-white'>
             <AboutUs />
-            {/* <OurStory /> */}
+            <OurStory />
             <Founded />
         </div>
 
