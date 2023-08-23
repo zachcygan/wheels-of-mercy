@@ -45,17 +45,18 @@ export default function Example() {
           </div>
         </div>
         <div className='flex flex-col items-center justify-center'>
-          <p className="mt-6 text-lg leading-8 text-black font-bold">
+          <p className="mt-6 text-4xl leading-2 text-black font-bold">
             Wheels of Mercy is a 501(c)3 Public Charity that collects used wheelchairs,
             repairs and refurbishes them; and gives them to people who need but cannot afford them
           </p>
+          <div className='rounded-md bg-white/5 shadow-2xl ring-1 ring-black/10 '>
+            <Carousel slides={slides} options={options} />
+          </div>
         </div>
       </div>
       <div>
         <div className='flex items-center justify-center '>
-          <div className='rounded-md bg-white/5 shadow-2xl ring-1 ring-black/10 '>
-            <Carousel slides={slides} options={options} />
-          </div>
+          
         </div>
         {/* <Image
               src="/assets/images/carouselImage2.jpg"

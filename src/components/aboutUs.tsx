@@ -39,18 +39,18 @@ export default function AboutUs() {
                             maintains the integrity of the skin and spine, while it enables mobility.
                         </p>
                     </div>
-                    <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8 bg-white/5">
+                    <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8 bg-white/5 h-full">
                         <div className='relative hover:scale-110 transition-all'>
                             <Img
-                                src='/assets/images/about3.jpg'
+                                src='/assets/images/about6.jpg'
                                 alt='Bad wheel chair'
                                 width={500}
                                 height={500}
-                                className='rounded-xl'
+                                className='rounded-xl h-full'
                             />
                         </div>
                         <div className='relative hover:scale-110 transition-all'>
-                            <Img
+                           7 <Img
                                 src='/assets/images/about2.jpg'
                                 alt='Bad spine'
                                 fill
