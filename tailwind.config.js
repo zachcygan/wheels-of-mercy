@@ -12,5 +12,8 @@ module.exports = {
         'primary': '#2E2E2E',
       },
     },
+    plugins: [
+      require('@tailwindcss/forms')
+    ]
   },
 }
