@@ -1,9 +1,10 @@
 'use client'
-import { Fragment, useEffect } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { usePathname } from 'next/navigation'
 import { useMotionValue, useVelocity, motion, useTransform } from "framer-motion"
+import SlideOver from './slideOver'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -25,6 +26,7 @@ export default function Navbar() {
   const pathname = usePathname();
   console.log(pathname);
 
+  const [isSlideOpen, setIsSlideOpen] = useState<boolean>(false)
 
   return (
     <Disclosure as="nav" className="bg-white ring-1 ring-accent rounded-full drop-shadow max-w-7xl mx-auto">
@@ -68,12 +70,19 @@ export default function Navbar() {
                           item.href === pathname ? 'bg-black text-white rounded-full px-3 text-lg py-2 font-medium' : 'text-black hover:bg-accent hover:rounded-full hover:text-white rounded-md px-3 py-2 text-lg font-medium'
                         )}
                         aria-current={item.href === pathname ? 'page' : undefined}
+                        onClick={(e) => {
+                          if (item.name === 'Contact') {
+                            e.preventDefault(); // prevent navigation
+                            setIsSlideOpen(true);
+                          }
+                        }}
                       >
                         {item.name}
                       </Link>
                       )
                     })}
                   </div>
+                  <SlideOver isOpen={isSlideOpen} onClose={() => setIsSlideOpen(false)} />
                 </div>
               </div>
             </div>
@@ -99,6 +108,7 @@ export default function Navbar() {
           </Disclosure.Panel>
         </>
       )}
+       
     </Disclosure>
   )
 }
