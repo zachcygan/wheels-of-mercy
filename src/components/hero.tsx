@@ -11,13 +11,6 @@ const options: EmblaOptionsType = { loop: true }
 const slideCount = 4
 const slides = Array.from(Array(slideCount).keys())
 
-const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
-]
-
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 

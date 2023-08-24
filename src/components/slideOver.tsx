@@ -19,7 +19,6 @@ export default function SlideOver({ isOpen, onClose }: SlideOverProps) {
     const handleClose = () => {
         setOpen(false);
         if (onClose) onClose()
-        console.log('close');
     }
 
 
