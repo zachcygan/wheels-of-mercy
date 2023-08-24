@@ -35,7 +35,7 @@ export default function SlideOver({ isOpen, onClose }: SlideOverProps) {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                 >
-                    <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"/>
+                    <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
                 </Transition.Child>
 
                 <div className="fixed inset-0 overflow-hidden .slide-over">
@@ -50,7 +50,7 @@ export default function SlideOver({ isOpen, onClose }: SlideOverProps) {
                                 leaveFrom="translate-x-0"
                                 leaveTo="translate-x-full"
                             >
-                                <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
+                                <Dialog.Panel className="pointer-events-auto w-screen max-w-2xl">
                                     <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
                                         <div className="px-4 sm:px-6">
                                             <div className="flex items-start justify-between">
@@ -71,11 +71,11 @@ export default function SlideOver({ isOpen, onClose }: SlideOverProps) {
                                             </div>
                                         </div>
                                         <div className="relative mt-6 flex-1 px-4 sm:px-6">
-                                            {/* Your content */}
                                             <ContactForm />
                                         </div>
                                     </div>
                                 </Dialog.Panel>
+
                             </Transition.Child>
                         </div>
                     </div>

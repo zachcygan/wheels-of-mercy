@@ -23,7 +23,7 @@ export default function Example() {
 
   return (
     <div>
-      <div className='grid grid-cols-2 max-w-7xl mx-auto'>
+      <div className='sm:grid sm:grid-cols-2 max-w-7xl mx-auto'>
         <div className="bg-white">
           <div className="relative isolate pt-14">
             <div className="lg:pb-40">
@@ -49,14 +49,14 @@ export default function Example() {
             Wheels of Mercy is a 501(c)3 Public Charity that collects used wheelchairs,
             repairs and refurbishes them; and gives them to people who need but cannot afford them
           </p>
-          <div className='rounded-md bg-white/5 shadow-2xl ring-1 ring-black/10 '>
-            <Carousel slides={slides} options={options} />
-          </div>
         </div>
+        
       </div>
       <div>
         <div className='flex items-center justify-center '>
-          
+        <div className='scale-[70%] sm:scale-100 rounded-md bg-white/5 shadow-2xl ring-1 ring-black/10 mx-auto'>
+            <Carousel slides={slides} options={options} />
+          </div>
         </div>
         {/* <Image
               src="/assets/images/carouselImage2.jpg"
