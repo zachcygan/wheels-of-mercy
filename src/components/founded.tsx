@@ -12,7 +12,7 @@ export default function Founded() {
               alt='Founder Charles Monson'
               width={500}
               height={500}
-              className='rounded-xl mx-auto lg:mx-0'
+              className='rounded-xl mx-auto lg:mx-0 hover:scale-110 transition-all'
             />
           </div>
 
