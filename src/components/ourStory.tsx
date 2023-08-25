@@ -10,7 +10,7 @@ export default function OurStory() {
             </div>
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-                    <div className="grid max-w-xl grid-cols-1 text-xl gap-8 text-base leading-7 text-gray-500 lg:max-w-none lg:grid-cols-2">
+                    <div className="grid max-w-xl grid-cols-1 text-xl mx-auto gap-8 text-base leading-7 text-gray-500 lg:max-w-none lg:grid-cols-2">
                         <div>
                             <p className="">
                                 At 16 I sustained a spinal cord injury which rendered me a quadriplegic. I spent the next
