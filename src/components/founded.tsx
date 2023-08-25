@@ -8,7 +8,7 @@ export default function Founded() {
         <section aria-labelledby="features-heading" className="relative flex flex-col items-center lg:flex-row">
           <div className="lg:w-1/2 lg:pr-4 xl:pr-16">
             <Image
-              src="/assets/images/founder.jpg"
+              src="/assets/images/founder.JPG"
               alt='Founder Charles Monson'
               width={500}
               height={500}
