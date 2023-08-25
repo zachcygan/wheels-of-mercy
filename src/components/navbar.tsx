@@ -88,7 +88,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Disclosure.Panel className="sm:hidden">
+          <Disclosure.Panel className="min-[900px]:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation.map((item) => (
                 <Disclosure.Button
@@ -100,6 +100,12 @@ export default function Navbar() {
                     'block rounded-md px-3 py-2 text-base font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}
+                  onClick={(e) => {
+                    if (item.name === 'Contact') {
+                      e.preventDefault(); // prevent navigation
+                      setIsSlideOpen(true);
+                    }
+                  }}
                 >
                   {item.name}
                 </Disclosure.Button>
