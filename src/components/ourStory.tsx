@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 
 export default function OurStory() {
     return (
@@ -11,7 +12,7 @@ export default function OurStory() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
                     <div className="grid max-w-xl grid-cols-1 text-xl mx-auto gap-8 text-base leading-7 text-gray-500 lg:max-w-none lg:grid-cols-2">
-                        <div>
+                        <div className='mx-auto'>
                             <p className="">
                                 At 16 I sustained a spinal cord injury which rendered me a quadriplegic. I spent the next
                                 decade trying to find my feet and adjust to life with a disability. As I adjusted, a desire
@@ -33,9 +34,27 @@ export default function OurStory() {
                                 previous wheelchairs. My work was interrupted by a massive brain hemorrhage which
                                 put me in a coma.
                             </p>
+                            <div className='flex justify-center'>
+                                <Image 
+                                    src="/assets/images/hoag2.jpg"
+                                    width={500}
+                                    height={500}
+                                    alt="Charles Monson in the hospital"
+                                    className='rounded-3xl mx-auto lg:mx-0 hover:scale-110 transition-all mt-8'
+                                />
+                            </div>
                         </div>
-                        <div>
-                            <p>
+                        <div className='mx-auto'>
+                            <div className='flex justify-center'>
+                                <Image 
+                                    src="/assets/images/hoag1.jpg"
+                                    width={500}
+                                    height={500}
+                                    alt="Charles Monson in the hospital"
+                                    className="rounded-3xl mx-auto lg:mx-0 hover:scale-110 transition-all"
+                                />
+                            </div>
+                            <p className='mt-8'>
                                 I woke to find my business gone, and a need to redefine my life. My near-death
                                 experience left me yearning to use the time I have left here to have as powerful an
                                 impact as possible upon the disabled community. From this desire sprang Wheels of

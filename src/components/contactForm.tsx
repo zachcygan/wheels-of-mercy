@@ -16,7 +16,7 @@ export default function ContactForm() {
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (form.current !== null) {
-            emailjs.sendForm('service_3gvyszd', 'template_jmac26j', form.current, '1VgI4yMIQfQW7ffZw')
+            emailjs.sendForm('service_fzix91g', 'template_2wbljac', form.current, 'jUyA5LHa70k8i0tEl')
                 .then((result) => {
                     console.log(result.text)
                 }, (error) => {
