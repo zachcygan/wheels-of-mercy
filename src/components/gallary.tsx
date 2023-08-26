@@ -7,6 +7,10 @@ const images = [
     '/assets/images/coco.jpg',
     '/assets/images/hoag1.jpg',
     '/assets/images/hoag2.jpg',
+    '/assets/images/founder.jpg',
+    '/assets/images/about1.jpg',
+    '/assets/images/about2.jpg',
+    '/assets/images/about4.jpg',
 ]
 
 export default function Gallary() {
@@ -19,7 +23,7 @@ export default function Gallary() {
     };
 
     return (
-        <div className='grid grid-cols-4 gap-5 mx-auto '>
+        <div className='columns-4 mx-auto gap-5'>
             {images.map((imgSrc, index) => (
                 <Image
                     key={index}
@@ -28,7 +32,7 @@ export default function Gallary() {
                     height={300}
                     alt={`Thumbnail ${index}`}
                     onClick={() => handleImageClick(imgSrc)}
-                    className="cursor-pointer h-full"
+                    className="cursor-pointer h-full pt-5 rounded-3xl"
                 />
             ))}
 
