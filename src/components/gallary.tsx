@@ -11,7 +11,7 @@ const images = [
 
 export default function Gallary() {
     const [isModalOpen, setModalOpen] = useState(false);
-    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const [selectedImage, setSelectedImage] = useState<string>('');
 
     const handleImageClick = (imgSrc: string) => {
         setSelectedImage(imgSrc);
@@ -19,17 +19,16 @@ export default function Gallary() {
     };
 
     return (
-        <div className='grid grid-cols-4 gap-5 mx-auto'>
+        <div className='grid grid-cols-4 gap-5 mx-auto '>
             {images.map((imgSrc, index) => (
                 <Image
                     key={index}
                     src={imgSrc}
-                    width={300}
+                    width={350}
                     height={300}
                     alt={`Thumbnail ${index}`}
                     onClick={() => handleImageClick(imgSrc)}
-                    className="cursor-pointer" // just for better UX
-                // You can style these images accordingly or put them in a grid
+                    className="cursor-pointer h-full"
                 />
             ))}
 
