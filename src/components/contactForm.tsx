@@ -123,10 +123,10 @@ export default function ContactForm() {
                                         >
                                             <span>Upload a file</span>
                                             <input 
-                                                id="file-upload" 
-                                                name="file-upload" 
+                                                id="name_971o3je"
+                                                name="name_971o3je"
                                                 type="file" 
-                                                className="sr-only"  
+                                                className="sr-only"
                                             />
                                         </label>
                                         <p className="pl-1">or drag and drop</p>
