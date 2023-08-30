@@ -30,20 +30,17 @@ export default function Example() {
                   <Image
                     src="/assets/images/wheelsOfMercyLogo.png"
                     alt="Wheels of Mercy Logo"
-                    width={500}
-                    height={500}
+                    width={250}
+                    height={250}
                     className='mx-auto'
                   />
-                  {/* <h1 className="text-4xl font-bold tracking-tight text-black sm:text-6xl">
-                    Data to enrich your online business
-                  </h1> */}
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div className='flex flex-col items-center justify-center'>
-          <p className="mt-6 text-4xl leading-2 text-black font-bold">
+          <p className="mt-6 text-4xl leading-2 text-black">
             Wheels of Mercy is a 501(c)3 Public Charity that collects used wheelchairs,
             repairs and refurbishes them; and gives them to people who need but cannot afford them
           </p>
