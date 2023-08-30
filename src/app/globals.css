@@ -26,8 +26,8 @@ body {
 }
 
 .embla {
-  --slide-spacing: 3rem;
-  --slide-size: 55%;
+  --slide-spacing: 0.4rem;
+  --slide-size: 56%;
   --slide-height: 40rem;
   padding: 0rem;
 }
