@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Uncomment for final version */
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-} */
-
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -27,7 +18,7 @@ body {
 
 .embla {
   --slide-spacing: 0.4rem;
-  --slide-size: 56%;
+  --slide-size: 45%;
   --slide-height: 40rem;
   padding: 0rem;
 }
