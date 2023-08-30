@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Navbar from "../components/navbar"
 import Footer from "../components/footer"
-import Head from 'next/head'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,9 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="icon" href="/assets/images/logo.png" />
-      </Head>
+      <link rel="icon" href="/assets/images/iconInverted.png" />
       <body className='bg-white'>
         <header className='mx-auto pt-2 pb-2'>
           <Navbar />
