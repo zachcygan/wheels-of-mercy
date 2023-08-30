@@ -21,6 +21,7 @@
     "embla-carousel-autoplay": "^8.0.0-rc11",
     "embla-carousel-react": "^8.0.0-rc11",
     "framer-motion": "^10.15.0",
+    "keen-slider": "^6.8.6",
     "next": "13.4.12",
     "postcss": "8.4.27",
     "react": "18.2.0",

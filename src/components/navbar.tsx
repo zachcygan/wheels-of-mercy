@@ -13,7 +13,7 @@ const navigation = [
   { name: 'Support', href: '/support', current: false },
   { name: 'Get Involved', href: '#', current: false },
   { name: 'Donate', href: '#', current: false },
-  { name: 'Frequently Asked Questions', href: '/faq', current: false },
+  { name: 'FAQs', href: '/faq', current: false },
   { name: 'Contact', href: '#', current: false },
 ]
 

@@ -42,7 +42,7 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
     }, [embla, setScrollSnaps, onSelect]);
 
     return (
-        <div className='max-w-2xl mx-auto'>
+        <div className='mx-auto'>
             <div className="embla relative">
                 <div className="embla__viewport" ref={emblaRef}>
                     <div className="embla__container">
