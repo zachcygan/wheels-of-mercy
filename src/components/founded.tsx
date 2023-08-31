@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function Founded() {
   return (
     <div>
-      <div className="bg-white max-w-5xl pt-10 mx-auto mb-20">
+      <div className="max-w-5xl pt-10 mx-auto mb-20">
         <section aria-labelledby="features-heading" className="relative flex flex-col items-center lg:flex-row">
           <div className="lg:w-1/2 lg:pr-4 xl:pr-16">
             <Image
