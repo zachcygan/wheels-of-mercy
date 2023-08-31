@@ -29,10 +29,10 @@ export default function Navbar() {
   const [isSlideOpen, setIsSlideOpen] = useState<boolean>(false)
 
   return (
-    <Disclosure as="nav" className="bg-white ring-1 ring-accent rounded-full drop-shadow max-w-7xl mx-auto">
+    <Disclosure as="nav" className="">
       {({ open }) => (
         <>
-          <div className="mx-auto px-2 sm:px-6 lg:px-8">
+          <div className="ring-1 ring-accent rounded-full drop-shadow max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 bg-white">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 right-0 flex items-center min-[900px]:hidden">
                 {/* Mobile menu button*/}
