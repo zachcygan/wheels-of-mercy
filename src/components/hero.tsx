@@ -8,7 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const options: EmblaOptionsType = { loop: true }
-const slideCount = 9
+const slideCount = 11
 const slides = Array.from(Array(slideCount).keys())
 
 export default function Example() {
