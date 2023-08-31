@@ -1,36 +1,38 @@
 'use client'
-import Script from 'next/script';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function DonationButton() {
+  const [buttonLoaded, setButtonLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://www.paypalobjects.com/donate/sdk/donate-sdk.js';
-    script.charset = 'UTF-8';
-    script.onload = () => {
-      if (window.PayPal) {
-        window.PayPal.Donation.Button({
-          env: 'production',
-          hosted_button_id: 'Z76M6RNNJRY2J',
-          image: {
-            src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif',
-            alt: 'Donate with PayPal button',
-            title: 'PayPal - The safer, easier way to pay online!',
-          },
-        }).render('#donate-button');
-      }
-    };
+    if (!buttonLoaded) {
+      const script = document.createElement('script');
+      script.src = 'https://www.paypalobjects.com/donate/sdk/donate-sdk.js';
+      script.charset = 'UTF-8';
+      script.onload = () => {
+        if (window.PayPal) {
+          window.PayPal.Donation.Button({
+            env: 'production',
+            hosted_button_id: 'Z76M6RNNJRY2J',
+            image: {
+              src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif',
+              alt: 'Donate with PayPal button',
+              title: 'PayPal - The safer, easier way to pay online!',
+            },
+          }).render('#donate-button');
+        }
+      };
 
-    document.body.appendChild(script);
+      document.body.appendChild(script);
 
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+      return () => {
+        document.body.removeChild(script);
+      };
+    }
+  }, [buttonLoaded]);
 
   return (
-    <div id="donate-button-container">
+    <div id="donate-button-container" className='flex justify-center'>
       <div id="donate-button"></div>
     </div>
   )
