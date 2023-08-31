@@ -5,7 +5,7 @@ import AboutUs from '../../components/aboutUs'
 
 export default function About() {
     return (
-        <div className='bg-white'>
+        <div className='bg-transparent'>
             <AboutUs />
             <OurStory />
             <Founded />

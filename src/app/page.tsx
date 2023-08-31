@@ -9,7 +9,7 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <Transition as="main" className="bg-white mx-auto transition-all duration-700 text-white flex flex-col gap-24"
+    <Transition as="main" className="mx-auto transition-all duration-700 text-white flex flex-col gap-24"
       appear={true}
       show={true}
       enter='ease-in-out'

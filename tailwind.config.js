@@ -11,6 +11,9 @@ module.exports = {
         'accent': '#9ca3af',
         'primary': '#2E2E2E',
       },
+      backgroundImage: {
+        'pattern': "url('/assets/images/background.jpg')",
+      }
     },
     plugins: [
       require('@tailwindcss/forms'),
