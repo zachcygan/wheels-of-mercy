@@ -18,8 +18,8 @@ body {
 
 .embla {
   --slide-spacing: 0rem;
-  --slide-size: 45%;
-  --slide-height: 40rem;
+  --slide-size: 100%;
+  --slide-height: 34rem;
   padding: 0rem;
 }
 .embla__viewport {
@@ -32,7 +32,7 @@ body {
   margin-left: calc(var(--slide-spacing) * -1);
 }
 .embla__slide {
-  flex: 0 0 auto;
+  flex: 0 0 var(--slide-size);
   min-width: 0;
   padding-left: var(--slide-spacing);
   position: relative;
