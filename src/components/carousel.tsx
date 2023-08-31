@@ -42,7 +42,7 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
     }, [embla, setScrollSnaps, onSelect]);
 
     return (
-        <div className='mx-auto'>
+        <div className='mx-auto ring-2 hover:ring-4 transiton-all'>
             <div className="embla relative">
                 <div className="embla__viewport" ref={emblaRef}>
                     <div className="embla__container">
@@ -51,7 +51,7 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
                                 <img
                                     className="embla__slide__img"
                                     src={imageByIndex(index)}
-                                    alt="Your alt text"
+                                    alt={`Image ${index}`}
                                 />
                             </div>
                         ))}
@@ -62,7 +62,7 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
                     <NextButton emblaApi={ emblaApi } />
                 </div>
             </div>
-            <div className="embla__dots">
+            {/* <div className="embla__dots">
                 {scrollSnaps.map((_, index) => (
                     <DotButton
                         key={index}
@@ -70,7 +70,7 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
                         onClick={() => scrollTo(index)}
                     />
                 ))}
-            </div>
+            </div> */}
             
         </div>
     )
