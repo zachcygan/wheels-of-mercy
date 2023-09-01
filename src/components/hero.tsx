@@ -11,7 +11,7 @@ const options: EmblaOptionsType = { loop: true, duration: 30 }
 const slideCount = 11
 const slides = Array.from(Array(slideCount).keys())
 
-export default function Example() {
+export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
@@ -21,24 +21,18 @@ export default function Example() {
           <Carousel slides={slides} options={options} />
         </div>
       </div>
-      <div className='sm:grid sm:grid-cols-2 max-w-7xl mx-auto'>
-        <div className="bg-transparent">
-          <div className="relative isolate pt-14">
-            <div className="lg:pb-40">
-              <div className="mx-auto max-w-2xl text-center">
-                <Image
-                  src="/assets/images/wheelsOfMercyLogo.png"
-                  alt="Wheels of Mercy Logo"
-                  width={150}
-                  height={150}
-                  className='mx-auto'
-                />
-              </div>
-            </div>
-          </div>
+      <div className='sm:grid sm:grid-cols-2 max-w-7xl mx-auto mt-10'>
+        <div className="mx-auto max-w-2xl text-center">
+          <Image
+            src="/assets/images/wheelsOfMercyLogo.png"
+            alt="Wheels of Mercy Logo"
+            width={200}
+            height={200}
+            className='mx-auto'
+          />
         </div>
         <div className='flex flex-col items-center justify-center'>
-          <p className="mt-6 text-2xl leading-2 text-black">
+          <p className="mt-6 text-3xl leading-2 text-black font-bold">
             Wheels of Mercy is a 501(c)3 Public Charity that collects used wheelchairs,
             repairs and refurbishes them; and gives them to people who need but cannot afford them
           </p>
