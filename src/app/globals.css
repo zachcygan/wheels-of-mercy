@@ -177,7 +177,7 @@ body {
   }
 }
 
-@media(max-width: 320px) {
+@media(max-width: 321px) {
   .embla {
     --slide-spacing: 0rem;
     --slide-size: 100%;
@@ -185,7 +185,7 @@ body {
     padding: 0rem;
   }
   .embla_slide {
-    flex: 0 0 auto;
+    flex: 0 0 var(--slide-size);
     max-width: 100%;
   }
 }
