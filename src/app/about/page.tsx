@@ -6,8 +6,8 @@ import Founded from '../../components/founded'
 export default function About() {
     return (
         <div className='bg-transparent'>
-            <AboutUs />
             <OurStory />
+            <AboutUs />
             <Founded />
         </div>
     )
