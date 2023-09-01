@@ -7,7 +7,7 @@ import Carousel from './carousel';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const options: EmblaOptionsType = { loop: true }
+const options: EmblaOptionsType = { loop: true, duration: 60 }
 const slideCount = 11
 const slides = Array.from(Array(slideCount).keys())
 
