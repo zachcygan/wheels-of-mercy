@@ -23,7 +23,7 @@ export default function Gallary() {
     };
 
     return (
-        <div className='columns-4 mx-auto gap-5'>
+        <div className='columns-1 sm:columns-2 md:columns-4 mx-auto gap-5 p-10 rounded-xl'>
             {images.map((imgSrc, index) => (
                 <Image
                     key={index}

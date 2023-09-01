@@ -32,8 +32,8 @@ export default function DonationButton() {
   }, [buttonLoaded]);
 
   return (
-    <div id="donate-button-container" className='flex justify-center'>
-      <div id="donate-button"></div>
+    <div id="donate-button-container" className='flex justify-center hover:scale=[110%]'>
+      <div id="donate-button" className=''></div>
     </div>
   )
 }
