@@ -80,7 +80,7 @@ export default function OurStory() {
                 </div>
             </div>
             <div className='mx-auto max-w-7xl px-6 lg:px-8'>
-
+                
             </div>
         </div>
     )
