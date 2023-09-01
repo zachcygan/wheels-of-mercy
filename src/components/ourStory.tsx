@@ -36,7 +36,7 @@ export default function OurStory() {
                             </p>
                             <div className='flex justify-center'>
                                 <Image 
-                                    src="/assets/images/hoag2.jpg"
+                                    src="/assets/images/founder.jpg"
                                     width={500}
                                     height={500}
                                     alt="Charles Monson in the hospital"
