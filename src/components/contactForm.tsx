@@ -101,7 +101,6 @@ export default function ContactForm() {
                                     name="text"
                                     rows={7}
                                     className="block w-full rounded-md p-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                    defaultValue={''}
                                     value={message}
                                     onChange={(e) => {setMessage(e.target.value)}}
                                     placeholder='Hello, I would like to donate a wheel chair.'
@@ -123,15 +122,15 @@ export default function ContactForm() {
                                         >
                                             <span>Upload a file</span>
                                             <input 
-                                                id="name_971o3je"
-                                                name="name_971o3je"
+                                                id="file-upload"
+                                                name="file-upload"
                                                 type="file" 
                                                 className="sr-only"
                                             />
                                         </label>
                                         <p className="pl-1">or drag and drop</p>
                                     </div>
-                                    <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                                    <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 2MB</p>
                                 </div>
                             </div>
                         </div>

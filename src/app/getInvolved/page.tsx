@@ -1,9 +1,10 @@
 'use client'
+import GetInvolved from "../../components/getInvolved"
 
-export default function GetInvolved() {
+export default function Getinvolved() {
     return(
         <div>
-            test
+            <GetInvolved />
         </div>
     )
 }
