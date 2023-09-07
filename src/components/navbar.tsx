@@ -11,7 +11,6 @@ import Link from 'next/link'
 const navigation = [
   { name: 'About', href: '/about', current: true },
   { name: 'Support', href: '/support', current: false },
-  { name: 'Get Involved', href: '/getinvolved', current: false },
   { name: 'Donate', href: '/donate', current: false },
   { name: 'FAQs', href: '/faq', current: false },
   { name: 'Contact', href: '#', current: false },

@@ -126,6 +126,7 @@ export default function ContactForm() {
                                                 name="file-upload"
                                                 type="file" 
                                                 className="sr-only"
+                                                accept='image/*'
                                             />
                                         </label>
                                         <p className="pl-1">or drag and drop</p>
