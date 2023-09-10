@@ -35,6 +35,7 @@ export default function Gallary() {
                     className="cursor-pointer h-full pt-5 rounded-3xl"
                 />
             ))}
+            
             <ImageModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} imgSrc={selectedImage} />
         </div>
     )
