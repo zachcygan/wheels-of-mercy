@@ -33,7 +33,7 @@ export default function Hero() {
         </div>
         <div className='flex flex-col items-center justify-center'>
           <p className="mt-6 text-xl lg:text-3xl leading-2 text-black font-bold px-10 text-center">
-            Wheels of Mercy is a 501(c)3 Public Charity that collects used wheelchairs,
+            TEST Wheels of Mercy is a 501(c)3 Public Charity that collects used wheelchairs,
             repairs and refurbishes them; and gives them to people who need but cannot afford them
           </p>
         </div>
