@@ -13,7 +13,6 @@ export interface NextButtonProps {
     emblaApi: any;
 }
 
-
 export const DotButton = ({ selected, onClick }: DotButtonProps) => (
     <button
         className={`embla__dot ${selected ? "is-selected" : ""}`}
