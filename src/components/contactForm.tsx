@@ -1,7 +1,9 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import Image from 'next/image'
 import emailjs from '@emailjs/browser'
+import autoprefixer from 'autoprefixer';
 
 export default function ContactForm() {
     const [selectedCheckboxes, setSelectedCheckboxes] = useState<string[]>([]);
@@ -44,6 +46,27 @@ export default function ContactForm() {
         // This regex checks for most common email patterns.
         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
         return emailRegex.test(email);
+    };
+
+    const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const files = e.target.files;
+        if (files) {
+            const imagePreviews: string[] = [];
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    if (e.target && typeof e.target.result === 'string') {
+                        imagePreviews.push(e.target.result);
+
+                        if (imagePreviews.length === files.length) {
+                            setPreviewImages(imagePreviews);
+                        }
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        }
     };
 
     return (
@@ -243,13 +266,15 @@ export default function ContactForm() {
                                             htmlFor="file-upload"
                                             className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                                         >
-                                            <span>Upload a file</span>
+                                            <span className=''>Upload a file</span>
                                             <input
                                                 id="file-upload"
                                                 name="file-upload"
                                                 type="file"
+                                                multiple
                                                 className="sr-only"
                                                 accept='image/*'
+                                                onChange={handleImageUpload}
                                             />
                                         </label>
                                         <p className="pl-1">or drag and drop</p>
@@ -257,6 +282,21 @@ export default function ContactForm() {
                                     <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 2MB</p>
                                 </div>
                             </div>
+                            {previewImages.length > 0 && (
+                                <div className='border border-dashed border-gray-900/25 mt-4'>
+                                    <h2 className='block text-sm font-medium leading-6 text-gray-900 text-center'>Image Preview</h2>
+                                    <div className="relative mt-2 flex rounded-lg  px-6 py-1">
+                                        {previewImages.map((preview, index) => (
+                                            <img
+                                                key={index}
+                                                src={preview}
+                                                alt={`Preview ${index + 1}`}
+                                                className="max-h-40 mx-auto mb-4 px-1"
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
