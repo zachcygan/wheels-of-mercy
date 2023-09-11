@@ -283,15 +283,17 @@ export default function ContactForm() {
                                 </div>
                             </div>
                             {previewImages.length > 0 && (
-                                <div className='border border-dashed border-gray-900/25 mt-4'>
-                                    <h2 className='block text-sm font-medium leading-6 text-gray-900 text-center'>Image Preview</h2>
-                                    <div className="relative mt-2 flex rounded-lg  px-6 py-1">
+                                <div className='mt-4'>
+                                    <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
+                                        Images Preview
+                                    </label>
+                                    <div className="mt-2 flex flex-wrap rounded-lg px-6 py-1 border border-dashed border-gray-900/25">
                                         {previewImages.map((preview, index) => (
                                             <img
                                                 key={index}
                                                 src={preview}
                                                 alt={`Preview ${index + 1}`}
-                                                className="max-h-40 mx-auto mb-4 px-1"
+                                                className="max-h-40 mx-auto mb-4 px-1 py-1"
                                             />
                                         ))}
                                     </div>
