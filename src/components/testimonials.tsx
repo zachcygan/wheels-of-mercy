@@ -71,8 +71,7 @@ export default function Testimonials() {
         <div className="relative isolate pb-32 pt-24 sm:pt-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-xl text-center">
-                    <h2 className="text-lg font-semibold leading-8 tracking-tight text-indigo-600">Testimonials</h2>
-                    <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                    <p className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                         We have helped countless amazing people
                     </p>
                 </div>
@@ -108,7 +107,7 @@ export default function Testimonials() {
                                     {column.map((testimonial) => (
                                         <figure
                                             key={testimonial.author.name}
-                                            className="rounded-2xl bg-white hover:scale-110 transition-all p-6 shadow-lg ring-1 ring-gray-900/5"
+                                            className="rounded-2xl text-lg bg-white hover:scale-110 transition-all p-6 shadow-lg ring-1 ring-gray-900/5"
                                         >
                                             <blockquote className="text-gray-900">
                                                 <p>{`“${testimonial.body}”`}</p>
