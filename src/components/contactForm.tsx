@@ -4,6 +4,7 @@ import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import emailjs from '@emailjs/browser'
 
 export default function ContactForm() {
+    const [selectedCheckboxes, setSelectedCheckboxes] = useState<string[]>([]);
     const [firstName, setFirstName] = useState<string>('')
     const [lastName, setLastName] = useState<string>('')
     const [email, setEmail] = useState<string>('')
@@ -14,6 +15,16 @@ export default function ContactForm() {
     const [previewImages, setPreviewImages] = useState<string[]>([])
 
     const form = useRef<HTMLFormElement>(null);
+
+    const handleCheckboxChange = (value: string) => {
+        if (selectedCheckboxes.includes(value)) {
+            // If the checkbox value is already in the array, remove it
+            setSelectedCheckboxes(selectedCheckboxes.filter((item) => item !== value));
+        } else {
+            // If the checkbox value is not in the array, add it
+            setSelectedCheckboxes([...selectedCheckboxes, value]);
+        }
+    };
 
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -39,7 +50,92 @@ export default function ContactForm() {
         <form ref={form} onSubmit={sendEmail}>
             <div className="space-y-12">
                 <div className="border-b border-gray-900/10 pb-12">
-                    <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                    <div>
+                        <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900 pb-2">
+                            Reason for Contact
+                        </label>
+                        <fieldset className=''>
+                            <legend className="sr-only">Notifications</legend>
+                            <div className="space-y-5">
+                                <div className="relative flex items-start">
+                                    <div className="flex h-6 items-center">
+                                        <input
+                                            id="volunteer"
+                                            aria-describedby="Volunteer-description"
+                                            name="checkbox"
+                                            type="checkbox"
+                                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                                            value='Volunter'
+                                            onChange={(e) => handleCheckboxChange(e.target.value)}
+                                        />
+                                    </div>
+                                    <div className="ml-3 text-sm leading-6">
+                                        <label htmlFor="comments" className="font-medium text-gray-900">
+                                            Volunteer
+                                        </label>{' '}
+                                    </div>
+                                </div>
+                                <div className="relative flex items-start">
+                                    <div className="flex h-6 items-center">
+                                        <input
+                                            id="donateInKind"
+                                            aria-describedby="candidates-description"
+                                            name="checkbox"
+                                            type="checkbox"
+                                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                                            value='Donate in Kind'
+                                            onChange={(e) => handleCheckboxChange(e.target.value)}
+                                        />
+                                    </div>
+                                    <div className="ml-3 text-sm leading-6">
+                                        <label htmlFor="candidates" className="font-medium text-gray-900">
+                                            Donate in Kind
+                                        </label>{' '}
+                                    </div>
+                                </div>
+                                <div className="relative flex items-start">
+                                    <div className="flex h-6 items-center">
+                                        <input
+                                            id="offers"
+                                            aria-describedby="offers-description"
+                                            name="checkbox"
+                                            type="checkbox"
+                                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                                            value='Donate a Wheelchair'
+                                            onChange={(e) => handleCheckboxChange(e.target.value)}
+                                        />
+                                    </div>
+                                    <div className="ml-3 text-sm leading-6">
+                                        <label htmlFor="offers" className="font-medium text-gray-900">
+                                            Donate a Wheelchair
+                                        </label>{' '}
+                                        <span id="offers-description" className="text-gray-500">
+                                            <span className="sr-only">Offers </span>requires a photo upload
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="relative flex items-start">
+                                    <div className="flex h-6 items-center">
+                                        <input
+                                            id="candidates"
+                                            aria-describedby="candidates-description"
+                                            name="checkbox"
+                                            type="checkbox"
+                                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                                            value='General Inquiry'
+                                            onChange={(e) => handleCheckboxChange(e.target.value)}
+                                        />
+                                    </div>
+                                    <div className="ml-3 text-sm leading-6">
+                                        <label htmlFor="candidates" className="font-medium text-gray-900">
+                                            General Inquiry
+                                        </label>{' '}
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 pt-6">
                         <div className="sm:col-span-3">
                             <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
                                 First name
