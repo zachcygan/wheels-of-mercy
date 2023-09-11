@@ -20,7 +20,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <link rel="icon" href="/assets/images/icon.png" />
       <body className='bg-pattern'>
         <header className='mx-auto pt-2 pb-2'>
           <Navbar />
