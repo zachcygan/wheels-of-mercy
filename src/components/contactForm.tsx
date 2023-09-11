@@ -48,6 +48,7 @@ export default function ContactForm() {
         return emailRegex.test(email);
     };
 
+    //handles image preview
     const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         const files = e.target.files;
         if (files) {
@@ -285,7 +286,7 @@ export default function ContactForm() {
                             {previewImages.length > 0 && (
                                 <div className='mt-4'>
                                     <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
-                                        Images Preview
+                                        Image Upload Preview
                                     </label>
                                     <div className="mt-2 flex flex-wrap rounded-lg px-6 py-1 border border-dashed border-gray-900/25">
                                         {previewImages.map((preview, index) => (
@@ -293,7 +294,7 @@ export default function ContactForm() {
                                                 key={index}
                                                 src={preview}
                                                 alt={`Preview ${index + 1}`}
-                                                className="max-h-40 mx-auto mb-4 px-1 py-1"
+                                                className="max-h-40 mx-auto px-1 py-1"
                                             />
                                         ))}
                                     </div>
