@@ -1,0 +1,65 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model MialingList {
+    id              String      @default(cuid()) @id
+    name            String
+    email           String      @unique
+    recieveEmails   Boolean
+}
+
+model Vontuner {
+    id          String      @default(cuid()) @id
+    name        String
+    email       String      @unique
+    phone       Int
+}
+
+model Donations {
+    id        String      @default(cuid()) @id
+    donorId   String      @map("donor_id") // This is the foreign key
+    donor     Donors      @relation(fields: [donorId], references: [id]) // This sets up the relationship
+    amount    Int
+    // ... other fields for the donation, like amount, date, etc.
+}
+
+model Donors {
+    id              String      @default(cuid()) @id
+    name            String
+    email           String      @unique
+    phone           String
+    donations       Donations[]
+    totalDonations  Int
+}
+
+model WheelschairDealer {
+    id          String      @default(cuid()) @id
+    name        String
+    email       String      @unique
+    phone       String
+}
+
+model Sponsors {
+    id          String      @default(cuid()) @id
+    name        String
+    email       String      @unique
+    phone       String
+    address     String
+}
+
+model AffiliateAgency {
+    id          String      @default(cuid()) @id
+    name        String
+    email       String      @unique
+    phone       String
+    address     String
+}
