@@ -3,7 +3,7 @@ import { Fragment, useEffect, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { usePathname } from 'next/navigation'
-import { useMotionValue, useVelocity, motion, useTransform } from "framer-motion"
+import { motion } from "framer-motion"
 import SlideOver from './slideOver'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -20,9 +20,9 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-
 export default function Navbar() {
   const pathname = usePathname();
+  const [hoveredPath, setHoveredPath] = useState(pathname);
   console.log(pathname);
 
   const [isSlideOpen, setIsSlideOpen] = useState<boolean>(false)
@@ -31,7 +31,7 @@ export default function Navbar() {
     <Disclosure as="nav" className="">
       {({ open }) => (
         <>
-          <div className="ring-1 ring-accent rounded-full drop-shadow max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 bg-white">
+          <div className="bg-white/70 mx-auto px-2 sm:px-6 lg:px-8 -z-10">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 right-0 flex items-center min-[900px]:hidden">
                 {/* Mobile menu button*/}
@@ -44,41 +44,64 @@ export default function Navbar() {
                   )}
                 </Disclosure.Button>
               </div>
+              <div className="text-black flex flex-shrink-0 items-center justify-center">
+                <Link
+                  key={'Wheels of Mercy'}
+                  href={'/'}
+                  className='flex items-center justify-center'
+                >
+                  <Image
+                    src="/assets/images/wheelsOfMercy.png"
+                    alt="Wheels of Mercy"
+                    width={180}
+                    height={50}
+                    className=''
+                  />
+                </Link>
+              </div>
               <div className="flex flex-1 items-center justify-between sm:items-stretch">
-                <div className="text-black flex flex-shrink-0 items-center justify-center">
-                  <Link
-                    key={'Wheels of Mercy'}
-                    href={'/'}
-                    className='flex items-center justify-center'
-                  >
-                    <Image
-                      src="/assets/images/wheelsOfMercy.png"
-                      alt="Wheels of Mercy"
-                      width={180}
-                      height={50}
-                    />
-                  </Link>
-                </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex items-center justify-center max-[900px]:hidden">
+
                     {navigation.map((item) => {
-                      return (<Link
-                        key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.href === pathname ? 'bg-black text-white rounded-full px-3 text-lg py-2 font-medium' : 'text-black hover:bg-accent hover:rounded-full hover:text-white rounded-md px-3 py-2 text-lg font-medium'
-                        )}
-                        aria-current={item.href === pathname ? 'page' : undefined}
-                        onClick={(e) => {
-                          if (item.name === 'Contact') {
-                            e.preventDefault(); // prevent navigation
-                            setIsSlideOpen(true);
-                          }
-                        }}
-                      >
-                        {item.name}
-                      </Link>
-                      )
+                      const isActive = item.href === pathname;
+                      return (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          className={`px-2 py-2 rounded-md text-lg relative no-underline duration-200 ease-in hover:text-white ${
+                            isActive ? "text-white" : "text-black"
+                          }`}
+                          aria-current={item.href === pathname ? 'page' : undefined}
+                          onClick={(e) => {
+                            if (item.name === 'Contact') {
+                              e.preventDefault(); // prevent navigation
+                              setIsSlideOpen(true);
+                            }
+                          }}
+                          onMouseOver={() => setHoveredPath(item.href)}
+                          onMouseLeave={() => setHoveredPath(pathname)}
+                        >
+                          <span className=''>{item.name}</span>
+                          {item.href === hoveredPath && (
+                            <motion.div
+                              className="absolute bottom-0 left-0 h-full bg-gray-900 rounded-md -z-10"
+                              layoutId="navbar"
+                              aria-hidden="true"
+                              style={{
+                                width: "100%",
+                              }}
+                              transition={{
+                                type: "spring",
+                                bounce: 0.25,
+                                stiffness: 130,
+                                damping: 9,
+                                duration: 0.2,
+                              }}
+                            />
+                          )}
+                        </Link>
+                      );
                     })}
                   </div>
                   <SlideOver isOpen={isSlideOpen} onClose={() => setIsSlideOpen(false)} />
@@ -113,7 +136,7 @@ export default function Navbar() {
           </Disclosure.Panel>
         </>
       )}
-       
+
     </Disclosure>
   )
 }
