@@ -95,7 +95,7 @@ export default function ContactForm() {
                                     </div>
                                     <div className="ml-3 text-sm leading-6">
                                         <label htmlFor="comments" className="font-medium text-gray-900">
-                                            Volunteer
+                                            Volunter
                                         </label>{' '}
                                     </div>
                                 </div>
