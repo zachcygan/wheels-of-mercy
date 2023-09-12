@@ -10,7 +10,7 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
-model MialingList {
+model MailingList {
     id              String      @default(cuid()) @id
     name            String
     email           String      @unique
