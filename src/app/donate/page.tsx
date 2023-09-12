@@ -1,7 +1,14 @@
 'use client'
+import { useState } from 'react'
 import DonationButton from "../../components/donationButton"
 
 export default function Donate() {
+    const [showForm, setShowForm] = useState<boolean>(false)
+
+    const handleButtonClick = () => {
+        setShowForm(!showForm);
+    };
+
     return (
         <div>
             <div className="px-6 py-24 sm:py-32 lg:px-8">
@@ -19,9 +26,19 @@ export default function Donate() {
                         We are grateful for your donation and will be good stewards of your investment.
                         Please click the donate button below to make a donation.
                     </p>
-                    <div className="mt-8">
+                    <div className="mt-8" onClick={handleButtonClick}>
                         <DonationButton />
                     </div>
+
+                    {showForm && (
+                            <div className="mt-4">
+                                {/* Your donation form goes here */}
+                                <form>
+                                    {/* Form fields and submit button */}
+                                    test
+                                </form>
+                            </div>
+                        )}
                 </div>
             </div>
         </div>
