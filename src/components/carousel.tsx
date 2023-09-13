@@ -52,6 +52,7 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
                                     className="embla__slide__img"
                                     src={imageByIndex(index)}
                                     alt={`Image ${index}`}
+                                    loading={index < 4 ? "eager" : "lazy"}
                                 />
                             </div>
                         ))}
