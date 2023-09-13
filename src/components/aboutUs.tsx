@@ -3,7 +3,7 @@ import Img from 'next/image'
 
 export default function AboutUs() {
     return (
-        <div className='bg-transparent'>
+        <div className='bg-transparent mt-20'>
             <div className="bg-transparent max-w-7xl mx-auto pt-10">
             <h2 className="text-4xl font-bold text-gray-900 text-center sm:text-6xl">We're Different, Here's Why</h2>
                 <div className="mx-auto grid max-w-2xl text-xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 sm:px-6 sm:py-20 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
@@ -38,13 +38,12 @@ export default function AboutUs() {
                             maintains the integrity of the skin and spine, while it enables mobility.
                         </p>
                     </div>
-                    <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-4 h-full">
+                    <div className="grid grid-cols-2 grid-cols-1 md:grid-rows-2 gap-4 sm:gap-6 lg:gap-4 h-full">
                         <div className='relative hover:scale-105 transition-all'>
                             <Img
                                 src='/assets/images/about6.jpg'
                                 alt='Bad wheel chair'
-                                width={500}
-                                height={500}
+                                fill={true}
                                 className='rounded-xl h-full '
                             />
                         </div>
@@ -52,15 +51,15 @@ export default function AboutUs() {
                             <Img
                                 src='/assets/images/about2.jpg'
                                 alt='Bad spine'
-                                fill
+                                fill={true}
                                 className='rounded-xl'
                             />
                         </div>
                         <div className='relative hover:scale-105 transition-all'>
                             <Img
-                                src='/assets/images/about1.jpg'
+                                src='/assets/images/about1.webp'
                                 alt='Good wheel chair'
-                                fill
+                                fill={true}
                                 className='rounded-xl'
                             />
                         </div>
@@ -68,7 +67,7 @@ export default function AboutUs() {
                             <Img
                                 src='/assets/images/about4.jpg'
                                 alt='Good spine'
-                                fill
+                                fill={true}
                                 className='rounded-xl'
                             />
                         </div>

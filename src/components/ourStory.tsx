@@ -35,24 +35,30 @@ export default function OurStory() {
                                 put me in a coma.
                             </p>
                             <div className='flex justify-center'>
-                                <Image 
-                                    src="/assets/images/founder.jpg"
-                                    width={500}
-                                    height={500}
-                                    alt="Charles Monson in the hospital"
-                                    className='rounded-3xl mx-auto lg:mx-0 hover:scale-110 transition-all mt-8'
-                                />
+                                <div className='relative' style={{ width: '500px', height: '500px' }}>
+                                    <Image
+                                        src="/assets/images/founder.jpg"
+                                        layout="fill"
+
+                                        alt="Charles Monson in the hospital"
+                                        className='rounded-3xl md:hover:scale-110 transition-all mt-8'
+                                    />
+                                </div>
                             </div>
                         </div>
-                        <div className='mx-auto'>
+                        <div className='mx-auto mt-8'>
                             <div className='flex justify-center'>
-                                <Image 
-                                    src="/assets/images/hoag1.jpg"
-                                    width={500}
-                                    height={500}
-                                    alt="Charles Monson in the hospital"
-                                    className="rounded-3xl mx-auto lg:mx-0 hover:scale-110 transition-all"
-                                />
+                                <div className=''>
+                                    <div className='relative' style={{ width: '500px', height: '500px' }}>
+                                        <Image
+                                            src="/assets/images/hoag1.jpg"
+                                            layout="fill"
+                                    
+                                            alt="Charles Monson in the hospital"
+                                            className="rounded-3xl md:hover:scale-110 transition-all"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                             <p className='mt-8'>
                                 I woke to find my business gone, and a need to redefine my life. My near-death
@@ -80,7 +86,7 @@ export default function OurStory() {
                 </div>
             </div>
             <div className='mx-auto max-w-7xl px-6 lg:px-8'>
-                
+
             </div>
         </div>
     )
