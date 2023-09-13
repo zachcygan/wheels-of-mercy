@@ -12,7 +12,7 @@ module.exports = {
         'primary': '#2E2E2E',
       },
       backgroundImage: {
-        'pattern': "url('/assets/images/background.jpg')",
+        'pattern': "url('/assets/images/background.webp')",
       }
     },
     plugins: [
