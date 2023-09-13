@@ -55,7 +55,7 @@ export default function Navbar() {
                     alt="Wheels of Mercy"
                     width={180}
                     height={50}
-                    className=''
+                    loading='eager'
                   />
                 </Link>
               </div>
