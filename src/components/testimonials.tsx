@@ -6,7 +6,7 @@ const featuredTestimonial = {
         name: 'Maria Rodriguez',
         handle: 'brennagoyette',
         imageUrl:
-            '/assets/images/carouselImage5.jpg',
+            '/assets/images/carouselImage5.webp',
         logoUrl: 'https://tailwindui.com/img/logos/savvycal-logo-gray-900.svg',
     },
 }
@@ -19,7 +19,7 @@ const testimonials = [
                 author: {
                     name: 'Avelino Rodriguez',
                     imageUrl:
-                        '/assets/images/testimonial2.jpg',
+                        '/assets/images/testimonial2.webp',
                 },
             },
             // More testimonials...
@@ -30,7 +30,7 @@ const testimonials = [
                 author: {
                     name: 'Victor Vanisacker',
                     imageUrl:
-                        '/assets/images/carouselImage6.jpg',
+                        '/assets/images/carouselImage6.webp',
                 },
             },
             // More testimonials...
@@ -43,7 +43,7 @@ const testimonials = [
                 author: {
                     name: 'Kaye Doan',
                     imageUrl:
-                        '/assets/images/testimonial1.jpg',
+                        '/assets/images/testimonial1.webp',
                 },
             },
             // More testimonials...
