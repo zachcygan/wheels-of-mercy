@@ -21,7 +21,7 @@ model Vontuner {
     id          String      @default(cuid()) @id
     name        String
     email       String      @unique
-    phone       Int
+    phone       String
 }
 
 model Donations {

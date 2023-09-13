@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import DonationButton from "../../components/donationButton"
+import DonationForm from '../../components/donationForm'
 
 export default function Donate() {
     const [showForm, setShowForm] = useState<boolean>(false)
@@ -33,10 +34,7 @@ export default function Donate() {
                     {showForm && (
                             <div className="mt-4">
                                 {/* Your donation form goes here */}
-                                <form>
-                                    {/* Form fields and submit button */}
-                                    test
-                                </form>
+                                <DonationForm />
                             </div>
                         )}
                 </div>
