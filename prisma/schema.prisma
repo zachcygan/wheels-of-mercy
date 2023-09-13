@@ -11,29 +11,29 @@ datasource db {
 }
 
 model MailingList {
-    id              String      @default(cuid()) @id
+    id              Int      @id @default(autoincrement())
     name            String
     email           String      @unique
     recieveEmails   Boolean
 }
 
 model Vontuner {
-    id          String      @default(cuid()) @id
+    id          Int      @id @default(autoincrement())
     name        String
     email       String      @unique
     phone       String
 }
 
 model Donations {
-    id        String      @default(cuid()) @id
-    donorId   String      @map("donor_id") // This is the foreign key
+    id        Int         @id @default(autoincrement())
+    donorId   Int         @map("donor_id") // This is the foreign key
     donor     Donors      @relation(fields: [donorId], references: [id]) // This sets up the relationship
     amount    Int
     // ... other fields for the donation, like amount, date, etc.
 }
 
 model Donors {
-    id              String      @default(cuid()) @id
+    id              Int         @id @default(autoincrement())
     name            String
     email           String      @unique
     phone           String
@@ -42,14 +42,14 @@ model Donors {
 }
 
 model WheelschairDealer {
-    id          String      @default(cuid()) @id
+    id          Int         @id @default(autoincrement())
     name        String
     email       String      @unique
     phone       String
 }
 
 model Sponsors {
-    id          String      @default(cuid()) @id
+    id          Int         @id @default(autoincrement())
     name        String
     email       String      @unique
     phone       String
@@ -57,7 +57,7 @@ model Sponsors {
 }
 
 model AffiliateAgency {
-    id          String      @default(cuid()) @id
+    id          Int         @id @default(autoincrement())
     name        String
     email       String      @unique
     phone       String

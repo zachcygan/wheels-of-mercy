@@ -1,6 +1,6 @@
-import { PrismaClient } from '@prisma/client';
+const { PrismaClient } = require('@prisma/client');
 
-const prisma: PrismaClient = new PrismaClient();
+const prisma = new PrismaClient();
 
 async function main() {
     // ... you will write your Prisma Client queries here
