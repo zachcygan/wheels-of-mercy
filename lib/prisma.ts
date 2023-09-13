@@ -1,26 +1,14 @@
-const { PrismaClient } = require('@prisma/client');
+import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient();
+let prisma: PrismaClient;
 
-async function main() {
-    // ... you will write your Prisma Client queries here
-    const user = await prisma.sponsors.create({
-        data: {
-            name: 'Zach',
-            email: 'zachcygan@gmail.com',
-            phone: '7144015274',
-            address: '1234 Main St',
-        }
-    })
-    console.log(user)
+if (process.env.NODE_ENV === 'production') {
+  prisma = new PrismaClient();
+} else {
+  if (!global.prisma) {
+    global.prisma = new PrismaClient();
   }
+  prisma = global.prisma;
+}
 
-main()
-  .then(async () => {
-    await prisma.$disconnect()
-  })
-  .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  })
+export default prisma;

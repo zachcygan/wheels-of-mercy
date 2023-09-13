@@ -1,9 +1,15 @@
 import { PrismaClient } from '@prisma/client';
 
-interface Window {
-  PayPal: any;
+declare global {
+  var prisma: PrismaClient;
+
+  namespace NodeJS {
+    interface Global {
+      prisma: PrismaClient;
+    }
+  }
 }
 
-interface Global {
-  prisma: PrismaClient;
+interface Window {
+  PayPal: any;
 }
