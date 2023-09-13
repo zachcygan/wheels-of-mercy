@@ -8,8 +8,8 @@ declare global {
       prisma: PrismaClient;
     }
   }
-}
 
-interface Window {
-  PayPal: any;
+  interface Window {
+    PayPal: any;
+  }
 }
