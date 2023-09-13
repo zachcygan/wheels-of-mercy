@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import useEmblaCarousel, { EmblaOptionsType } from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
+import AutoHeight from 'embla-carousel-auto-height'
 import { DotButton, PrevButton, NextButton } from './carouselButtons'
 import imageByIndex from './imageByIndex'
 
@@ -11,7 +12,7 @@ interface EmblaCarouselProps {
 
 const Carousel: React.FC<EmblaCarouselProps> = (props) => {
     const { slides, options } = props
-    const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()])
+    const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay(), AutoHeight()])
     const [viewportRef, embla] = useEmblaCarousel({ skipSnaps: false });
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
@@ -52,7 +53,7 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
                                     className="embla__slide__img"
                                     src={imageByIndex(index)}
                                     alt={`Image ${index}`}
-                                    loading={index < 4 ? "eager" : "lazy"}
+                                    loading='lazy'
                                 />
                             </div>
                         ))}
