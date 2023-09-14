@@ -75,29 +75,42 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
     }, []);
 
     useEffect(() => {
-        let imageDimensions: ImageDimension[];
-
-        if (windowWidth < 768) {
+        if (windowWidth < 320) {
+            setImageDimensions([
+                // ... other image dimensions
+                { width: 300, height: 200 },
+                { width: 300, height: 200 },
+                { width: 150, height: 200 },
+                { width: 300, height: 200 },
+                { width: 150, height: 200 },
+                { width: 150, height: 200 },
+                { width: 300, height: 200 },
+                { width: 150, height: 200 },
+                { width: 300, height: 200 },
+                { width: 300, height: 200 },
+                { width: 300, height: 200 },
+            ]);
+        } else if (windowWidth < 768) {
             // Update imageDimensions for mobile
             setImageDimensions([
                 // ... other image dimensions
-                { width: 600, height: 200 },
-                { width: 600, height: 200 },
-                { width: 100, height: 200 },
-                { width: 600, height: 200 },
-                { width: 100, height: 200 },
-                { width: 200, height: 200 },
-                { width: 500, height: 200 },
-                { width: 100, height: 200 },
-                { width: 600, height: 200 },
-                { width: 400, height: 200 },
-                { width: 650, height: 200 },
+                { width: 600, height: 300 },
+                { width: 600, height: 300 },
+                { width: 100, height: 300 },
+                { width: 600, height: 300 },
+                { width: 100, height: 300 },
+                { width: 200, height: 300 },
+                { width: 500, height: 300 },
+                { width: 100, height: 300 },
+                { width: 600, height: 300 },
+                { width: 400, height: 300 },
+                { width: 650, height: 300 },
             ]);
         } else if (windowWidth < 1024) {
             // Update imageDimensions for tablet
             setImageDimensions([
                 // ... other image dimensions
-                { width: 900, height: 400 },
+                { width: 900, height: 500 },
                 { width: 900, height: 500 },
                 { width: 400, height: 500 },
                 { width: 900, height: 500 },
@@ -110,6 +123,7 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
                 { width: 950, height: 500 },
             ]);
         } else {
+            // Update imageDimensions for desktop
             setImageDimensions([
                 // ... other image dimensions
                 { width: 900, height: 500 },
@@ -124,14 +138,11 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
                 { width: 700, height: 500 },
                 { width: 950, height: 500 },
             ]);
-            // Update imageDimensions for desktop
         }
     }, [windowWidth]);
 
-
-
     return (
-        <div className='mx-auto transiton-all max-w-100vw'>
+        <div className='mx-auto transiton-all'>
             <div className="embla relative">
                 <div className="embla__viewport" ref={emblaRef}>
                     <div className="embla__container">

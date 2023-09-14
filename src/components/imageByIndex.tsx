@@ -1,4 +1,4 @@
-import image1 from '/public/assets/images/carouselImage1_large.webp'
+import image1 from '/public/assets/images/carouselImage1.webp'
 import image2 from '/public/assets/images/carouselImage2.webp'
 import image3 from '/public/assets/images/carouselImage3.webp'
 import image4 from '/public/assets/images/carouselImage4.webp'
