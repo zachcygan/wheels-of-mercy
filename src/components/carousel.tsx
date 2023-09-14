@@ -74,38 +74,53 @@ const Carousel: React.FC<EmblaCarouselProps> = ({ slides, options }) => {
     }, []);
 
     useEffect(() => {
-        if (windowWidth < 321) {
+        if (windowWidth < 550) {
             setImageDimensions([
                 // ... other image dimensions
-                { width: 300, height: 200 },
-                { width: 300, height: 200 },
-                { width: 150, height: 200 },
-                { width: 300, height: 200 },
-                { width: 150, height: 200 },
-                { width: 150, height: 200 },
-                { width: 300, height: 200 },
-                { width: 150, height: 200 },
-                { width: 300, height: 200 },
-                { width: 300, height: 200 },
-                { width: 300, height: 200 },
+                { width: 350, height: 230 },
+                { width: 350, height: 230 },
+                { width: 150, height: 230 },
+                { width: 350, height: 230 },
+                { width: 150, height: 230 },
+                { width: 150, height: 230 },
+                { width: 350, height: 230 },
+                { width: 150, height: 230 },
+                { width: 350, height: 230 },
+                { width: 350, height: 230 },
+                { width: 350, height: 230 },
             ]);
         } else if (windowWidth < 768) {
             // Update imageDimensions for mobile
             setImageDimensions([
                 // ... other image dimensions
-                { width: 600, height: 300 },
-                { width: 600, height: 300 },
-                { width: 100, height: 300 },
-                { width: 600, height: 300 },
-                { width: 100, height: 300 },
-                { width: 200, height: 300 },
-                { width: 500, height: 300 },
-                { width: 100, height: 300 },
-                { width: 600, height: 300 },
-                { width: 400, height: 300 },
-                { width: 650, height: 300 },
+                { width: 600, height: 350 },
+                { width: 600, height: 350 },
+                { width: 200, height: 350 },
+                { width: 600, height: 350 },
+                { width: 200, height: 350 },
+                { width: 300, height: 350 },
+                { width: 500, height: 350 },
+                { width: 200, height: 350 },
+                { width: 600, height: 350 },
+                { width: 400, height: 350 },
+                { width: 650, height: 350 },
             ]);
-        } else if (windowWidth < 1024) {
+        } else if (windowWidth < 912) {
+            setImageDimensions([
+                // ... other image dimensions
+                { width: 600, height: 350 },
+                { width: 600, height: 350 },
+                { width: 200, height: 350 },
+                { width: 600, height: 350 },
+                { width: 200, height: 350 },
+                { width: 300, height: 350 },
+                { width: 500, height: 350 },
+                { width: 200, height: 350 },
+                { width: 600, height: 350 },
+                { width: 400, height: 350 },
+                { width: 650, height: 350 },
+            ]);
+        } else if (windowWidth < 1440) {
             // Update imageDimensions for tablet
             setImageDimensions([
                 // ... other image dimensions
