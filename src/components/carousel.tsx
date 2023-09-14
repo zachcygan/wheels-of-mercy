@@ -11,9 +11,28 @@ interface EmblaCarouselProps {
     options: EmblaOptionsType;
 }
 
+interface ImageDimension {
+    width: number;
+    height: number;
+}
+
 const Carousel: React.FC<EmblaCarouselProps> = (props) => {
     const { slides, options } = props
     const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay(), AutoHeight()])
+    const [windowWidth, setWindowWidth] = useState<number>(0);
+    const [imageDimensions, setImageDimensions] = useState<ImageDimension[]>([
+        { width: 900, height: 500 },
+        { width: 900, height: 500 },
+        { width: 400, height: 500 },
+        { width: 900, height: 500 },
+        { width: 400, height: 500 },
+        { width: 500, height: 500 },
+        { width: 800, height: 500 },
+        { width: 400, height: 500 },
+        { width: 900, height: 500 },
+        { width: 700, height: 500 },
+        { width: 950, height: 500 },
+    ]);
     const [viewportRef, embla] = useEmblaCarousel({ skipSnaps: false });
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
@@ -43,23 +62,76 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
         embla.on("select", onSelect);
     }, [embla, setScrollSnaps, onSelect]);
 
-    const imageDimensions = [
-        { width: 900, height: 500 },
-        { width: 900, height: 500 },
-        { width: 400, height: 500 },
-        { width: 900, height: 500 },
-        { width: 400, height: 500 },
-        { width: 500, height: 500 },
-        { width: 800, height: 500 },
-        { width: 400, height: 500 },
-        { width: 900, height: 500 },
-        { width: 700, height: 500 },
-        { width: 950, height: 500 },
-        // ... other image dimensions
-    ];
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
+        let imageDimensions: ImageDimension[];
+
+        if (windowWidth < 768) {
+            // Update imageDimensions for mobile
+            setImageDimensions([
+                // ... other image dimensions
+                { width: 600, height: 200 },
+                { width: 600, height: 200 },
+                { width: 100, height: 200 },
+                { width: 600, height: 200 },
+                { width: 100, height: 200 },
+                { width: 200, height: 200 },
+                { width: 500, height: 200 },
+                { width: 100, height: 200 },
+                { width: 600, height: 200 },
+                { width: 400, height: 200 },
+                { width: 650, height: 200 },
+            ]);
+        } else if (windowWidth < 1024) {
+            // Update imageDimensions for tablet
+            setImageDimensions([
+                // ... other image dimensions
+                { width: 900, height: 400 },
+                { width: 900, height: 500 },
+                { width: 400, height: 500 },
+                { width: 900, height: 500 },
+                { width: 400, height: 500 },
+                { width: 500, height: 500 },
+                { width: 800, height: 500 },
+                { width: 400, height: 500 },
+                { width: 900, height: 500 },
+                { width: 700, height: 500 },
+                { width: 950, height: 500 },
+            ]);
+        } else {
+            setImageDimensions([
+                // ... other image dimensions
+                { width: 900, height: 500 },
+                { width: 900, height: 500 },
+                { width: 400, height: 500 },
+                { width: 900, height: 500 },
+                { width: 400, height: 500 },
+                { width: 500, height: 500 },
+                { width: 800, height: 500 },
+                { width: 400, height: 500 },
+                { width: 800, height: 500 },
+                { width: 700, height: 500 },
+                { width: 950, height: 500 },
+            ]);
+            // Update imageDimensions for desktop
+        }
+    }, [windowWidth]);
+
+
 
     return (
-        <div className='mx-auto transiton-all'>
+        <div className='mx-auto transiton-all max-w-100vw'>
             <div className="embla relative">
                 <div className="embla__viewport" ref={emblaRef}>
                     <div className="embla__container">
@@ -67,7 +139,7 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
                             return (
                                 <div
                                     className="embla__slide"
-                                    style={{ width: `${imageDimensions[index].width}px`, height: `500px` }}
+                                    style={{ width: `${imageDimensions[index].width}px`, height: `${imageDimensions[index].height}px` }}
                                     key={index}
                                 >
                                     <Image

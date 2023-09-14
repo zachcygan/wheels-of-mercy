@@ -1,5 +1,5 @@
 'use client'
-import Img from 'next/image'
+import Image from 'next/image'
 
 export default function AboutUs() {
     return (
@@ -40,34 +40,34 @@ export default function AboutUs() {
                     </div>
                     <div className="grid grid-cols-2 grid-cols-1 md:grid-rows-2 gap-4 sm:gap-6 lg:gap-4 h-full">
                         <div className='relative hover:scale-105 transition-all'>
-                            <Img
+                            <Image
                                 src='/assets/images/about6.jpg'
                                 alt='Bad wheel chair'
-                                fill={true}
-                                className='rounded-xl h-full '
+                                fill
+                                className='rounded-xl'
                             />
                         </div>
                         <div className='relative hover:scale-105 transition-all'>
-                            <Img
+                            <Image
                                 src='/assets/images/about2.jpg'
                                 alt='Bad spine'
-                                fill={true}
+                                fill
                                 className='rounded-xl'
                             />
                         </div>
                         <div className='relative hover:scale-105 transition-all'>
-                            <Img
+                            <Image
                                 src='/assets/images/about1.webp'
                                 alt='Good wheel chair'
-                                fill={true}
+                                fill
                                 className='rounded-xl'
                             />
                         </div>
                         <div className='relative hover:scale-105 transition-all'>
-                            <Img
+                            <Image
                                 src='/assets/images/about4.jpg'
                                 alt='Good spine'
-                                fill={true}
+                                fill
                                 className='rounded-xl'
                             />
                         </div>

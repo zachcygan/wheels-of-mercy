@@ -28,6 +28,7 @@
   display: block;
   height: var(--slide-height);
   max-width: none;
+  width: 33%;
   margin: auto;
 }
 .embla__button {
@@ -127,7 +128,7 @@
 @media (max-width: 912px) {
   .embla {
     --slide-spacing: 0rem;
-    --slide-size: 80%;
+    --slide-size: 50%;
     --slide-height: 25rem;
     padding: 0rem;
   }
@@ -168,10 +169,10 @@
     --slide-spacing: 0rem;
     --slide-size: 100%;
     --slide-height: 10rem;
-    padding: 0rem;
+    padding: 0rem
   }
   .embla_slide {
-    flex: 0 0 var(--slide-size);
+    flex: 0 0 auto;
     max-width: 100%;
   }
 }
