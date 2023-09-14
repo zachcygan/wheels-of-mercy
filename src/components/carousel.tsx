@@ -53,6 +53,33 @@ const Carousel: React.FC<EmblaCarouselProps> = ({ slides, options }) => {
         setPrevBtnEnabled(embla.canScrollPrev());
         setNextBtnEnabled(embla.canScrollNext());
     }, [embla, setSelectedIndex]);
+    
+    function debounce(func: (...args: any[]) => void, wait: number): (...args: any[]) => void {
+        let timeout: NodeJS.Timeout | null;
+        return function executedFunction(...args: any[]) {
+            const later = () => {
+                if (timeout) clearTimeout(timeout);
+                func(...args);
+            };
+            if (timeout) clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }    
+
+    useEffect(() => {
+        const handleResize = debounce(() => {
+            const newWidth = window.innerWidth;
+            if (Math.abs(windowWidth - newWidth) > 10) {
+                setWindowWidth(newWidth);
+            }
+        }, 100);
+    
+        window.addEventListener('resize', handleResize);
+    
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [windowWidth]);
 
     useEffect(() => {
         if (!embla) return;
@@ -60,18 +87,6 @@ const Carousel: React.FC<EmblaCarouselProps> = ({ slides, options }) => {
         setScrollSnaps(embla.scrollSnapList());
         embla.on("select", onSelect);
     }, [embla, setScrollSnaps, onSelect]);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setWindowWidth(window.innerWidth);
-        };
-
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
 
     useEffect(() => {
         if (windowWidth < 550) {
