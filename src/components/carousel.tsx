@@ -75,6 +75,7 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
                                         src={imageByIndex(index)}
                                         alt={`Image ${index}`}
                                         fill
+                                        priority
                                         sizes='(max-width: 768px) 33vh, (max-width: 1200px) 50vw, 33vw'
                                     />
                                 </div>
