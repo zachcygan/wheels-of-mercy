@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import Image from 'next/image'
 import useEmblaCarousel, { EmblaOptionsType } from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import AutoHeight from 'embla-carousel-auto-height'
@@ -42,26 +43,48 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
         embla.on("select", onSelect);
     }, [embla, setScrollSnaps, onSelect]);
 
+    const imageDimensions = [
+        { width: 900, height: 500 },
+        { width: 900, height: 500 },
+        { width: 400, height: 500 },
+        { width: 900, height: 500 },
+        { width: 400, height: 500 },
+        { width: 500, height: 500 },
+        { width: 800, height: 500 },
+        { width: 400, height: 500 },
+        { width: 900, height: 500 },
+        { width: 700, height: 500 },
+        { width: 950, height: 500 },
+        // ... other image dimensions
+    ];
+
     return (
         <div className='mx-auto transiton-all'>
             <div className="embla relative">
                 <div className="embla__viewport" ref={emblaRef}>
                     <div className="embla__container">
-                        {slides.map((index) => (
-                            <div className="embla__slide relative" key={index}>
-                                <img
-                                    className="embla__slide__img"
-                                    src={imageByIndex(index)}
-                                    alt={`Image ${index}`}
-                                    loading='lazy'
-                                />
-                            </div>
-                        ))}
+                        {slides.map((index) => {
+                            return (
+                                <div
+                                    className="embla__slide"
+                                    style={{ width: `${imageDimensions[index].width}px`, height: `500px` }}
+                                    key={index}
+                                >
+                                    <Image
+                                        className="embla__slide__img"
+                                        src={imageByIndex(index)}
+                                        alt={`Image ${index}`}
+                                        fill
+                                        sizes='(max-width: 768px) 33vh, (max-width: 1200px) 50vw, 33vw'
+                                    />
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
                 <div className='embla__buttons-container scale-[.96]'>
-                    <PrevButton emblaApi={ emblaApi } />
-                    <NextButton emblaApi={ emblaApi } />
+                    <PrevButton emblaApi={emblaApi} />
+                    <NextButton emblaApi={emblaApi} />
                 </div>
             </div>
             {/* <div className="embla__dots">
@@ -73,7 +96,7 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
                     />
                 ))}
             </div> */}
-            
+
         </div>
     )
 }

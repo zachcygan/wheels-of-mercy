@@ -17,8 +17,8 @@ export default function Hero() {
   return (
     <div className='bg-transparent'>
       <div className='flex items-center justify-center w-full mx-auto'>
-        <div className='sm:scale-100 rounded-md mx-auto w-full'>
-          <Carousel slides={slides} options={options} />
+        <div className='rounded-md mx-auto w-full'>
+          <Carousel slides={slides} options={options}/>
         </div>
       </div>
       <div className='sm:grid sm:grid-cols-2 max-w-7xl mx-auto mt-10'>

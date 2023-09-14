@@ -17,7 +17,6 @@
   align-items: flex-start;
   touch-action: pan-y;
   margin-left: calc(var(--slide-spacing) * -1);
-  transition: 0.2s;
 }
 .embla__slide {
   flex: 0 0 auto;
@@ -30,7 +29,6 @@
   height: var(--slide-height);
   max-width: none;
   margin: auto;
-  object-fit: cover;
 }
 .embla__button {
   outline: 0;
