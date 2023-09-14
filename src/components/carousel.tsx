@@ -16,10 +16,9 @@ interface ImageDimension {
     height: number;
 }
 
-const Carousel: React.FC<EmblaCarouselProps> = (props) => {
-    const { slides, options } = props
+const Carousel: React.FC<EmblaCarouselProps> = ({ slides, options }) => {
     const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay(), AutoHeight()])
-    const [windowWidth, setWindowWidth] = useState<number>(0);
+    const [windowWidth, setWindowWidth] = useState<number>(typeof window !== 'undefined' ? window.innerWidth : 0);
     const [imageDimensions, setImageDimensions] = useState<ImageDimension[]>([
         { width: 900, height: 500 },
         { width: 900, height: 500 },
@@ -75,7 +74,7 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
     }, []);
 
     useEffect(() => {
-        if (windowWidth < 320) {
+        if (windowWidth < 321) {
             setImageDimensions([
                 // ... other image dimensions
                 { width: 300, height: 200 },
@@ -157,6 +156,7 @@ const Carousel: React.FC<EmblaCarouselProps> = (props) => {
                                         className="embla__slide__img"
                                         src={imageByIndex(index)}
                                         alt={`Image ${index}`}
+                                        loading='eager'
                                         fill
                                         sizes='(max-width: 768px) 33vh, (max-width: 1200px) 50vw, 33vw'
                                     />
