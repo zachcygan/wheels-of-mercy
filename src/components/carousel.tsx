@@ -174,7 +174,6 @@ const Carousel: React.FC<EmblaCarouselProps> = ({ slides, options }) => {
                                         src={imageByIndex(index)}
                                         alt={`Image ${index}`}
                                         loading='eager'
-                                        priority
                                         fill
                                         sizes='(max-width: 768px) 33vh, (max-width: 1200px) 50vw, 33vw'
                                     />
