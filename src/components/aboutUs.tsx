@@ -38,37 +38,41 @@ export default function AboutUs() {
                             maintains the integrity of the skin and spine, while it enables mobility.
                         </p>
                     </div>
-                    <div className="grid grid-cols-2 grid-cols-1 md:grid-rows-2 gap-4 sm:gap-6 lg:gap-4 h-full">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-4 h-full">
                         <div className='relative hover:scale-105 transition-all'>
                             <Image
                                 src='/assets/images/about6.jpg'
                                 alt='Bad wheel chair'
-                                fill
                                 className='rounded-xl'
+                                fill
+                                sizes='(max-width: 768px) 33vh, (max-width: 1200px) 50vw, 33vw'
                             />
                         </div>
                         <div className='relative hover:scale-105 transition-all'>
                             <Image
                                 src='/assets/images/about2.jpg'
                                 alt='Bad spine'
-                                fill
                                 className='rounded-xl'
+                                fill
+                                sizes='(max-width: 768px) 33vh, (max-width: 1200px) 50vw, 33vw'
                             />
                         </div>
                         <div className='relative hover:scale-105 transition-all'>
                             <Image
                                 src='/assets/images/about1.webp'
                                 alt='Good wheel chair'
-                                fill
                                 className='rounded-xl'
+                                fill
+                                sizes='(max-width: 768px) 33vh, (max-width: 1200px) 50vw, 33vw'
                             />
                         </div>
                         <div className='relative hover:scale-105 transition-all'>
                             <Image
                                 src='/assets/images/about4.jpg'
                                 alt='Good spine'
-                                fill
                                 className='rounded-xl'
+                                fill
+                                sizes='(max-width: 768px) 33vh, (max-width: 1200px) 50vw, 33vw'
                             />
                         </div>
                     </div>

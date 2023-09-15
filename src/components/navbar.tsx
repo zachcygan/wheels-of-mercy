@@ -106,9 +106,9 @@ export default function Navbar() {
                     <SlideOver isOpen={isSlideOpen} onClose={() => setIsSlideOpen(false)} />
                   </div>
                 </div>
-                <div>
+                {/* <div>
                   test
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

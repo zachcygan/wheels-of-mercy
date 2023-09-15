@@ -1,5 +1,6 @@
 'use client'
 import Image from 'next/image'
+import founder from '/public/assets/images/founder.jpg'
 
 export default function Founded() {
   return (
@@ -8,10 +9,8 @@ export default function Founded() {
         <section aria-labelledby="features-heading" className="relative flex flex-col items-center lg:flex-row">
           <div className="lg:w-1/2 lg:pr-4 xl:pr-16">
             <Image
-              src="/assets/images/founder.jpg"
+              src={founder}
               alt='Founder Charles Monson'
-              width={500}
-              height={500}
               className='rounded-xl mx-auto lg:mx-0 hover:scale-110 transition-all'
             />
           </div>
