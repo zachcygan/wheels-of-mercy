@@ -21,7 +21,7 @@ export default function DonationForm() {
     const handleSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         console.log('submitting')
-        const res = await fetch('/api/postDonors', {
+        const res = await fetch('/api/donors/postDonors', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
