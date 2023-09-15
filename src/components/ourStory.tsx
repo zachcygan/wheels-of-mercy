@@ -1,16 +1,18 @@
 'use client'
 import Image from 'next/image'
+import image1 from '/public/assets/images/founder.jpg'
+import image2 from '/public/assets/images/hoag1.jpg'
 
 export default function OurStory() {
     return (
         <div className='max-w-7xl mx-auto'>
             <div className="px-6 py-14 sm:py-20 lg:px-8">
-                <div className="mx-auto max-w-2xl text-center">
-                    <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Our Story</h2>
+                <div className="mx-auto max-w-2xl">
+                    <h2 className="text-4xl font-bold tracking-tight text-gray-900 text-center sm:text-6xl">Our Story</h2>
                 </div>
             </div>
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
+                <div className="mx-auto max-w-xl lg:max-w-none">
                     <div className="grid max-w-xl grid-cols-1 text-xl mx-auto gap-8 text-base leading-7 text-gray-500 lg:max-w-none lg:grid-cols-2">
                         <div className='mx-auto'>
                             <p className="">
@@ -35,11 +37,9 @@ export default function OurStory() {
                                 put me in a coma.
                             </p>
                             <div className='flex justify-center'>
-                                <div className='relative' style={{ width: '500px', height: '500px' }}>
+                                <div className='relative'>
                                     <Image
-                                        src="/assets/images/founder.jpg"
-                                        layout="fill"
-
+                                        src={image1}
                                         alt="Charles Monson in the hospital"
                                         className='rounded-3xl md:hover:scale-110 transition-all mt-8'
                                     />
@@ -49,11 +49,9 @@ export default function OurStory() {
                         <div className='mx-auto mt-8'>
                             <div className='flex justify-center'>
                                 <div className=''>
-                                    <div className='relative' style={{ width: '500px', height: '500px' }}>
+                                    <div className='relative'>
                                         <Image
-                                            src="/assets/images/hoag1.jpg"
-                                            layout="fill"
-                                    
+                                            src={image2}
                                             alt="Charles Monson in the hospital"
                                             className="rounded-3xl md:hover:scale-110 transition-all"
                                         />

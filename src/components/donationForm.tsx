@@ -39,7 +39,6 @@ export default function DonationForm() {
 
     return (
         <form ref={form} action='post' onSubmit={handleSumbit}>
-
             <p className='text-lg lg:font-2xl font-bold'>Thank you for your donation!</p>
             <p className='text-lg lg:font-2xl mt-4'>Please fill out this form for our records, no payment information is saved.</p>
             <div className="border-b border-gray-900/10 pb-12">
