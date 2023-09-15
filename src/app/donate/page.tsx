@@ -32,7 +32,7 @@ export default function Donate() {
                     </div>
 
                     {showForm && (
-                            <div className="mt-4">
+                            <div className="mt-4 bg-white p-4 rounded-md">
                                 {/* Your donation form goes here */}
                                 <DonationForm />
                             </div>
