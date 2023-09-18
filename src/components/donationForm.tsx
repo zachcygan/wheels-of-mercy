@@ -21,6 +21,10 @@ export default function DonationForm() {
     const handleFormSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         console.log('submitting')
+        setFirstName(firstName.trim())
+        setLastName(lastName.trim())
+        setEmail(email.trim())
+        setPhone(phone.trim())
         const res = await fetch('/api/donors/postDonors', {
             method: 'POST',
             headers: {

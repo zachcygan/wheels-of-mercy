@@ -17,6 +17,9 @@ export default function MailingListSubForm() {
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log('submitting')
+        setFirstName(firstName.trim())
+        setLastName(lastName.trim())
+        setEmail(email.trim())
         const res = await fetch('/api/mailingList/postMailingList', {
             method: 'POST',
             headers: {
