@@ -11,7 +11,6 @@ type MailingList = {
 export async function POST(req: Request) {
     try { 
         const data: MailingList = await req.json()
-        console.log(data)
         const { firstName, lastName, email } = data
 
         if (!firstName || !lastName || !email) return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });

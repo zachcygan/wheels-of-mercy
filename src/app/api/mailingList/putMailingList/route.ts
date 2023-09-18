@@ -10,7 +10,6 @@ type MailingList = {
 export async function PUT(req: Request) {
     try {
         const data: MailingList = await req.json()
-        console.log(data)
         const { email, recieveEmails } = data
 
         if (!email) {

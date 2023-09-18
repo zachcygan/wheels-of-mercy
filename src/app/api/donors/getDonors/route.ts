@@ -4,16 +4,24 @@ const prisma = new PrismaClient()
 
 export async function GET() {
     try {
-        let mailingList = await prisma.mailingList.findMany({
+        let donors = await prisma.donors.findMany({
             select: {
                 firstName: true,
                 lastName: true,
                 email: true,
-                recieveEmails: true
+                phone: true,
+                totalDonations: true,
+                donations: {
+                    select: {
+                        id: true,
+                        donorId: true,
+                        amount: true,
+                    }
+                }
             }
         })
 
-        return NextResponse.json({ mailingList }, { status: 200 })
+        return NextResponse.json({ donors }, { status: 200 })
     } catch (err) {
         console.log(err)
         return NextResponse.json({ error: `Internal Server Error: ${err}` }, { status: 500 });

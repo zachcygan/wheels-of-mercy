@@ -14,7 +14,6 @@ type Donor = {
 export async function POST(req: Request) {
     try {
         const data: Donor = await req.json()
-        console.log(data)
         const { firstName, lastName, email, phone, amount } = data
 
         if (!firstName || !lastName || !email || !phone || !amount) return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
