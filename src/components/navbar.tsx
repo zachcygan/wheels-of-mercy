@@ -107,7 +107,7 @@ export default function Navbar() {
               </div>
               <div>
                 <button 
-                  className="rounded-md bg-gray-400 p-2 hover:text-white hover:scale-110 transition-all active:scale-105"
+                  className="rounded-md bg-gray-400 w-[180px] p-2 hover:text-white hover:scale-110 transition-all active:scale-105"
                 >
                   Join Our Mailing List
                 </button>
