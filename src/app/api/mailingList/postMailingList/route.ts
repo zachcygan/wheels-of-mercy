@@ -13,9 +13,8 @@ export async function POST(req: Request) {
         const data: MailingList = await req.json()
         const { firstName, lastName, email } = data
 
-        if (!firstName || !lastName || !email) {
-            return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
-        }
+        if (!firstName || !lastName || !email) return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+        
 
         // Check if the donor already exists
         let mailingList = await prisma.mailingList.findUnique({
