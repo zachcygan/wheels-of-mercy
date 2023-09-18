@@ -1,7 +1,7 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import Image from 'next/image'
+import MailingListSubForm from './mailingListSubForm';
 
 type ImageModalrProps = {
     isOpen: boolean;
@@ -59,6 +59,7 @@ export default function MailingListModal({ isOpen, onClose }: ImageModalrProps) 
                                 </div>
                                 <div>
                                     {/* CONTENT GOES HERE */}
+                                    <MailingListSubForm />
                                 </div>
                             </Dialog.Panel>
                         </Transition.Child>

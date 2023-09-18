@@ -5,6 +5,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { usePathname } from 'next/navigation'
 import { motion } from "framer-motion"
 import SlideOver from './slideOver'
+import MailingListModal from './mailingListModal'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -23,6 +24,7 @@ function classNames(...classes: string[]) {
 export default function Navbar() {
   const pathname = usePathname();
   const [hoveredPath, setHoveredPath] = useState(pathname);
+  const [isModalOpen, setModalOpen] = useState<boolean>(false);
   console.log(pathname);
 
   const [isSlideOpen, setIsSlideOpen] = useState<boolean>(false)
@@ -68,7 +70,7 @@ export default function Navbar() {
                         <Link
                           key={item.name}
                           href={item.href}
-                          className={`px-2 py-2 rounded-md text-lg relative no-underline duration-200 ease-in hover:text-white ${isActive ? "text-white" : "text-black"
+                          className={`px-2 py-2 rounded-md text-lg lg:text-xl relative no-underline duration-200 ease-in hover:text-white ${isActive ? "text-white" : "text-black"
                             }`}
                           aria-current={item.href === pathname ? 'page' : undefined}
                           onClick={(e) => {
@@ -108,9 +110,11 @@ export default function Navbar() {
               <div>
                 <button 
                   className="rounded-md bg-gray-400 w-[180px] p-2 hover:text-white hover:scale-110 transition-all active:scale-105"
+                  onClick={() => setModalOpen(true)}
                 >
                   Join Our Mailing List
                 </button>
+                <MailingListModal isOpen={isModalOpen} onClose={() => setModalOpen(false)}/>
               </div>
             </div>
           </div>

@@ -18,7 +18,7 @@ export default function DonationForm() {
         return emailRegex.test(email);
     };
 
-    const handleSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleFormSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         console.log('submitting')
         const res = await fetch('/api/donors/postDonors', {
@@ -38,7 +38,7 @@ export default function DonationForm() {
     }
 
     return (
-        <form ref={form} action='post' onSubmit={handleSumbit}>
+        <form ref={form} action='post' onSubmit={handleFormSumbit}>
             <p className='text-lg lg:font-2xl font-bold'>Thank you for your donation!</p>
             <p className='text-lg lg:font-2xl mt-4'>Please fill out this form for our records, no payment information is saved.</p>
             <div className="border-b border-gray-900/10 pb-12">
