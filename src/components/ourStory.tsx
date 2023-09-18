@@ -58,12 +58,6 @@ export default function OurStory() {
                                     </div>
                                 </div>
                             </div>
-                            <p className='mt-8'>
-                                I woke to find my business gone, and a need to redefine my life. My near-death
-                                experience left me yearning to use the time I have left here to have as powerful an
-                                impact as possible upon the disabled community. From this desire sprang Wheels of
-                                Mercy..
-                            </p>
                             <p className="mt-8">
                                 I woke to find my business gone, and a need to redefine my life. My near-death
                                 experience left me yearning to use the time I have left here to have as powerful an
