@@ -11,12 +11,12 @@ type MailingList = {
 export async function POST(req: Request) {
     try { 
         const data: MailingList = await req.json()
+        console.log(data)
         const { firstName, lastName, email } = data
 
         if (!firstName || !lastName || !email) return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
         
-
-        // Check if the donor already exists
+        // Check if the user already signed up for the mailing list
         let mailingList = await prisma.mailingList.findUnique({
             where: {
                 email: email

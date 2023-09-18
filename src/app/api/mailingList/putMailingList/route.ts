@@ -10,7 +10,7 @@ type MailingList = {
 export async function PUT(req: Request) {
     try {
         const data: MailingList = await req.json()
-
+        console.log(data)
         const { email, recieveEmails } = data
 
         if (!email) {
@@ -18,7 +18,7 @@ export async function PUT(req: Request) {
         }
 
         // Check if the donor already exists
-        let user = await prisma.donors.findUnique({
+        let user = await prisma.mailingList.findUnique({
             where: {
                 email: email
             }
