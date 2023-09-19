@@ -34,7 +34,6 @@ export default function Navbar() {
   const pathname = usePathname();
   const [hoveredPath, setHoveredPath] = useState(pathname);
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
-  console.log(pathname);
 
   const [isSlideOpen, setIsSlideOpen] = useState<boolean>(false)
 

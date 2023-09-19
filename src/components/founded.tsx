@@ -1,5 +1,6 @@
 'use client'
 import Image from 'next/image'
+import image1 from '/public/assets/images/founder.jpg'
 
 export default function Founded() {
   return (
@@ -9,10 +10,9 @@ export default function Founded() {
           <div className="lg:w-1/2 lg:pr-4 xl:pr-16">
             <div className='relative'>
               <Image
-                src='/assets/images/founder.jpg'
+                src={image1}
                 alt='Founder Charles Monson'
-                className='rounded-xl mx-auto lg:mx-0 hover:scale-110 transition-all'
-                fill
+                className='rounded-xl mx-auto lg:mx-0 hover:scale-105 transition-all'
               />
             </div>
           </div>
