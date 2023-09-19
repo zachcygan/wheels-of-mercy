@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import WishList from './wishList'
 
 export default function SupportPage() {
     return (
@@ -21,8 +22,9 @@ export default function SupportPage() {
                         drive a pickup or van and have time to transport chairs, we need you.
                     </p>
                     <p className="mt-8 text-lg leading-8 text-gray-600">
-                        And we have a wish list. (link to wishlist)
+                        And we have a wish list.
                     </p>
+                    <WishList />
                     <p className="mt-8 text-lg leading-8 text-gray-600">
                         Thank you for your support.
                     </p>
