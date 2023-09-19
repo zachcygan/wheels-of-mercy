@@ -38,7 +38,7 @@ export default function MailingListSubForm() {
         <form ref={form} onSubmit={handleFormSubmit} className=' bg-white p-20 rounded-md'>
             <div className="space-y-12">
                 <p className='text-center text-xl font-bold'>Join Our Mailing List!</p>
-                <p className='text-center'>Sign up to recieve updates about what Wheels of Mercy is up to and how we are putting your donations to use</p>
+                <p className='text-center'>Sign up to recieve updates about what Wheels of Mercy is up to and how we are putting your donations to use.</p>
                 <div className="border-b border-gray-900/10 pb-12 bg-white/50 p-2">
                     <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 pt-6">
                         <div className="sm:col-span-3">
