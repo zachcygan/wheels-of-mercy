@@ -10,7 +10,7 @@ export default function DonationForm() {
     const [phone, setPhone] = useState<string>('')
     const [amount, setAmount] = useState<number>(0)
     const [success, setSuccess] = useState<boolean>(false);
-    const message = 'Thank you for your donation!'
+    const message = 'Your donation has been recorded.'
 
     const form = useRef<HTMLFormElement>(null)
 
