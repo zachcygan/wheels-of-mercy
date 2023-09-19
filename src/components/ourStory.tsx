@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import image1 from '/public/assets/images/founder.jpg'
+import image1 from '/public/assets/images/hoag2.jpg'
 import image2 from '/public/assets/images/hoag1.jpg'
 
 export default function OurStory() {
