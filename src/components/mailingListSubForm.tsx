@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useRef } from 'react'
+import Success from './success'
 
 const isValidEmail = (email: string): boolean => {
     // This regex checks for most common email patterns.
@@ -11,12 +12,20 @@ type MailingListSubFormProps = {
     switchToUnsub: () => void;
 };
 
+type SuccessProps = {
+    title: string,
+    message: string,
+}
+
 export default function MailingListSubForm({ switchToUnsub }: MailingListSubFormProps) {
     const form = useRef<HTMLFormElement>(null);
     const [firstName, setFirstName] = useState<string>('')
     const [lastName, setLastName] = useState<string>('')
     const [email, setEmail] = useState<string>('')
     const [emailTouched, setEmailTouched] = useState<boolean>(false);
+    const [success, setSuccess] = useState<boolean>(false);
+    const title='Success!'
+    const message='You have been added to our mailing list!'
 
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -24,22 +33,37 @@ export default function MailingListSubForm({ switchToUnsub }: MailingListSubForm
         setFirstName(firstName.trim())
         setLastName(lastName.trim())
         setEmail(email.trim())
-        const res = await fetch('/api/mailingList/postMailingList', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                firstName,
-                lastName,
-                email,
-            })
-        })
-        console.log(res)
+        try {
+            const res = await fetch('/api/mailingList/subscribe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    firstName,
+                    lastName,
+                    email,
+                })
+            });
+    
+            if (res.ok) {
+                console.log("Request was successful");
+                const data = await res.json(); // If the server returns JSON data
+                console.log(data);
+                setSuccess(true); // Assuming you want to set success to true on a successful request
+            } else {
+                console.error("Error with request:", res.status, res.statusText);
+                setSuccess(false); // Assuming you want to set success to false on an unsuccessful request
+            }
+        } catch (error) {
+            console.error("There was an error with the fetch:", error);
+            setSuccess(false); // Assuming you want to set success to false if there's an error with the fetch
+        }
     }
 
     return(
         <form ref={form} onSubmit={handleFormSubmit} className=' bg-white p-20 rounded-md'>
+            { success ? <Success message={message} /> : null}
             <div className="space-y-12">
                 <p className='text-center text-xl font-bold'>Join Our Mailing List!</p>
                 <p className='text-center'>Sign up to recieve updates about what Wheels of Mercy is up to and how we are putting your donations to use.</p>

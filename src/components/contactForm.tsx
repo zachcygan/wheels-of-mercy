@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import emailjs from '@emailjs/browser'
-import MessageSuccess from './messageSuccess'
+import Success from './success'
 
 
 export default function ContactForm() {
@@ -16,6 +16,8 @@ export default function ContactForm() {
     const [images, setImages] = useState<File[]>([])
     const [previewImages, setPreviewImages] = useState<string[]>([])
     const [success, setSuccess] = useState<boolean>(false)
+    const title = 'Thank you for contacting us!'
+    const SuccessMessage = 'Thank you for your message, we will get back to you as soon as possible.'
 
     const form = useRef<HTMLFormElement>(null);
 
@@ -74,7 +76,7 @@ export default function ContactForm() {
 
     return (
         <form ref={form} onSubmit={sendEmail}>
-            {success ? <MessageSuccess /> : null}
+            {success ? <Success message={SuccessMessage} /> : null}
             <div className="space-y-12">
                 <div className="border-b border-gray-900/10 pb-12">
                     <div>

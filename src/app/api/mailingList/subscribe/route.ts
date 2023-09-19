@@ -9,12 +9,12 @@ type MailingList = {
 }
 
 export async function POST(req: Request) {
-    try { 
+    try {
         const data: MailingList = await req.json()
         const { firstName, lastName, email } = data
 
         if (!firstName || !lastName || !email) return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
-        
+
         // Check if the user already signed up for the mailing list
         let mailingList = await prisma.mailingList.findUnique({
             where: {
@@ -23,7 +23,18 @@ export async function POST(req: Request) {
         })
 
         if (mailingList) {
-            return NextResponse.json({ error: 'This email is already signed up for the mailing list' }, { status: 400 });
+            if (!mailingList.recieveEmails) {
+                mailingList = await prisma.mailingList.update({
+                    where: {
+                        email: email
+                    },
+                    data: {
+                        recieveEmails: true
+                    }
+                })
+            } else {
+                return NextResponse.json({ error: 'This email is already signed up for the mailing list' }, { status: 400 });
+            }
         } else {
             mailingList = await prisma.mailingList.create({
                 data: {

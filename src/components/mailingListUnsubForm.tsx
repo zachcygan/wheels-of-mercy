@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useRef } from 'react'
+import Success from './success'
 
 const isValidEmail = (email: string): boolean => {
     // This regex checks for most common email patterns.
@@ -11,30 +12,47 @@ export default function MailingListUnsubForm() {
     const form = useRef<HTMLFormElement>(null);
     const [email, setEmail] = useState<string>('')
     const [emailTouched, setEmailTouched] = useState<boolean>(false);
+    const [success, setSuccess] = useState<boolean>(false);
+    const message = 'You have been unsubscribed from our mailing list.'
 
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log('submitting')
         setEmail(email.trim())
-        const res = await fetch('/api/mailingList/unsubscribe', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email,
+        try {
+            const res = await fetch('/api/mailingList/unsubscribe', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email,
+                })
             })
-        })
-        console.log(res)
+
+            if (res.ok) {
+                console.log("Request was successful");
+                const data = await res.json(); // If the server returns JSON data
+                console.log(data);
+                setSuccess(true); // Assuming you want to set success to true on a successful request
+            } else {
+                console.error("Error with request:", res.status, res.statusText);
+                setSuccess(false); // Assuming you want to set success to false on an unsuccessful request
+            }
+        } catch (err) {
+            console.error("There was an error with the fetch:", err);
+            setSuccess(false); // Assuming you want to set success to false if there's an error with the fetch
+        }
     }
 
-    return(
+    return (
         <form ref={form} onSubmit={handleFormSubmit} className=' bg-white p-20 rounded-md'>
             <div className="space-y-12">
+                {success ? <Success message={message} /> : null}
                 <p className='text-center text-xl font-bold'>Unsubscribe From Our Mailing List</p>
                 <p className='text-center'>Enter your email to unsubscribe.</p>
                 <div className="border-b border-gray-900/10 pb-12 bg-white/50 p-2">
-                    <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 pt-6">                        
+                    <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 pt-6">
                         <div className="sm:col-span-full">
                             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900 flex justify-between items-center">
                                 Email address
