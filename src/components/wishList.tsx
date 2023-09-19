@@ -16,8 +16,7 @@ export default function WishList() {
     return (
         <ul role="list" className="divide-y divide-gray-200 mt-5">
             {items.map((item) => (
-                <li key={item.id} className="py-4 hover:scale-105 bg-white rounded-md">
-                    {/* Your content */}
+                <li key={item.id} className="py-4 bg-white rounded-md">
                     <div className="text-left p-1">
                         <h3 className="text-xl text-gray-900">{item.title}</h3>
                         <p className="mt-2 text-gray-500">{item.body}</p>                    
