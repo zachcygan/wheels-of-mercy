@@ -2,6 +2,7 @@ import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import MailingListSubForm from './mailingListSubForm';
+import MailingListUnsubForm from './mailingListUnsubForm';
 
 type ImageModalrProps = {
     isOpen: boolean;
@@ -10,6 +11,7 @@ type ImageModalrProps = {
 
 export default function MailingListModal({ isOpen, onClose }: ImageModalrProps) {
     const [open, setOpen] = useState(true)
+    const [showUnsubscribe, setShowUnsubscribe] = useState<boolean>(false)
 
     useEffect(() => {
         setOpen(isOpen);
@@ -17,6 +19,7 @@ export default function MailingListModal({ isOpen, onClose }: ImageModalrProps) 
 
     const handleClose = () => {
         setOpen(false);
+        setShowUnsubscribe(false);
         if (onClose) onClose()
     }
 
@@ -59,7 +62,8 @@ export default function MailingListModal({ isOpen, onClose }: ImageModalrProps) 
                                 </div>
                                 <div>
                                     {/* CONTENT GOES HERE */}
-                                    <MailingListSubForm />
+                                    {showUnsubscribe ? <MailingListUnsubForm /> : <MailingListSubForm switchToUnsub={() => setShowUnsubscribe(true)}/>}
+
                                 </div>
                             </Dialog.Panel>
                         </Transition.Child>

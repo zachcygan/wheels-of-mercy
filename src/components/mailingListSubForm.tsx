@@ -7,7 +7,11 @@ const isValidEmail = (email: string): boolean => {
     return emailRegex.test(email);
 };
 
-export default function MailingListSubForm() {
+type MailingListSubFormProps = {
+    switchToUnsub: () => void;
+};
+
+export default function MailingListSubForm({ switchToUnsub }: MailingListSubFormProps) {
     const form = useRef<HTMLFormElement>(null);
     const [firstName, setFirstName] = useState<string>('')
     const [lastName, setLastName] = useState<string>('')
@@ -103,13 +107,21 @@ export default function MailingListSubForm() {
                     </div>
                 </div>
             </div>
-
             <div className="mt-6 flex items-center justify-end gap-x-6">
                 <button
                     type="submit"
-                    className="rounded-full bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                     Subscribe
+                </button>
+            </div>
+            <div className='flex flex-wrap justify-center'>
+                <p className='text-center mt-2'>Would you like to unsubscribe from our mailing list? Click the button below</p>
+                <button 
+                    className="mt-2 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    onClick={switchToUnsub}
+                >
+                    Unsubscribe
                 </button>
             </div>
         </form>
