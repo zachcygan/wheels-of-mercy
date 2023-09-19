@@ -17,7 +17,7 @@ export default function MailingListUnsubForm() {
         console.log('submitting')
         setEmail(email.trim())
         const res = await fetch('/api/mailingList/unsubscribe', {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
