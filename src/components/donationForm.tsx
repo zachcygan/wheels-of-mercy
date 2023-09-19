@@ -1,6 +1,6 @@
 'use client'
 import { useState, useRef } from 'react'
-import prisma from '../../lib/prisma'
+import Success from './success'
 
 export default function DonationForm() {
     const [firstName, setFirstName] = useState<string>('')
@@ -9,6 +9,8 @@ export default function DonationForm() {
     const [emailTouched, setEmailTouched] = useState<boolean>(false);
     const [phone, setPhone] = useState<string>('')
     const [amount, setAmount] = useState<number>(0)
+    const [success, setSuccess] = useState<boolean>(false);
+    const message = 'Thank you for your donation!'
 
     const form = useRef<HTMLFormElement>(null)
 
@@ -25,24 +27,38 @@ export default function DonationForm() {
         setLastName(lastName.trim())
         setEmail(email.trim())
         setPhone(phone.trim())
-        const res = await fetch('/api/donors/postDonors', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                firstName,
-                lastName,
-                email,
-                phone,
-                amount
+        try {
+            const res = await fetch('/api/donors/postDonors', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    firstName,
+                    lastName,
+                    email,
+                    phone,
+                    amount
+                })
             })
-        })
-        console.log(res)
+            if (res.ok) {
+                console.log("Request was successful");
+                const data = await res.json(); // If the server returns JSON data
+                console.log(data);
+                setSuccess(true); // Assuming you want to set success to true on a successful request
+            } else {
+                console.error("Error with request:", res.status, res.statusText);
+                setSuccess(false); // Assuming you want to set success to false on an unsuccessful request
+            }
+        } catch (err) {
+            console.error("There was an error with the fetch:", err);
+            setSuccess(false); // Assuming you want to set success to false if there's an error with the fetch
+        }
     }
 
     return (
         <form ref={form} action='post' onSubmit={handleFormSumbit}>
+            {success ? <Success message={message} /> : null}
             <p className='text-lg lg:font-2xl font-bold'>Thank you for your donation!</p>
             <p className='text-lg lg:font-2xl mt-4'>Please fill out this form for our records, no payment information is saved.</p>
             <div className="border-b border-gray-900/10 pb-12">

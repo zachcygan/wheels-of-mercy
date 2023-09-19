@@ -47,8 +47,8 @@ export default function MailingListUnsubForm() {
 
     return (
         <form ref={form} onSubmit={handleFormSubmit} className=' bg-white p-20 rounded-md'>
+            {success ? <Success message={message} /> : null}
             <div className="space-y-12">
-                {success ? <Success message={message} /> : null}
                 <p className='text-center text-xl font-bold'>Unsubscribe From Our Mailing List</p>
                 <p className='text-center'>Enter your email to unsubscribe.</p>
                 <div className="border-b border-gray-900/10 pb-12 bg-white/50 p-2">
