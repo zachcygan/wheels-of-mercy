@@ -1,9 +1,9 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
-import Image from 'next/image'
 import emailjs from '@emailjs/browser'
-import autoprefixer from 'autoprefixer';
+import MessageSuccess from './messageSuccess'
+
 
 export default function ContactForm() {
     const [selectedCheckboxes, setSelectedCheckboxes] = useState<string[]>([]);
@@ -15,6 +15,7 @@ export default function ContactForm() {
     const [message, setMessage] = useState<string>('')
     const [images, setImages] = useState<File[]>([])
     const [previewImages, setPreviewImages] = useState<string[]>([])
+    const [success, setSuccess] = useState<boolean>(false)
 
     const form = useRef<HTMLFormElement>(null);
 
@@ -34,6 +35,7 @@ export default function ContactForm() {
             emailjs.sendForm('service_fzix91g', 'template_2wbljac', form.current, 'jUyA5LHa70k8i0tEl')
                 .then((result) => {
                     console.log(result.text)
+                    setSuccess(true)
                 }, (error) => {
                     console.log(error.text);
                 });
@@ -72,6 +74,7 @@ export default function ContactForm() {
 
     return (
         <form ref={form} onSubmit={sendEmail}>
+            {success ? <MessageSuccess /> : null}
             <div className="space-y-12">
                 <div className="border-b border-gray-900/10 pb-12">
                     <div>
