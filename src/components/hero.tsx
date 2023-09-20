@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react'
 import { EmblaOptionsType } from 'embla-carousel-react'
-import { Roboto } from '@next/font/google'
+import { Roboto } from "next/font/google"
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Carousel from './carousel';
