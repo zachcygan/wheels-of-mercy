@@ -68,7 +68,7 @@ function classNames(...classes: String[]) {
 
 export default function Testimonials() {
     return (
-        <div className="relative isolate pb-32 pt-24 sm:pt-32">
+        <div className="relative isolate sm:py-20 lg:px-8">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-xl text-center">
                     <p className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">

@@ -32,8 +32,8 @@ export default function Hero() {
           <Image
             src="/assets/images/wheelsOfMercyLogo.png"
             alt="Wheels of Mercy Logo"
-            width={200}
-            height={200}
+            width={400}
+            height={400}
             className='mx-auto'
           />
         </div>
@@ -43,10 +43,6 @@ export default function Hero() {
             repairs and refurbishes them; and gives them to people who need but cannot afford them
           </p>
         </div>
-
-      </div>
-      <div>
-
       </div>
     </div>
   )
