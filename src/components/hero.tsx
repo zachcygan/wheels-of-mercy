@@ -24,7 +24,7 @@ export default function Hero() {
     <div className='bg-transparent'>
       <div className='flex items-center justify-center w-full mx-auto'>
         <div className='rounded-md mx-auto w-full'>
-          <Carousel slides={slides} options={options}/>
+          <Carousel slides={slides} options={options} />
         </div>
       </div>
       <div className='sm:grid sm:grid-cols-2 max-w-7xl mx-auto mt-10'>
@@ -38,12 +38,10 @@ export default function Hero() {
           />
         </div>
         <div className='flex flex-col items-center justify-center'>
-          <div className={robotoFont.className}>
-            <p className={`mt-6 text-xl lg:text-3xl leading-2 text-black font-bold px-10 text-center`}>
-              Wheels of Mercy is a 501(c)3 Public Charity that collects used wheelchairs,
-              repairs and refurbishes them; and gives them to people who need but cannot afford them
-            </p>
-          </div>
+          <p className={`mt-6 text-xl lg:text-3xl leading-2 text-black font-bold px-10 text-center ${robotoFont.className}`}>
+            Wheels of Mercy is a 501(c)3 Public Charity that collects used wheelchairs,
+            repairs and refurbishes them; and gives them to people who need but cannot afford them
+          </p>
         </div>
 
       </div>
