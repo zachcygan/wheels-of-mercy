@@ -1,11 +1,17 @@
 'use client';
 import { useState } from 'react'
 import { EmblaOptionsType } from 'embla-carousel-react'
+import { Roboto } from '@next/font/google'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Carousel from './carousel';
 import Image from 'next/image';
 import Link from 'next/link';
+
+const robotoFont = Roboto({
+  subsets: ['latin'],
+  weight: '400'
+})
 
 const options: EmblaOptionsType = { loop: true, duration: 30 }
 const slideCount = 11
@@ -32,10 +38,12 @@ export default function Hero() {
           />
         </div>
         <div className='flex flex-col items-center justify-center'>
-          <p className="mt-6 text-xl lg:text-3xl leading-2 text-black font-bold px-10 text-center">
-            Wheels of Mercy is a 501(c)3 Public Charity that collects used wheelchairs,
-            repairs and refurbishes them; and gives them to people who need but cannot afford them
-          </p>
+          <div className={robotoFont.className}>
+            <p className={`mt-6 text-xl lg:text-3xl leading-2 text-black font-bold px-10 text-center`}>
+              Wheels of Mercy is a 501(c)3 Public Charity that collects used wheelchairs,
+              repairs and refurbishes them; and gives them to people who need but cannot afford them
+            </p>
+          </div>
         </div>
 
       </div>
