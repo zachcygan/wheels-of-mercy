@@ -2,15 +2,12 @@
 import { useState } from 'react'
 import { EmblaOptionsType } from 'embla-carousel-react'
 import { Roboto } from "next/font/google"
-import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Carousel from './carousel';
 import Image from 'next/image';
-import Link from 'next/link';
 
 const robotoFont = Roboto({
   subsets: ['latin'],
-  weight: '400'
+  weight: '500'
 })
 
 const options: EmblaOptionsType = { loop: true, duration: 30 }
