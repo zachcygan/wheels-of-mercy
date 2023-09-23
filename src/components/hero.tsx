@@ -32,6 +32,7 @@ export default function Hero() {
             width={300}
             height={300}
             className='mx-auto'
+            priority
           />
         </div>
         <div className='flex flex-col items-center justify-center'>
