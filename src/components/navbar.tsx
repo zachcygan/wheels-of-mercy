@@ -1,9 +1,9 @@
 'use client'
-import { Fragment, useEffect, useState } from 'react'
-import { Disclosure, Menu, Transition, Popover } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Fragment, useState } from 'react'
+import { Disclosure, Transition, Popover } from '@headlessui/react'
 import { usePathname } from 'next/navigation'
 import { motion } from "framer-motion"
+import { Roboto } from 'next/font/google'
 import SlideOver from './slideOver'
 import MailingListModal from './mailingListModal'
 import Image from 'next/image'
@@ -14,6 +14,11 @@ type MobileNavItemProps = {
   children: React.ReactNode
 }
 type SVGProps = React.SVGAttributes<SVGSVGElement>;
+
+const robotoFont = Roboto({
+  subsets: ['latin'],
+  weight: '700'
+})
 
 const navigation = [
   { name: 'About', href: '/about', current: true },
@@ -75,7 +80,7 @@ export default function Navbar() {
   const [isSlideOpen, setIsSlideOpen] = useState<boolean>(false)
 
   return (
-    <Disclosure as="nav" className="">
+    <Disclosure as="nav">
       {({ open }) => (
         <>
           <div className="bg-white/70 mx-auto px-2 sm:px-6 lg:px-8 -z-10">
@@ -169,8 +174,7 @@ export default function Navbar() {
                         <Link
                           key={item.name}
                           href={item.href}
-                          className={`px-2 py-2 rounded-md text-lg lg:text-xl relative no-underline duration-200 ease-in hover:text-white ${isActive ? "text-white" : "text-black"
-                            }`}
+                          className={`px-2 py-2 rounded-md text-lg lg:text-2xl relative no-underline duration-200 ease-in hover:text-white ${isActive ? "text-white" : "text-black"} ${robotoFont.className}`}
                           aria-current={item.href === pathname ? 'page' : undefined}
                           onClick={(e) => {
                             if (item.name === 'Contact') {
@@ -208,7 +212,7 @@ export default function Navbar() {
               </div>
               <div>
                 <button
-                  className="rounded-md max-[900px]:hidden bg-gray-400 w-[180px] p-2 hover:text-white hover:scale-110 transition-all active:scale-105"
+                  className="rounded-md max-[900px]:hidden p-2 text-md: lg:text-lg bg-gray-400 w-[180px] hover:text-white hover:scale-110 transition-all active:scale-105"
                   onClick={() => setModalOpen(true)}
                 >
                   Join Our Mailing List
@@ -217,39 +221,8 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-
-          {/* <Disclosure.Panel className="min-[900px]:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2">
-              {navigationMobile.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block rounded-md px-3 py-2 text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                  onClick={(e) => {
-                    if (item.name === 'Contact') {
-                      e.preventDefault(); // prevent navigation
-                      setIsSlideOpen(true);
-                    }
-                    if (item.name === 'Join Our Mailing List') {
-                      e.preventDefault(); // prevent navigation
-                      setModalOpen(true);
-                    }
-                  }}
-                >
-                  {item.name}
-                </Disclosure.Button>
-              ))}
-
-            </div>
-          </Disclosure.Panel> */}
         </>
       )}
-
     </Disclosure>
   )
 }
