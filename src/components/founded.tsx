@@ -5,7 +5,7 @@ import image1 from '/public/assets/images/founder.jpg'
 export default function Founded() {
   return (
     <div>
-      <div className="max-w-5xl pt-10 mx-auto mb-20">
+      <div className="max-w-5xl py-10 mx-auto">
         <section aria-labelledby="features-heading" className="relative flex flex-col items-center lg:flex-row">
           <div className="lg:w-1/2 lg:pr-4 xl:pr-16">
             <div className='relative'>
@@ -16,8 +16,7 @@ export default function Founded() {
               />
             </div>
           </div>
-
-          <div className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 sm:pb-32 lg:w-1/2 lg:px-8 lg:pt-20">
+          <div className="mx-auto max-w-2xl px-4 pt-16 sm:px-6 sm:pb-32 lg:w-1/2 lg:px-8 lg:pt-20">
             <div className=''>
               <p className="mt-4 text-4xl font-bold tracking-tight text-gray-900 text-center lg:text-left">
                 Founder
