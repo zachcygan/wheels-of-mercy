@@ -1,14 +1,9 @@
 'use client'
-import { useState } from 'react'
 import Hero from '../components/hero'
-import OurStory from '../components/ourStory'
 import { Transition } from '@headlessui/react'
-import Gallary from '../components/gallary'
 import Testimonials from '../components/testimonials'
 
 export default function Home() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
   return (
     <Transition as="main" className="mx-auto transition-all duration-700 text-white flex flex-col gap-24"
       appear={true}
@@ -21,7 +16,6 @@ export default function Home() {
       leaveTo='transform -translate-x-full opacity-0'>
       <Hero />
       <Testimonials />
-      {/* <Gallary /> */}
     </Transition>
   )
 }
