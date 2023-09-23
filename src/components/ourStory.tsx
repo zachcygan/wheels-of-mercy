@@ -1,19 +1,25 @@
 'use client'
+import { Roboto } from 'next/font/google'
 import Image from 'next/image'
 import image1 from '/public/assets/images/hoag2.jpg'
 import image2 from '/public/assets/images/hoag1.jpg'
+
+const robotoFont = Roboto({
+    subsets: ['latin'],
+    weight: '700'
+})
 
 export default function OurStory() {
     return (
         <div className='max-w-7xl mx-auto'>
             <div className="px-6 py-14 sm:py-20 lg:px-8">
                 <div className="mx-auto max-w-2xl">
-                    <h2 className="text-4xl font-bold tracking-tight text-gray-900 text-center sm:text-6xl">Our Story</h2>
+                    <h2 className={`text-4xl tracking-tight text-center sm:text-6xl ${robotoFont.className}`}>Our Story</h2>
                 </div>
             </div>
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-xl lg:max-w-none">
-                    <div className="grid max-w-xl grid-cols-1 text-xl mx-auto gap-8 text-base leading-7 text-gray-500 lg:max-w-none lg:grid-cols-2">
+                    <div className="grid max-w-xl grid-cols-1 text-xl mx-auto gap-8 text-base leading-7 text-black lg:max-w-none lg:grid-cols-2">
                         <div className='mx-auto'>
                             <p>
                                 At 16 I sustained a spinal cord injury which rendered me a quadriplegic. I spent the next

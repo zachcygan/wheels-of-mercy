@@ -1,3 +1,10 @@
+import { Roboto } from 'next/font/google'
+
+const robotoFont = Roboto({
+    subsets: ['latin'],
+    weight: '700'
+})
+
 const items = [
     {
         id: 1,
@@ -18,8 +25,8 @@ export default function WishList() {
             {items.map((item) => (
                 <li key={item.id} className="py-4 bg-white rounded-md">
                     <div className="text-left p-1">
-                        <h3 className="text-xl text-gray-900">{item.title}</h3>
-                        <p className="mt-2 text-gray-500">{item.body}</p>                    
+                        <h3 className={`text-xl font-bold text-black ${robotoFont.className}`}>{item.title}</h3>
+                        <p className="mt-2 text-black">{item.body}</p>                    
                     </div>
                 </li>
             ))}
