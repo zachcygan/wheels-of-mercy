@@ -1,4 +1,9 @@
-'use client'
+import { Roboto } from 'next/font/google'
+
+const robotoFont = Roboto({
+    subsets: ['latin'],
+    weight: '700'
+})
 
 const featuredTestimonial = {
     body: 'This is such a blessing. Thank you, Thank you, Thank you!',
@@ -71,7 +76,7 @@ export default function Testimonials() {
         <div className="relative isolate sm:py-20 lg:px-8">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-xl text-center">
-                    <p className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                    <p className={`text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl ${robotoFont.className}`}>
                         We have helped many amazing people
                     </p>
                 </div>
