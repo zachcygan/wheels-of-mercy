@@ -3,7 +3,6 @@ import Image from 'next/image'
 import useEmblaCarousel, { EmblaOptionsType } from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import AutoHeight from 'embla-carousel-auto-height'
-import { DotButton, PrevButton, NextButton } from './carouselButtons'
 import imageByIndex from './imageByIndex'
 
 interface EmblaCarouselProps {
@@ -32,36 +31,27 @@ const Carousel: React.FC<EmblaCarouselProps> = ({ slides, options }) => {
         { width: 700, height: 500 },
         { width: 950, height: 500 },
     ]);
-    const [viewportRef, embla] = useEmblaCarousel({ skipSnaps: false });
-    const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
-    const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
-    const [selectedIndex, setSelectedIndex] = useState(0);
-    const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+    // const [viewportRef, embla] = useEmblaCarousel({ skipSnaps: false });
+    // const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
+    // const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
+    // const [selectedIndex, setSelectedIndex] = useState(0);
+    // const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
-    const scrollPrev = useCallback(() => {
-        if (emblaApi) emblaApi.scrollPrev()
-    }, [emblaApi])
+    // const onSelect = useCallback(() => {
+    //     if (!embla) return;
+    //     setSelectedIndex(embla.selectedScrollSnap());
+    //     setPrevBtnEnabled(embla.canScrollPrev());
+    //     setNextBtnEnabled(embla.canScrollNext());
+    // }, [embla, setSelectedIndex]);
 
-    const scrollNext = useCallback(() => {
-        if (emblaApi) emblaApi.scrollNext()
-    }, [emblaApi])
-    const scrollTo = useCallback((index: number) => embla && embla.scrollTo(index), [embla]);
 
-    const onSelect = useCallback(() => {
-        if (!embla) return;
-        setSelectedIndex(embla.selectedScrollSnap());
-        setPrevBtnEnabled(embla.canScrollPrev());
-        setNextBtnEnabled(embla.canScrollNext());
-    }, [embla, setSelectedIndex]);
-    
-    
 
-    useEffect(() => {
-        if (!embla) return;
-        onSelect();
-        setScrollSnaps(embla.scrollSnapList());
-        embla.on("select", onSelect);
-    }, [embla, setScrollSnaps, onSelect]);
+    // useEffect(() => {
+    //     if (!embla) return;
+    //     onSelect();
+    //     setScrollSnaps(embla.scrollSnapList());
+    //     embla.on("select", onSelect);
+    // }, [embla, setScrollSnaps, onSelect]);
 
     useEffect(() => {
         const handleResize = () => {
@@ -182,10 +172,6 @@ const Carousel: React.FC<EmblaCarouselProps> = ({ slides, options }) => {
                         })}
                     </div>
                 </div>
-                <div className='embla__buttons-container scale-[.96]'>
-                    <PrevButton emblaApi={emblaApi} />
-                    <NextButton emblaApi={emblaApi} />
-                </div>
             </div>
             {/* <div className="embla__dots">
                 {scrollSnaps.map((_, index) => (
@@ -196,7 +182,6 @@ const Carousel: React.FC<EmblaCarouselProps> = ({ slides, options }) => {
                     />
                 ))}
             </div> */}
-
         </div>
     )
 }

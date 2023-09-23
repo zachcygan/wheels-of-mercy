@@ -10,9 +10,11 @@ module.exports = {
       colors: {
         'accent': '#9ca3af',
         'primary': '#2E2E2E',
+        'light': '#F9FAFB',
       },
       backgroundImage: {
         'pattern': "url('/assets/images/background.webp')",
+        'darkPattern': "url('/assets/images/darkBackground.webp')",
       }
     },
     plugins: [
