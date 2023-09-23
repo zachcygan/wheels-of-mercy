@@ -72,7 +72,6 @@ export default function Navbar() {
   const pathname = usePathname();
   const [hoveredPath, setHoveredPath] = useState(pathname);
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
-
   const [isSlideOpen, setIsSlideOpen] = useState<boolean>(false)
 
   return (
@@ -127,6 +126,12 @@ export default function Navbar() {
                             <MobileNavItem href="/support">Support</MobileNavItem>
                             <MobileNavItem href="/donate">Donate</MobileNavItem>
                             <MobileNavItem href="/faq">FAQs</MobileNavItem>
+                            <div onClick={(e) => {
+                              e.preventDefault(); // prevent navigation
+                              setIsSlideOpen(true);
+                            }}>
+                              <MobileNavItem href="#">Contact</MobileNavItem>
+                            </div>
                             <div onClick={(e) => {
                               e.preventDefault(); // prevent navigation
                               setModalOpen(true);
