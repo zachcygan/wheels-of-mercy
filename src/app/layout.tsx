@@ -17,10 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <meta property="og:image" content="Wheels of Mercy" />
-      <meta property="og:image:type" content="Wheels of Mercy is a 501(c)3 Public Charity that collects used wheelchairs" />
-      <meta property="og:image" content="/assets/images/wheelsOfMercyLogo.png" />
-      <meta property="og:url" content="www.wheelsofmercy.org" />
+      <Head>
+        <meta property="og:image" content="Wheels of Mercy" />
+        <meta property="og:image:type" content="Wheels of Mercy is a 501(c)3 Public Charity that collects used wheelchairs" />
+        <meta property="og:image" content="/assets/images/wheelsOfMercyLogo.png" />
+        <meta property="og:url" content="www.wheelsofmercy.org" />
+      </Head>
       <body className='bg-pattern'>
         <header className='mx-auto'>
           <Navbar />
