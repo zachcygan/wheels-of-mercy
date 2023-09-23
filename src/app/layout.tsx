@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     url: 'https://wheelsofmercy.org',
     type: 'website',
     description: 'Wheels of Mery Logo'
+  },
+  other: {
+    themeColor: '#1d4ed8'
   }
 }
 
