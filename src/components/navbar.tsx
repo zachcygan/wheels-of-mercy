@@ -150,7 +150,7 @@ export default function Navbar() {
                 <Link
                   key={'Wheels of Mercy'}
                   href={'/'}
-                  className='flex items-center justify-center'
+                  className='flex items-center justify-center dark:text-zinc9'
                 >
                   <Image
                     src="/assets/images/wheelsOfMercy.png"

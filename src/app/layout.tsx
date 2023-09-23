@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Public Charity that collects used wheelchairs, repairs and refurbishes them, and distributes them to people who need them',
   openGraph: {
     title: 'Wheels of Mercy',
-    images: './opengraph-image',
+    images: './opengraph-image.jpg',
     url: 'https://wheelsofmercy.org',
     type: 'website',
     description: 'Wheels of Mery Logo'
@@ -24,8 +24,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='bg-pattern dark:bg-darkPattern bg-cover'>
-        <header className='mx-auto'>
+      <body className='bg-pattern'>
+        <header>
           <Navbar />
         </header>
         <div className='min-h-[73vh]'>

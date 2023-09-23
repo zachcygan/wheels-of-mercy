@@ -25,7 +25,7 @@ export default function Hero() {
         </div>
       </div>
       <div className='sm:grid sm:grid-cols-2 max-w-7xl mx-auto mt-10'>
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-2xl text-center blue-600">
           <Image
             src="/assets/images/wheelsOfMercyLogo.png"
             alt="Wheels of Mercy Logo"
