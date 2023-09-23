@@ -9,10 +9,9 @@ export default function AboutUs() {
                     <h2 className="text-4xl font-bold tracking-tight text-gray-900 text-center sm:text-6xl">We're Different, Here's Why</h2>
                 </div>
             </div>
-            <div className="bg-transparent mx-auto">
+            <div className="bg-transparent mx-auto px-6 lg:px-8">
                 <div className="mx-auto grid max-w-2xl text-xl grid-cols-1 items-center gap-x-8 gap-y-16 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
                     <div>
-
                         <p className="mt-4 text-gray-500">
                             Wheels of Mercy is a non-profit public charity that collects used wheelchairs,
                             restores them, and gives them to people who need but can’t afford them.

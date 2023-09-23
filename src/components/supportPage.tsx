@@ -4,7 +4,6 @@ import WishList from './wishList'
 
 export default function SupportPage() {
     return (
-        <div>
             <div className="maw-w-7xl mx-auto">
                 <div className="px-6 py-14 sm:py-20 lg:px-8">
                     <div className="mx-auto max-w-2xl">
@@ -34,6 +33,5 @@ export default function SupportPage() {
                     </p>
                 </div>
             </div>
-        </div>
     )
 }
