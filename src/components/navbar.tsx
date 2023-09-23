@@ -17,7 +17,7 @@ type SVGProps = React.SVGAttributes<SVGSVGElement>;
 
 const robotoFont = Roboto({
   subsets: ['latin'],
-  weight: '700'
+  weight: '500'
 })
 
 const navigation = [
