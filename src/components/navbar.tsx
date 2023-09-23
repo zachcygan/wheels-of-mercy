@@ -28,10 +28,6 @@ const navigation = [
   { name: 'Contact', href: '#', current: false },
 ]
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
-
 function MobileNavItem({ href, children }: MobileNavItemProps) {
   return (
     <li>
@@ -83,7 +79,7 @@ export default function Navbar() {
     <Disclosure as="nav">
       {({ open }) => (
         <>
-          <div className="bg-white/70 mx-auto px-2 sm:px-6 lg:px-8 -z-10">
+          <div className="mx-auto px-2 sm:px-6 lg:px-8 -z-10">
             <div className="relative flex h-16 items-center justify-between w-full">
               <div className="absolute inset-y-0 right-0 flex items-center min-[900px]:hidden">
                 <Popover>
@@ -166,15 +162,15 @@ export default function Navbar() {
                 </Link>
               </div>
               <div className="flex-1">
-                <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex items-center justify-center max-[900px]:hidden">
+                <div className="hidden sm:ml-6 sm:block text-center">
+                  <div className="inline-flex  items-center justify-center max-[900px]:hidden">
                     {navigation.map((item) => {
                       const isActive = item.href === pathname;
                       return (
                         <Link
                           key={item.name}
                           href={item.href}
-                          className={`px-2 py-2 rounded-md text-lg lg:text-2xl relative no-underline duration-200 ease-in hover:text-white ${isActive ? "text-white" : "text-black"} ${robotoFont.className}`}
+                          className={`px-5 py-2 rounded-md text-lg lg:text-2xl relative no-underline duration-200 ease-in hover:text-black ${isActive ? "text-black" : "text-gray-700"} ${robotoFont.className}`}
                           aria-current={item.href === pathname ? 'page' : undefined}
                           onClick={(e) => {
                             if (item.name === 'Contact') {
@@ -188,7 +184,7 @@ export default function Navbar() {
                           <span>{item.name}</span>
                           {item.href === hoveredPath && (
                             <motion.div
-                              className="absolute bottom-0 left-0 h-full bg-gray-900 rounded-md -z-10"
+                              className="absolute bottom-0 left-0 h-full bg-gray-400 rounded-md -z-10"
                               layoutId="navbar"
                               aria-hidden="true"
                               style={{
@@ -217,7 +213,7 @@ export default function Navbar() {
                 >
                   Join Our Mailing List
                 </button>
-                <MailingListModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
+                <MailingListModal isOpen={isModalOpen} onClose={() => setModalOpen(false)}/>
               </div>
             </div>
           </div>
