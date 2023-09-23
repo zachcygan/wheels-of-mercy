@@ -12,7 +12,8 @@ export const metadata: Metadata = {
     title: 'Wheels of Mercy',
     images: './opengraph-image',
     url: 'https://wheelsofmercy.org',
-    type: 'website'
+    type: 'website',
+    description: 'Wheels of Mery Logo'
   }
 }
 
@@ -23,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='bg-pattern'>
+      <body className='bg-pattern dark:bg-darkPattern bg-cover'>
         <header className='mx-auto'>
           <Navbar />
         </header>

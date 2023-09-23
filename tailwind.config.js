@@ -11,6 +11,7 @@ module.exports = {
         'accent': '#9ca3af',
         'primary': '#2E2E2E',
         'light': '#F9FAFB',
+        'zinc9': '#18181b',
       },
       backgroundImage: {
         'pattern': "url('/assets/images/background.webp')",
