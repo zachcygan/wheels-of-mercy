@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Public Charity that collects used wheelchairs, repairs and refurbishes them, and distributes them to people who need them',
   openGraph: {
     title: 'Wheels of Mercy',
-    images: '/assets/images/opengraph-image.png',
+    images: './opengraph-image.png',
     url: 'https://wheelsofmercy.org',
     type: 'website'
   }
