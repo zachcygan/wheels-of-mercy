@@ -8,12 +8,6 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://wheelsofmercy.org'),
   title: 'Wheels of Mercy',
   description: 'Public Charity that collects used wheelchairs, repairs and refurbishes them, and distributes them to people who need them',
-  openGraph: {
-    title: 'Wheels of Mercy',
-    images: './opengraph-image.png',
-    url: 'https://wheelsofmercy.org',
-    type: 'website'
-  }
 }
 
 export default function RootLayout({
