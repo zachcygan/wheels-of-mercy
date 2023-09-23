@@ -3,11 +3,17 @@ import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react';
 import Navbar from "../components/navbar"
 import Footer from "../components/footer"
-import Head from 'next/head';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://wheelsofmercy.org'),
   title: 'Wheels of Mercy',
-  description: 'Public Charity that collects used wheelchairs, repairs and refurbishes them, and distributes them to people who need them'
+  description: 'Public Charity that collects used wheelchairs, repairs and refurbishes them, and distributes them to people who need them',
+  openGraph: {
+    title: 'Wheels of Mercy',
+    images: '/assets/images/opengraph-image.png',
+    url: 'https://wheelsofmercy.org',
+    type: 'website'
+  }
 }
 
 export default function RootLayout({
@@ -17,12 +23,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <meta property="og:title" content="Wheels of Mercy" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="/assets/images/wheelsOfMercyLogo.png" />
-        <meta property="og:url" content="www.wheelsofmercy.org" />
-      </Head>
       <body className='bg-pattern'>
         <header className='mx-auto'>
           <Navbar />
