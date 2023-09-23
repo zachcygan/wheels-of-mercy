@@ -3,10 +3,14 @@ import Image from 'next/image'
 
 export default function AboutUs() {
     return (
-        <div className='bg-transparent mt-20'>
-            <div className="bg-transparent max-w-7xl mx-auto pt-10">
-            <h2 className="text-4xl font-bold text-gray-900 text-center sm:text-6xl">We're Different, Here's Why</h2>
-                <div className="mx-auto grid max-w-2xl text-xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 sm:px-6 sm:py-20 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+        <div className='max-w-7xl mx-auto'>
+            <div className="px-6 py-14 sm:py-20 lg:px-8">
+                <div className="mx-auto max-w-2xl">
+                    <h2 className="text-4xl font-bold tracking-tight text-gray-900 text-center sm:text-6xl">We're Different, Here's Why</h2>
+                </div>
+            </div>
+            <div className="bg-transparent mx-auto">
+                <div className="mx-auto grid max-w-2xl text-xl grid-cols-1 items-center gap-x-8 gap-y-16 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
                     <div>
 
                         <p className="mt-4 text-gray-500">

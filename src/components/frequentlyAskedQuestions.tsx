@@ -101,22 +101,21 @@ const faqs = [
 
 export default function FrequentlyAskedQuestions() {
   return (
-    <div className="">
-      <div className="mx-auto max-w-7xl divide-y divide-gray-900/10 sm:py-20 lg:px-8">
-        <div className='flex justify-center'>
-          <h2 className="text-4xl sm:text-6xl font-bold leading-10 tracking-tight text-center text-gray-900">Frequently asked questions</h2>
-        </div>
-        <dl className="mt-20 space-y-8 divide-y divide-gray-900/10">
-          {faqs.map((faq) => (
-            <div key={faq.id} className="pt-8 lg:grid lg:grid-cols-12 lg:gap-8">
-              <dt className="text-base leading-7 text-gray-900 lg:col-span-5 font-bold">{faq.question}</dt>
-              <dd className="mt-4 lg:col-span-7 lg:mt-0">
-                <p className="text-base leading-7 text-black">{faq.answer}</p>
-              </dd>
-            </div>
-          ))}
-        </dl>
+    <div className="mx-auto max-w-7xl divide-y divide-gray-900/10 px-6 py-14 sm:py-20 lg:px-8">
+      <div className='flex justify-center'>
+        <h2 className="text-4xl sm:text-6xl font-bold leading-10 tracking-tight text-center text-gray-900">Frequently asked questions</h2>
       </div>
+      <dl className="mt-20 space-y-8 divide-y divide-gray-900/10">
+        {faqs.map((faq) => (
+          <div key={faq.id} className="pt-8 lg:grid lg:grid-cols-12 lg:gap-8">
+            <dt className="text-base leading-7 text-gray-900 lg:col-span-5 font-bold">{faq.question}</dt>
+            <dd className="mt-4 lg:col-span-7 lg:mt-0">
+              <p className="text-base leading-7 text-black">{faq.answer}</p>
+            </dd>
+          </div>
+        ))}
+      </dl>
     </div>
+
   )
 }
