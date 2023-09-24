@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: 'Wheels of Mery Logo'
   },
   other: {
-    themeColor: '#1d4ed8'
+    'theme-color': '#1d4ed8',
   }
 }
 
