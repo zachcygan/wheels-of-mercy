@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import emailjs from '@emailjs/browser'
 import Success from './success'
+import Error from './error'
 
 
 export default function ContactForm() {
@@ -14,6 +15,7 @@ export default function ContactForm() {
     const [subject, setSubject] = useState<string>('')
     const [message, setMessage] = useState<string>('')
     const [images, setImages] = useState<File[]>([])
+    const [totalSize, setTotalSize] = useState<number>(0);
     const [previewImages, setPreviewImages] = useState<string[]>([])
     const [success, setSuccess] = useState<boolean>(false)
     const title = 'Thank you for contacting us!'
@@ -55,6 +57,15 @@ export default function ContactForm() {
     //handles image preview
     const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         const files = e.target.files;
+        if(!files) return;
+        let totalSizeInMB = 0;
+        
+        for (let i = 0; i < files.length; i++) {
+            totalSizeInMB += files[i].size / (1024 * 1024); // converting to MB
+        }
+
+        setTotalSize(parseFloat(totalSizeInMB.toFixed(2)));
+
         if (files) {
             const imagePreviews: string[] = [];
             for (let i = 0; i < files.length; i++) {
@@ -303,6 +314,7 @@ export default function ContactForm() {
                                             />
                                         ))}
                                     </div>
+                                    <p className="mt-2 text-sm text-gray-600">Total size: {totalSize} MB</p>
                                 </div>
                             )}
                         </div>
