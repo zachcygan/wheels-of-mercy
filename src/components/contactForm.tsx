@@ -37,6 +37,12 @@ export default function ContactForm() {
 
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if(!selectedCheckboxes || !firstName || !lastName || !email || !subject || !message) {
+            setError(true);
+            setErrorMessage('Please fill out all required fields.');
+            return;
+        }
+
         if (form.current !== null) {
             emailjs.sendForm('service_fzix91g', 'template_2wbljac', form.current, 'jUyA5LHa70k8i0tEl')
                 .then((result) => {
@@ -237,7 +243,7 @@ export default function ContactForm() {
                             </div>
                         </div>
                         <div className="sm:col-span-full">
-                            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900 flex justify-between items-center">
+                            <label htmlFor="email" className="text-sm font-medium leading-6 text-gray-900 flex justify-between items-center">
                                 Email address
                                 {emailTouched && !isValidEmail(email) && <span className="text-red-500 text-xs">Please enter a valid email address</span>}
                             </label>

@@ -107,7 +107,7 @@ export default function DonationForm() {
                         </div>
                     </div>
                     <div className="sm:col-span-full">
-                        <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900 flex justify-between items-center">
+                        <label htmlFor="email" className="text-sm font-medium leading-6 text-gray-900 flex justify-between items-center">
                             Email address
                             {emailTouched && !isValidEmail(email) && <span className="text-red-500 text-xs">Please enter a valid email address</span>}
                         </label>
@@ -126,7 +126,7 @@ export default function DonationForm() {
                         </div>
                     </div>
                     <div className="sm:col-span-3">
-                        <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white flex justify-between items-center">
+                        <label htmlFor="email" className="text-sm font-medium leading-6 text-gray-900 dark:text-white flex justify-between items-center">
                             Phone Number
                         </label>
                         <div className="mt-2">
