@@ -100,10 +100,14 @@ export default function ContactForm() {
         setErrorMessage(''); // Reset the error message
     };
 
+    const handleCloseSuccess = () => {
+        setSuccess(false);
+    }
+
     return (
         <form ref={form} onSubmit={sendEmail}>
-            { success ? <Success message={SuccessMessage} /> : null }
-            { error ? <Error message={errorMessage} onClose={() => handleCloseError()} /> : null }
+            { success ? <Success message={SuccessMessage} onClose={() => handleCloseSuccess() } /> : null }
+            { error ? <Error message={errorMessage} onClose={() => handleCloseError() } /> : null }
             <div className="space-y-12">
                 <div className="border-b border-gray-900/10 pb-12">
                     <div>

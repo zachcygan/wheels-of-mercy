@@ -6,9 +6,10 @@ import { XMarkIcon } from '@heroicons/react/20/solid'
 
 type SuccessProps = {
   message: string
+  onClose: () => void
 }
 
-export default function Success({ message }: SuccessProps) {
+export default function Success({ message, onClose }: SuccessProps) {
   const [show, setShow] = useState(true)
 
   return (
@@ -46,6 +47,7 @@ export default function Success({ message }: SuccessProps) {
                       className="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                       onClick={() => {
                         setShow(false)
+                        onClose()
                       }}
                     >
                       <span className="sr-only">Close</span>
