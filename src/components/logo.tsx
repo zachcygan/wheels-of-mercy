@@ -1,7 +1,5 @@
 'use client'
 import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 
 export default function Home() {

@@ -58,7 +58,7 @@ export default function MailingListUnsubForm() {
                 <div className="border-b border-gray-900/10 pb-12 bg-white/50 p-2">
                     <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 pt-6">
                         <div className="sm:col-span-full">
-                            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900 flex justify-between items-center">
+                            <label htmlFor="email" className="text-sm font-medium leading-6 text-gray-900 flex justify-between items-center">
                                 Email address
                                 {emailTouched && !isValidEmail(email) && <span className="text-red-500 text-xs">Please enter a valid email address</span>}
                             </label>

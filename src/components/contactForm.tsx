@@ -14,7 +14,6 @@ export default function ContactForm() {
     const [emailTouched, setEmailTouched] = useState<boolean>(false);
     const [subject, setSubject] = useState<string>('')
     const [message, setMessage] = useState<string>('')
-    const [images, setImages] = useState<File[]>([])
     const [totalSize, setTotalSize] = useState<number>(0);
     const [previewImages, setPreviewImages] = useState<string[]>([])
     const [success, setSuccess] = useState<boolean>(false)
