@@ -18,8 +18,10 @@ export default function ContactForm() {
     const [totalSize, setTotalSize] = useState<number>(0);
     const [previewImages, setPreviewImages] = useState<string[]>([])
     const [success, setSuccess] = useState<boolean>(false)
-    const title = 'Thank you for contacting us!'
+    const [error, setError] = useState<boolean>(false)
     const SuccessMessage = 'Thank you for your message, we will get back to you as soon as possible.'
+    const [errorMessage, setErrorMessage] = useState<string>('')
+    
 
     const form = useRef<HTMLFormElement>(null);
 
@@ -63,6 +65,13 @@ export default function ContactForm() {
         for (let i = 0; i < files.length; i++) {
             totalSizeInMB += files[i].size / (1024 * 1024); // converting to MB
         }
+        
+        if (totalSizeInMB > 2) {
+            setErrorMessage('File size is too large. Please upload files less than 2MB.');
+            setError(true);
+            e.target.value = ''
+            return; // Exit the function early if the file size is too large
+        }
 
         setTotalSize(parseFloat(totalSizeInMB.toFixed(2)));
 
@@ -84,10 +93,17 @@ export default function ContactForm() {
             }
         }
     };
+    
+    const handleCloseError = () => {
+        console.log(error)
+        setError(false);
+        setErrorMessage(''); // Reset the error message
+    };
 
     return (
         <form ref={form} onSubmit={sendEmail}>
-            {success ? <Success message={SuccessMessage} /> : null}
+            { success ? <Success message={SuccessMessage} /> : null }
+            { error ? <Error message={errorMessage} onClose={() => handleCloseError()} /> : null }
             <div className="space-y-12">
                 <div className="border-b border-gray-900/10 pb-12">
                     <div>

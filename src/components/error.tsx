@@ -5,10 +5,11 @@ import { ExclamationCircleIcon } from '@heroicons/react/24/outline'
 import { XMarkIcon } from '@heroicons/react/20/solid'
 
 type ErrorProps = {
-  message: string
+  message: string,
+  onClose: () => void
 }
 
-export default function Error({ message }: ErrorProps) {
+export default function Error({ message, onClose }: ErrorProps) {
   const [show, setShow] = useState(true)
 
   return (
@@ -37,7 +38,7 @@ export default function Error({ message }: ErrorProps) {
                     <ExclamationCircleIcon className="h-6 w-6 text-red-600" aria-hidden="true" />
                   </div>
                   <div className="ml-3 w-0 flex-1 pt-0.5">
-                    <p className="text-sm font-medium text-gray-900">Success!</p>
+                    <p className="text-sm font-medium text-gray-900">Error!</p>
                     <p className="mt-1 text-sm text-gray-500">{message}</p>
                   </div>
                   <div className="ml-4 flex flex-shrink-0">
@@ -46,6 +47,7 @@ export default function Error({ message }: ErrorProps) {
                       className="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                       onClick={() => {
                         setShow(false)
+                        onClose()
                       }}
                     >
                       <span className="sr-only">Close</span>
