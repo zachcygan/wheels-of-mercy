@@ -42,7 +42,7 @@ const testimonials = [
     {
         body: 'We are so grateful to Charles! Vernon loves his new Chair! Without Charles’ help Vernon would have never been approved for his new chair.',
         author: {
-            name: 'Kaye Doan',
+            name: 'PLACEHOLDER',
             imageUrl:
                 '/assets/images/testimonial1.webp',
         },
