@@ -1,5 +1,5 @@
 'use client'
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Disclosure, Transition, Popover } from '@headlessui/react'
 import { usePathname } from 'next/navigation'
 import { motion } from "framer-motion"
@@ -74,6 +74,10 @@ export default function Navbar() {
   const [hoveredPath, setHoveredPath] = useState(pathname);
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
   const [isSlideOpen, setIsSlideOpen] = useState<boolean>(false)
+
+  useEffect(() => {
+    setHoveredPath(pathname);
+  }, [pathname]);
 
   return (
     <Disclosure as="nav">
