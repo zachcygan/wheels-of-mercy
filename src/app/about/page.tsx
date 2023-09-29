@@ -7,8 +7,8 @@ export default function About() {
     return (
         <div className='bg-transparent'>
             <OurStory />
-            <AboutUs />
             <Founded />
+            <AboutUs />
         </div>
     )
 }

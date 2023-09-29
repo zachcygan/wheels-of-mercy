@@ -11,7 +11,7 @@ const robotoFont = Roboto({
 export default function Founded() {
   return (
     <div>
-      <div className="max-w-5xl mx-auto px-6 py-14 sm:py-20 lg:px-8">
+      <div className="max-w-5xl mx-auto px-6 pt-14 sm:pt-20 lg:px-8">
         <section aria-labelledby="features-heading" className="relative flex flex-col items-center lg:flex-row">
           <div className="lg:w-1/2 lg:pr-4 xl:pr-16">
             <div className='relative'>
