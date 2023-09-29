@@ -16,6 +16,7 @@ module.exports = {
       backgroundImage: {
         'pattern': "url('/assets/images/background.webp')",
         'darkPattern': "url('/assets/images/darkBackground.webp')",
+        'test': "url('/assets/images/testbg.png')",
       },
       backgroundColor: {
         'zinc9': '#18181b',

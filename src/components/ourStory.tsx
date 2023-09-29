@@ -30,7 +30,7 @@ export default function OurStory() {
                                 The journey to founding Wheels of Mercy started when I got a job at a wheelchair
                                 dealership. During my time there I learned how to evaluate and fit someone for a
                                 wheelchair. As managed care came to Medicaid, I recognized that the way wheelchairs
-                                were acquired was going to change.
+                                were acquired was going az   to change.
                             </p>
                             <p className="mt-8">
                                 In response to this emerging market, I quit my job and founded Adaptive Technologies

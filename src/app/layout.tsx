@@ -15,9 +15,6 @@ export const metadata: Metadata = {
     type: 'website',
     description: 'Wheels of Mery Logo'
   },
-  other: {
-    'theme-color': '#1d4ed8',
-  }
 }
 
 export default function RootLayout({
@@ -27,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='bg-pattern'>
+      <body className='bg-test bg-cover'>
         <header>
           <Navbar />
         </header>
