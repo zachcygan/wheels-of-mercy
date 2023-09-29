@@ -13,7 +13,6 @@ export const metadata: Metadata = {
     images: './opengraph-image.jpg',
     url: 'https://wheelsofmercy.org',
     type: 'website',
-    description: 'Wheels of Mery Logo'
   },
 }
 
