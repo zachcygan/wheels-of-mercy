@@ -208,7 +208,7 @@ export default function Navbar() {
               </div>
               <div>
                 <button
-                  className="rounded-md max-[900px]:hidden p-2 text-md: lg:text-lg bg-gray-400 w-[180px] hover:text-white hover:scale-110 transition-all active:scale-105"
+                  className={`rounded-md max-[900px]:hidden p-2 text-md: lg:text-lg bg-gray-400 dark:bg-gray-500 w-[180px] hover:text-white hover:scale-110 transition-all active:scale-105 dark:text-dark ${robotoFont.className}}`}
                   onClick={() => setModalOpen(true)}
                 >
                   Join Our Mailing List
