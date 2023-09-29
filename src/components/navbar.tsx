@@ -150,7 +150,7 @@ export default function Navbar() {
                 <Link
                   key={'Wheels of Mercy'}
                   href={'/'}
-                  className='flex items-center justify-center dark:text-zinc9'
+                  className='flex items-center justify-center dark:text-zinc9 dark:invert'
                 >
                   <Image
                     src="/assets/images/wheelsOfMercy.png"
@@ -170,7 +170,7 @@ export default function Navbar() {
                         <Link
                           key={item.name}
                           href={item.href}
-                          className={`px-5 py-2 rounded-md text-lg lg:text-2xl relative no-underline duration-200 ease-in hover:text-black ${isActive ? "text-black" : "text-gray-700"} ${robotoFont.className}`}
+                          className={`px-5 py-2 rounded-md text-lg lg:text-2xl relative no-underline duration-200 ease-in hover:text-black ${isActive ? "text-black" : "text-gray-700 dark:text-dark"} ${robotoFont.className}`}
                           aria-current={item.href === pathname ? 'page' : undefined}
                           onClick={(e) => {
                             if (item.name === 'Contact') {
@@ -194,7 +194,7 @@ export default function Navbar() {
                                 type: "spring",
                                 bounce: 0.25,
                                 stiffness: 130,
-                                damping: 9,
+                                damping: 15,
                                 duration: 0.2,
                               }}
                             />

@@ -12,11 +12,11 @@ export default function AboutUs() {
         <div className='max-w-7xl mx-auto'>
             <div className="px-6 py-14 sm:py-20 lg:px-8">
                 <div className="mx-auto max-w-2xl">
-                    <h2 className={`text-4xl tracking-tight text-center sm:text-6xl ${robotoFont.className}`}>We're Different, Here's Why</h2>
+                    <h2 className={`text-4xl tracking-tight text-center sm:text-6xl dark:text-dark ${robotoFont.className}`}>We're Different, Here's Why</h2>
                 </div>
             </div>
             <div className="bg-transparent mx-auto px-6 lg:px-8">
-                <div className="mx-auto grid max-w-2xl text-xl text-black grid-cols-1 items-center gap-x-8 gap-y-16 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+                <div className="mx-auto grid max-w-2xl text-xl text-black dark:text-dark grid-cols-1 items-center gap-x-8 gap-y-16 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
                     <div>
                         <p className="mt-4">
                             Wheels of Mercy is a non-profit public charity that collects used wheelchairs,

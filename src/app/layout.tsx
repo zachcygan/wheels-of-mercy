@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='bg-test bg-cover'>
+      <body className='bg-light dark:bg-dark bg-cover'>
         <header>
           <Navbar />
         </header>

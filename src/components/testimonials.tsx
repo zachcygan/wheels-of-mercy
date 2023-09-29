@@ -79,9 +79,9 @@ export default function Testimonials() {
     return (
         <div className="py-24 sm:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-xl text-center">
+                <div className="mx-auto max-w-2xl pb-10 text-center">
                     {/* <h2 className="text-lg font-semibold leading-8 tracking-tight text-indigo-600">Testimonials</h2> */}
-                    <p className={`hiddenClass mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl ${robotoFont.className}`}>
+                    <p className={`hiddenClass mt-2 text-4xl font-bold tracking-tight text-black dark:text-dark sm:text-6xl ${robotoFont.className}`}>
                         We Have Helped Many Amazing People
                     </p>
                 </div>

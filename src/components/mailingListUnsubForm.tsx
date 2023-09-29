@@ -50,15 +50,15 @@ export default function MailingListUnsubForm() {
     }
 
     return (
-        <form ref={form} onSubmit={handleFormSubmit} className=' bg-white p-20 rounded-md'>
+        <form ref={form} onSubmit={handleFormSubmit} className=' bg-white dark:bg-zinc-900 p-20 rounded-md'>
             {success ? <Success message={message} onClose={() => handleCloseSuccess() }/> : null}
             <div className="space-y-12">
-                <p className='text-center text-xl font-bold'>Unsubscribe From Our Mailing List</p>
-                <p className='text-center'>Enter your email to unsubscribe.</p>
-                <div className="border-b border-gray-900/10 pb-12 bg-white/50 p-2">
+                <p className='text-center text-xl font-bold dark:text-dark'>Unsubscribe From Our Mailing List</p>
+                <p className='text-center dark:text-dark'>Enter your email to unsubscribe.</p>
+                <div className="border-b border-gray-900/10 pb-12 bg-white/50 dark:bg-inherit p-2 rounded-md">
                     <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 pt-6">
                         <div className="sm:col-span-full">
-                            <label htmlFor="email" className="text-sm font-medium leading-6 text-gray-900 flex justify-between items-center">
+                            <label htmlFor="email" className="text-sm font-medium leading-6 dark:text-dark text-gray-900 flex justify-between items-center">
                                 Email address
                                 {emailTouched && !isValidEmail(email) && <span className="text-red-500 text-xs">Please enter a valid email address</span>}
                             </label>

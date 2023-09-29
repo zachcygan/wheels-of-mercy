@@ -13,13 +13,13 @@ export default function OurStory() {
     return (
         <div className='max-w-7xl mx-auto'>
             <div className="px-6 py-10 sm:py-15 md:px-7 md:py-20 lg:px-8">
-                <div className="mx-auto max-w-2xl">
-                    <h2 className={`text-4xl tracking-tight text-center sm:text-6xl ${robotoFont.className}`}>Our Story</h2>
+                <div className="mx-auto max-w-2xl ">
+                    <h2 className={`text-4xl dark:text-dark tracking-tight text-center sm:text-6xl ${robotoFont.className}`}>Our Story</h2>
                 </div>
             </div>
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-xl lg:max-w-none">
-                    <div className="grid max-w-xl grid-cols-1 text-xl mx-auto gap-8 leading-7 text-black lg:max-w-none md:grid-cols-2">
+                    <div className="grid max-w-xl grid-cols-1 text-xl dark:text-dark2 mx-auto gap-8 leading-7 text-black lg:max-w-none md:grid-cols-2">
                         <div className='mx-auto'>
                             <p>
                                 At 16 I sustained a spinal cord injury which rendered me a quadriplegic. I spent the next

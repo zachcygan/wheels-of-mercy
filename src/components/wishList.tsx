@@ -21,12 +21,12 @@ const items = [
 
 export default function WishList() {
     return (
-        <ul role="list" className="divide-y divide-gray-200 mt-5">
+        <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-900 mt-5">
             {items.map((item) => (
-                <li key={item.id} className="py-4 bg-white rounded-md">
+                <li key={item.id} className="py-4 bg-white dark:bg-zinc-900 rounded-md">
                     <div className="text-left p-1">
-                        <h3 className={`text-xl font-bold text-black ${robotoFont.className}`}>{item.title}</h3>
-                        <p className="mt-2 text-black">{item.body}</p>                    
+                        <h3 className={`text-xl font-bold text-black dark:text-dark ${robotoFont.className}`}>{item.title}</h3>
+                        <p className="mt-2 text-black dark:text-dark2">{item.body}</p>                    
                     </div>
                 </li>
             ))}

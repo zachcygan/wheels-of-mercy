@@ -21,10 +21,10 @@ export default function Donate() {
             <div className="max-w-7xl mx-auto">
                 <div className="px-6 py-14 sm:py-20 lg:px-8">
                     <div className="mx-auto max-w-2xl">
-                        <h2 className={`text-4xl font-bold tracking-tight text-gray-900 text-center sm:text-6xl ${robotoFont.className}`}>Donate</h2>
+                        <h2 className={`text-4xl font-bold tracking-tight text-black dark:text-dark text-center sm:text-6xl ${robotoFont.className}`}>Donate</h2>
                     </div>
                 </div>
-                <div className="mx-auto max-w-2xl text-center text-black">
+                <div className="mx-auto max-w-2xl text-center text-black dark:text-dark">
                     <p className="text-lg leading-8">
                         Wheels of Mercy keeps administrative and program costs low by developing
                         sponorships and donations in-kind for every possible area of need.
@@ -42,8 +42,7 @@ export default function Donate() {
                     </div>
 
                     {showForm && (
-                        <div className="mt-4 bg-white p-4 rounded-md">
-                            {/* Your donation form goes here */}
+                        <div className="mt-4 bg-white dark:bg-zinc-900 p-4 rounded-md">
                             <DonationForm />
                         </div>
                     )}

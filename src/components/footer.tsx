@@ -24,7 +24,7 @@ const navigation = {
               <div key={item.name} className="pb-6">
                 <Link href={item.href}>
                   <div 
-                    className="text-sm leading-6 text-black"
+                    className="text-sm leading-6 text-black dark:text-dark"
                     onClick={(e) => {
                       if (item.name === 'Contact') {
                         e.preventDefault(); // prevent navigation
@@ -38,7 +38,7 @@ const navigation = {
               </div>
             ))}
           </nav>
-          <p className="mt-10 text-center text-xs leading-5 text-black">
+          <p className="mt-10 text-center text-xs leading-5 text-black dark:text-dark">
             &copy; Wheels of Mercy, Inc. All rights reserved.
           </p>
         </div>

@@ -11,12 +11,13 @@ module.exports = {
         'accent': '#9ca3af',
         'primary': '#2E2E2E',
         'light': '#F9FAFB',
+        'dark': '#d4d4d8',
+        'dark2': '#e4e4e7',
         'zinc8': '#27272a',
       },
       backgroundImage: {
-        'pattern': "url('/assets/images/background.webp')",
-        'darkPattern': "url('/assets/images/darkBackground.webp')",
-        'test': "url('/assets/images/testbg.png')",
+        'light': "url('/assets/images/lightBg.png')",
+        'dark': "url('/assets/images/darkBg.png')",
       },
       backgroundColor: {
         'zinc9': '#18181b',
