@@ -1,7 +1,12 @@
 'use client'
-
+import { Roboto } from 'next/font/google'
 import { Disclosure } from '@headlessui/react'
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
+
+const robotoFont = Roboto({
+    subsets: ['latin'],
+    weight: '700'
+})
 
 const faqs = [
   {
@@ -101,21 +106,37 @@ const faqs = [
 
 export default function FrequentlyAskedQuestions() {
   return (
-    <div className="mx-auto max-w-7xl divide-y divide-gray-900/10 px-6 py-14 sm:py-20 lg:px-8">
-      <div className='flex justify-center'>
-        <h2 className="text-4xl sm:text-6xl font-bold leading-10 tracking-tight text-center text-gray-900">Frequently asked questions</h2>
+    <div className="mx-auto max-w-7xl px-6 py-14 sm:py-20 lg:px-8">
+      <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
+        <div className='flex justify-center'>
+          <h2 className={`text-4xl sm:text-6xl font-bold leading-10 tracking-tight text-center text-black ${robotoFont.className}`}>Frequently asked questions</h2>
+        </div>
+        <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
+          {faqs.map((faq) => (
+            <Disclosure as="div" key={faq.question} className="pt-6">
+              {({ open }) => (
+                <>
+                  <dt>
+                    <Disclosure.Button className="flex w-full items-start justify-between text-left text-black">
+                      <span className="text-base font-semibold leading-7">{faq.question}</span>
+                      <span className="ml-6 flex h-7 items-center">
+                        {open ? (
+                          <MinusSmallIcon className="h-6 w-6" aria-hidden="true" />
+                        ) : (
+                          <PlusSmallIcon className="h-6 w-6" aria-hidden="true" />
+                        )}
+                      </span>
+                    </Disclosure.Button>
+                  </dt>
+                  <Disclosure.Panel as="dd" className="mt-2 pr-12">
+                    <p className="text-base leading-7 text-black">{faq.answer}</p>
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+          ))}
+        </dl>
       </div>
-      <dl className="mt-20 space-y-8 divide-y divide-gray-900/10">
-        {faqs.map((faq) => (
-          <div key={faq.id} className="pt-8 lg:grid lg:grid-cols-12 lg:gap-8">
-            <dt className="text-base leading-7 text-gray-900 lg:col-span-5 font-bold">{faq.question}</dt>
-            <dd className="mt-4 lg:col-span-7 lg:mt-0">
-              <p className="text-base leading-7 text-black">{faq.answer}</p>
-            </dd>
-          </div>
-        ))}
-      </dl>
     </div>
-
   )
 }
