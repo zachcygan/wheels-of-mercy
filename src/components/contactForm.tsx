@@ -212,7 +212,7 @@ export default function ContactForm() {
                     name="firstName"
                     id="firstName"
                     autoComplete="firstName"
-                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 dark:text-dark placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     value={firstName}
                     onChange={(e) => { setFirstName(e.target.value) }}
                     placeholder='John'
@@ -233,7 +233,7 @@ export default function ContactForm() {
                     name="lastName"
                     id="last-name"
                     autoComplete="last-name"
-                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 dark:text-dark placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     value={lastName}
                     onChange={(e) => { setLastName(e.target.value) }}
                     placeholder='Smith'
@@ -256,7 +256,7 @@ export default function ContactForm() {
                   onChange={(e) => setEmail(e.target.value)}
                   onBlur={() => setEmailTouched(true)}
                   placeholder='example@email.com'
-                  className={`block w-full bg-transparent rounded-md border-0 py-1.5 pl-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${emailTouched && !isValidEmail(email) ? 'ring-2 ring-red-500' : ''}`}
+                  className={`block w-full bg-transparent rounded-md border-0 py-1.5 pl-1 text-gray-900 dark:text-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${emailTouched && !isValidEmail(email) ? 'ring-2 ring-red-500' : ''}`}
                 />
               </div>
             </div>
@@ -271,7 +271,7 @@ export default function ContactForm() {
                     name="subject"
                     id="subject"
                     autoComplete="subject"
-                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 dark:text-dark placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     value={subject}
                     onChange={(e) => { setSubject(e.target.value) }}
                     placeholder='Wheel Chair Donation'
@@ -288,7 +288,7 @@ export default function ContactForm() {
                   id="text"
                   name="text"
                   rows={7}
-                  className="block bg-transparent w-full rounded-md p-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block bg-transparent w-full rounded-md p-2 border-0 py-1.5 text-gray-900 dark:text-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={message}
                   onChange={(e) => { setMessage(e.target.value) }}
                   placeholder='Hello, I would like to donate a wheel chair.'

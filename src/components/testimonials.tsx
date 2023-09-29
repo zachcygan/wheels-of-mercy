@@ -50,10 +50,6 @@ const testimonials = [
     // More testimonials...
 ]
 
-function classNames(...classes: String[]) {
-    return classes.filter(Boolean).join(' ')
-}
-
 export default function Testimonials() {
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
