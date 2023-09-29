@@ -20,7 +20,7 @@ export default function Hero() {
   return (
     <div className='bg-transparent'>
       <div className='flex items-center justify-center w-full mx-auto'>
-        <div className='rounded-md mx-auto w-full'>
+        <div className='rounded-md mx-auto w-full px-5 bg-white/50 py-2'>
           <Carousel slides={slides} options={options} />
         </div>
       </div>
