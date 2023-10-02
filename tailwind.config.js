@@ -21,6 +21,9 @@ module.exports = {
       },
       backgroundColor: {
         'zinc9': '#18181b',
+      },
+      maxWidth: {
+        '3/4': '75%',
       }
     },
     plugins: [

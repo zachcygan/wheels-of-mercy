@@ -36,7 +36,7 @@ export default function ContactForm() {
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!selectedCheckboxes || !firstName || !lastName || !email || !subject || !message) {
+    if (selectedCheckboxes.length === 0 || !firstName || !lastName || !email || !subject || !message) {
       setError(true);
       setErrorMessage('Please fill out all required fields.');
       return;
@@ -46,6 +46,10 @@ export default function ContactForm() {
       emailjs.sendForm('service_fzix91g', 'template_2wbljac', form.current, 'jUyA5LHa70k8i0tEl')
         .then((result) => {
           console.log(result.text)
+          if(error) {
+            setError(false)
+            setErrorMessage('')
+          }
           setSuccess(true)
         }, (error) => {
           console.log(error.text);
@@ -73,6 +77,7 @@ export default function ContactForm() {
 
     if (totalSizeInMB > 2) {
       setErrorMessage('File size is too large. Please upload files less than 2MB.');
+      setSuccess(false)
       setError(true);
       e.target.value = ''
       return; // Exit the function early if the file size is too large
