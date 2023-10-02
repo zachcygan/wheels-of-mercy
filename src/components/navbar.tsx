@@ -1,8 +1,8 @@
 'use client'
-import { Fragment, useState, useEffect } from 'react'
+import { Fragment, useState, useEffect, useRef } from 'react'
 import { Disclosure, Transition, Popover } from '@headlessui/react'
 import { usePathname } from 'next/navigation'
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import { Roboto } from 'next/font/google'
 import SlideOver from './slideOver'
 import MailingListModal from './mailingListModal'
@@ -71,9 +71,10 @@ function ChevronDownIcon(props: SVGProps) {
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [hoveredPath, setHoveredPath] = useState(pathname);
+  const [hoveredPath, setHoveredPath] = useState(pathname || null);
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
   const [isSlideOpen, setIsSlideOpen] = useState<boolean>(false)
+  let timeoutRef = useRef<number | null>(null)
 
   useEffect(() => {
     setHoveredPath(pathname);
@@ -174,7 +175,7 @@ export default function Navbar() {
                         <Link
                           key={item.name}
                           href={item.href}
-                          className={`px-5 py-2 rounded-md text-lg lg:text-2xl relative no-underline duration-200 ease-in hover:text-black ${isActive ? "text-black" : "text-gray-700 dark:text-dark"} ${robotoFont.className}`}
+                          className={`px-5 py-2 rounded-md text-lg lg:text-2xl relative no-underline transition-all delay-150 hover:delay-0 ease-in-out ${isActive ? "text-black hover:text-zinc-300" : "text-gray-700 dark:text-dark"} ${robotoFont.className}`}
                           aria-current={item.href === pathname ? 'page' : undefined}
                           onClick={(e) => {
                             if (item.name === 'Contact') {
@@ -182,27 +183,33 @@ export default function Navbar() {
                               setIsSlideOpen(true);
                             }
                           }}
-                          onMouseOver={() => setHoveredPath(item.href)}
-                          onMouseLeave={() => setHoveredPath(pathname)}
+                          onMouseEnter={() => {
+                            if (timeoutRef.current) {
+                              window.clearTimeout(timeoutRef.current)
+                            }
+                            setHoveredPath(item.href)
+                          }}
+                          onMouseLeave={() => {
+                            timeoutRef.current = window.setTimeout(() => {
+                              setHoveredPath(null)
+                            }, 200)
+                          }}
                         >
+                          <AnimatePresence>
+                            {item.href === hoveredPath && (
+                              <motion.span
+                                className="absolute inset-0 rounded-lg bg-gray-100/50"
+                                layoutId="hoverBackground"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1, transition: { duration: 0.15 } }}
+                                exit={{
+                                  opacity: 0,
+                                  transition: { duration: 0.15 },
+                                }}
+                              />
+                            )}
+                          </AnimatePresence>
                           <span>{item.name}</span>
-                          {item.href === hoveredPath && (
-                            <motion.div
-                              className="absolute bottom-0 left-0 h-full bg-gray-400 rounded-md -z-10"
-                              layoutId="navbar"
-                              aria-hidden="true"
-                              style={{
-                                width: "100%",
-                              }}
-                              transition={{
-                                type: "spring",
-                                bounce: 0.25,
-                                stiffness: 130,
-                                damping: 15,
-                                duration: 0.2,
-                              }}
-                            />
-                          )}
                         </Link>
                       );
                     })}
@@ -217,7 +224,7 @@ export default function Navbar() {
                 >
                   Join Our Mailing List
                 </button>
-                <MailingListModal isOpen={isModalOpen} onClose={() => setModalOpen(false)}/>
+                <MailingListModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
               </div>
             </div>
           </div>
