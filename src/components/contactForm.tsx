@@ -20,6 +20,7 @@ export default function ContactForm() {
   const [error, setError] = useState<boolean>(false)
   const SuccessMessage = 'Thank you for your message, we will get back to you as soon as possible.'
   const [errorMessage, setErrorMessage] = useState<string>('')
+  const [sending, setSending] = useState<boolean>(false)
 
 
   const form = useRef<HTMLFormElement>(null);
@@ -36,6 +37,7 @@ export default function ContactForm() {
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSending(true)
     if (selectedCheckboxes.length === 0 || !firstName || !lastName || !email || !subject || !message) {
       setError(true);
       setErrorMessage('Please fill out all required fields.');
@@ -46,10 +48,12 @@ export default function ContactForm() {
       emailjs.sendForm('service_fzix91g', 'template_2wbljac', form.current, 'jUyA5LHa70k8i0tEl')
         .then((result) => {
           console.log(result.text)
-          if(error) {
+          if (error) {
             setError(false)
             setErrorMessage('')
+            setSending(false)
           }
+          setSending(false)
           setSuccess(true)
         }, (error) => {
           console.log(error.text);
@@ -354,10 +358,20 @@ export default function ContactForm() {
       <div className="mt-6 flex items-center justify-end gap-x-6">
         <button
           type="submit"
-          className="rounded-full bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className={`rounded-full bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
+          disabled={sending}
         >
-          Send
+          {sending ? (
+            <div className='cursor-not-allowed'>
+              <div className='animate-spin'>
+                <svg width="32px" height="20px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none" className="hds-flight-icon--animation-loading"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g fill="#FFFFFF" fill-rule="evenodd" clipRule="evenodd"> <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z" opacity=".2"></path> <path d="M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z"></path> </g> </g></svg>
+              </div>
+            </div>
+          ) : (
+            'Send'
+          )}
         </button>
+
       </div>
     </form>
   )
