@@ -13,7 +13,7 @@ export default function Success({ message, onClose }: SuccessProps) {
 
   return (
     <div className='flex justify-center'>
-      <div className="rounded-md bg-green-50 p-4 z-10 absolute max-w-3/4">
+      <div className="rounded-md bg-green-50 p-4 z-10 absolute max-w-3/4 -top-12">
         <div className="flex">
           <div className="flex-shrink-0">
             <CheckCircleIcon className="h-5 w-5 text-green-400" aria-hidden="true" />
