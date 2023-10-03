@@ -78,7 +78,7 @@ export default function DonationForm() {
                   name="firstName"
                   id="firstName"
                   autoComplete="firstName"
-                  className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 dark:text-dark placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                  className="outline-none block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 dark:text-dark placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                   value={firstName}
                   onChange={(e) => { setFirstName(e.target.value) }}
                   placeholder='John'
@@ -98,7 +98,7 @@ export default function DonationForm() {
                   name="lastName"
                   id="last-name"
                   autoComplete="last-name"
-                  className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 dark:text-dark placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                  className="outline-none block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 dark:text-dark placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                   value={lastName}
                   onChange={(e) => { setLastName(e.target.value) }}
                   placeholder='Smith'
@@ -121,7 +121,7 @@ export default function DonationForm() {
                 onChange={(e) => setEmail(e.target.value)}
                 onBlur={() => setEmailTouched(true)}
                 placeholder='example@email.com'
-                className={`block w-full rounded-md bg-transparent border-0 py-1.5 pl-1 text-gray-900 dark:text-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${emailTouched && !isValidEmail(email) ? 'ring-2 ring-red-500' : ''}`}
+                className={`outline-none block w-full rounded-md bg-transparent border-0 py-1.5 pl-1 text-gray-900 dark:text-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${emailTouched && !isValidEmail(email) ? 'ring-2 ring-red-500' : ''}`}
               />
             </div>
           </div>
@@ -138,7 +138,7 @@ export default function DonationForm() {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder='999-999-9999'
-                className={`block w-full rounded-md bg-transparent border-0 py-1.5 pl-1 text-gray-900 dark:text-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                className={`outline-none block w-full rounded-md bg-transparent border-0 py-1.5 pl-1 text-gray-900 dark:text-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
               />
             </div>
           </div>
@@ -153,7 +153,7 @@ export default function DonationForm() {
                   name="amount"
                   id="amount"
                   autoComplete="amount"
-                  className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 dark:text-dark placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                  className="outline-none block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 dark:text-dark placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                   value={amount}
                   onChange={(e) => { setAmount(Number(e.target.value)) }}
                   placeholder='50'

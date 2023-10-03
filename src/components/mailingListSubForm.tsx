@@ -72,19 +72,19 @@ export default function MailingListSubForm({ switchToUnsub }: MailingListSubForm
         <p className='text-center text-xl font-bold dark:text-dark'>Join Our Mailing List!</p>
         <p className='text-center dark:text-dark'>Sign up to recieve updates about what Wheels of Mercy is up to and how we are putting your donations to use.</p>
         <div className="border-b border-gray-900/10 pb-12 bg-white/50 dark:bg-zinc-900/50 p-2">
-          <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 pt-6">
-            <div className="sm:col-span-3">
+          <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 pt-6">
+            <div className="sm:col-span-1">
               <label htmlFor="first-name" className="block text-sm font-medium leading-6 dark:text-dark text-gray-900">
                 First name
               </label>
               <div className="mt-2">
-                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-0 focus-within:ring-inset focus-within:ring-indigo-600">
                   <input
                     type="text"
                     name="firstName"
                     id="firstName"
                     autoComplete="firstName"
-                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 dark:text-dark placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    className="outline-none block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 dark:text-dark placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     value={firstName}
                     onChange={(e) => { setFirstName(e.target.value) }}
                     placeholder='John'
@@ -93,7 +93,7 @@ export default function MailingListSubForm({ switchToUnsub }: MailingListSubForm
               </div>
             </div>
 
-            <div className="sm:col-span-3">
+            <div className="sm:col-span-1">
               <label htmlFor="last-name" className="block text-sm font-medium leading-6 dark:text-dark text-gray-900">
                 Last name
               </label>
@@ -105,7 +105,7 @@ export default function MailingListSubForm({ switchToUnsub }: MailingListSubForm
                     name="lastName"
                     id="last-name"
                     autoComplete="last-name"
-                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 dark:text-dark placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    className="outline-none block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 dark:text-dark placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     value={lastName}
                     onChange={(e) => { setLastName(e.target.value) }}
                     placeholder='Smith'
@@ -128,7 +128,7 @@ export default function MailingListSubForm({ switchToUnsub }: MailingListSubForm
                   onChange={(e) => setEmail(e.target.value)}
                   onBlur={() => setEmailTouched(true)}
                   placeholder='example@email.com'
-                  className={`block w-full bg-transparent rounded-md border-0 py-1.5 pl-1 text-gray-900 dark:text-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${emailTouched && !isValidEmail(email) ? 'ring-2 ring-red-500' : ''}`}
+                  className={`outline-none block w-full bg-transparent rounded-md border-0 py-1.5 pl-1 text-gray-900 dark:text-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${emailTouched && !isValidEmail(email) ? 'ring-2 ring-red-500' : ''}`}
                 />
               </div>
             </div>
