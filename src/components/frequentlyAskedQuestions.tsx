@@ -133,9 +133,9 @@ export default function FrequentlyAskedQuestions() {
                     show={open}
                     enter="transition-all ease-out duration-150"
                     enterFrom="max-h-0 opacity-0"
-                    enterTo="max-h-64 opacity-100" // adjust this value based on your content's height
+                    enterTo="max-h-[1000px] opacity-100" // adjust this value based on your content's height
                     leave="transition-all ease-in duration-100"
-                    leaveFrom="max-h-64 opacity-100" // adjust this value based on your content's height
+                    leaveFrom="max-h-[1000px] opacity-100" // adjust this value based on your content's height
                     leaveTo="max-h-0 opacity-0"
                   >
                     <Disclosure.Panel as="div" className="mt-2 pr-120 overflow-y-hidden">
