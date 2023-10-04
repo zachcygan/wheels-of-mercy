@@ -130,10 +130,10 @@ export default function FrequentlyAskedQuestions() {
                   </dt>
                   <Transition
                     show={open}
-                    enter="transition-all ease-out duration-150"
+                    enter="transition-all ease-out duration-300"
                     enterFrom="max-h-0 opacity-0"
                     enterTo="max-h-[1000px] opacity-100" // adjust this value based on your content's height
-                    leave="transition-all ease-in duration-100"
+                    leave="transition-all ease-in duration-150"
                     leaveFrom="max-h-[1000px] opacity-100" // adjust this value based on your content's height
                     leaveTo="max-h-0 opacity-0"
                   >
