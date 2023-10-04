@@ -1,11 +1,12 @@
 'use client'
 import { Roboto } from 'next/font/google'
-import { Disclosure } from '@headlessui/react'
+import { useState, Fragment } from 'react'
+import { Disclosure, Transition } from '@headlessui/react'
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
 
 const robotoFont = Roboto({
-    subsets: ['latin'],
-    weight: '700'
+  subsets: ['latin'],
+  weight: '700'
 })
 
 const faqs = [
@@ -128,9 +129,19 @@ export default function FrequentlyAskedQuestions() {
                       </span>
                     </Disclosure.Button>
                   </dt>
-                  <Disclosure.Panel as="dd" className="mt-2 pr-12">
-                    <p className="text-base leading-7 text-black dark:text-dark2">{faq.answer}</p>
-                  </Disclosure.Panel>
+                  <Transition
+                    show={open}
+                    enter="transition-all ease-out duration-300"
+                    enterFrom="max-h-0 opacity-0"
+                    enterTo="max-h-64 opacity-100" // adjust this value based on your content's height
+                    leave="transition-all ease-in duration-300"
+                    leaveFrom="max-h-64 opacity-100" // adjust this value based on your content's height
+                    leaveTo="max-h-0 opacity-0"
+                  >
+                    <Disclosure.Panel as="div" className="mt-2 pr-120 overflow-y-hidden">
+                      <p className="text-base leading-7 text-black dark:text-dark2">{faq.answer}</p>
+                    </Disclosure.Panel>
+                  </Transition>
                 </>
               )}
             </Disclosure>
