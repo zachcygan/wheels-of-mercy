@@ -124,7 +124,7 @@ export default function FrequentlyAskedQuestions() {
     <div className="mx-auto max-w-7xl px-6 py-14 sm:py-20 lg:px-8">
       <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
         <h2 className={`text-4xl sm:text-6xl font-bold leading-10 tracking-tight pb-4 text-center text-black dark:text-dark ${robotoFont.className}`}>Frequently asked questions</h2>
-        <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
+        <dl className="mt-10 space-y-6 divide-y divide-black">
           {faqs.map((faq) => (
             <div key={faq.id} className='pt-6'>
               <button onClick={() => handleAccordion(faq.id)} className='flex w-full items-start justify-between text-left text-black dark:text-dark'>
