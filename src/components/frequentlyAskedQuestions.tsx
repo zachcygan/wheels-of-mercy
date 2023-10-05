@@ -132,7 +132,7 @@ export default function FrequentlyAskedQuestions() {
               <button onClick={() => handleAccordion(faq.id)} className='flex w-full items-start justify-between text-left text-black dark:text-dark'>
                 <span className="text-base font-semibold leading-7">{faq.question}</span>
                 <span className="ml-6 flex h-7 items-center">
-                  <PlusIcon className={`${openIds.includes(faq.id) ? 'rotate-45' : ''} h-6 w-6 transform-all duration-150`} aria-hidden="true" />
+                  <PlusIcon className={`${openIds.includes(faq.id) ? 'rotate-45' : ''} h-6 w-6 transform-all duration-300`} aria-hidden="true" />
                 </span>
               </button>
               <div className={`${openIds.includes(faq.id) ? 'accordionOpen accordion' : 'accordion'}`}>
