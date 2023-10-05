@@ -123,9 +123,7 @@ export default function FrequentlyAskedQuestions() {
   return (
     <div className="mx-auto max-w-7xl px-6 py-14 sm:py-20 lg:px-8">
       <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
-        <div className='flex justify-center'>
-          <h2 className={`text-4xl sm:text-6xl font-bold leading-10 tracking-tight text-center text-black dark:text-dark ${robotoFont.className}`}>Frequently asked questions</h2>
-        </div>
+        <h2 className={`text-4xl sm:text-6xl font-bold leading-10 tracking-tight pb-4 text-center text-black dark:text-dark ${robotoFont.className}`}>Frequently asked questions</h2>
         <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
           {faqs.map((faq) => (
             <div key={faq.id} className='pt-6'>
@@ -136,9 +134,9 @@ export default function FrequentlyAskedQuestions() {
                 </span>
               </button>
               <div className={`${openIds.includes(faq.id) ? 'accordionOpen accordion' : 'accordion'}`}>
-                  <div className={`mt-2 pr-120 accordionInner`}>
-                    <div className='text-base leading-7 text-black dark:text-dark2 '>{faq.answer}</div>
-                  </div>
+                <div className={`mt-2 pr-120 accordionInner`}>
+                  <div className='text-base leading-7 text-black dark:text-dark2 '>{faq.answer}</div>
+                </div>
               </div>
             </div>
           ))}
