@@ -136,11 +136,9 @@ export default function FrequentlyAskedQuestions() {
                 </span>
               </button>
               <div className={`${openIds.includes(faq.id) ? 'accordionOpen accordion' : 'accordion'}`}>
-                {openIds.includes(faq.id) && (
                   <div className={`mt-2 pr-120 accordionInner`}>
                     <div className='text-base leading-7 text-black dark:text-dark2 '>{faq.answer}</div>
                   </div>
-                )}
               </div>
             </div>
           ))}
