@@ -1,7 +1,8 @@
 'use client'
+import { useState, useEffect } from 'react'
 import { Roboto } from 'next/font/google'
 import { Disclosure, Transition } from '@headlessui/react'
-import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
+import { MinusSmallIcon, PlusSmallIcon, PlusIcon } from '@heroicons/react/24/outline'
 
 const robotoFont = Roboto({
   subsets: ['latin'],
@@ -105,6 +106,20 @@ const faqs = [
 ]
 
 export default function FrequentlyAskedQuestions() {
+  const [openIds, setOpenIds] = useState<number[]>([]);
+
+  const handleAccordion = (id: number) => {
+    setOpenIds((prevOpenIds) => {
+      if (prevOpenIds.includes(id)) {
+        // If the ID is already in the array, remove it
+        return prevOpenIds.filter(openId => openId !== id);
+      } else {
+        // Otherwise, add the ID to the array
+        return [...prevOpenIds, id];
+      }
+    });
+  };
+
   return (
     <div className="mx-auto max-w-7xl px-6 py-14 sm:py-20 lg:px-8">
       <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
@@ -113,37 +128,21 @@ export default function FrequentlyAskedQuestions() {
         </div>
         <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
           {faqs.map((faq) => (
-            <Disclosure as="div" key={faq.question} className="pt-6">
-              {({ open }) => (
-                <>
-                  <dt>
-                    <Disclosure.Button className="flex w-full items-start justify-between text-left text-black dark:text-dark">
-                      <span className="text-base font-semibold leading-7">{faq.question}</span>
-                      <span className="ml-6 flex h-7 items-center">
-                        {open ? (
-                          <MinusSmallIcon className="h-6 w-6" aria-hidden="true" />
-                        ) : (
-                          <PlusSmallIcon className="h-6 w-6" aria-hidden="true" />
-                        )}
-                      </span>
-                    </Disclosure.Button>
-                  </dt>
-                  <Transition
-                    show={open}
-                    enter="transition-all ease-out duration-300"
-                    enterFrom="max-h-0 opacity-0"
-                    enterTo="max-h-[1000px] opacity-100" // adjust this value based on your content's height
-                    leave="transition-all ease-in duration-150"
-                    leaveFrom="max-h-[1000px] opacity-100" // adjust this value based on your content's height
-                    leaveTo="max-h-0 opacity-0"
-                  >
-                    <Disclosure.Panel as="div" className="mt-2 pr-120 overflow-y-hidden">
-                      <p className="text-base leading-7 text-black dark:text-dark2">{faq.answer}</p>
-                    </Disclosure.Panel>
-                  </Transition>
-                </>
-              )}
-            </Disclosure>
+            <div key={faq.id} className='pt-6'>
+              <button onClick={() => handleAccordion(faq.id)} className='flex w-full items-start justify-between text-left text-black dark:text-dark'>
+                <span className="text-base font-semibold leading-7">{faq.question}</span>
+                <span className="ml-6 flex h-7 items-center">
+                    <PlusIcon className={`${openIds.includes(faq.id) ? 'rotate-45' : ''} h-6 w-6 transform-all duration-150`} aria-hidden="true" />
+                </span>
+              </button>
+              <div className={`${openIds.includes(faq.id) ? 'accordionOpen accordion' : 'accordion' }`}>
+                {openIds.includes(faq.id) && (
+                  <div className={`mt-2 pr-120 accordionInner`}>
+                    <div className='text-base leading-7 text-black dark:text-dark2 '>{faq.answer}</div>
+                  </div>
+                )}
+              </div>
+            </div>
           ))}
         </dl>
       </div>
