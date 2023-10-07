@@ -1,8 +1,8 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { Roboto } from 'next/font/google'
-import { Disclosure, Transition } from '@headlessui/react'
-import { MinusSmallIcon, PlusSmallIcon, PlusIcon } from '@heroicons/react/24/outline'
+import { PlusIcon } from '@heroicons/react/24/outline'
+import SlideOver from './slideOver'
 
 const robotoFont = Roboto({
   subsets: ['latin'],
@@ -100,13 +100,14 @@ const faqs = [
     answer: `If you receive Medicare or Medicaid your first step should be contact a
         wheelchair vendor in your community and have a wheelchair custom
         designed for you. Those agencies will pay for it. If you have no resources
-        contact us at requestchair@wheelsofmery.org`,
+        contact us at charles@wheelsofmercy.org`,
   },
   // More questions...
 ]
 
 export default function FrequentlyAskedQuestions() {
   const [openIds, setOpenIds] = useState<number[]>([]);
+  const [isSlideOpen, setIsSlideOpen] = useState<boolean>(false)
 
   const handleAccordion = (id: number) => {
     setOpenIds((prevOpenIds) => {
@@ -135,12 +136,54 @@ export default function FrequentlyAskedQuestions() {
               </button>
               <div className={`${openIds.includes(faq.id) ? 'accordionOpen accordion' : 'accordion'}`}>
                 <div className={`mt-2 pr-120 accordionInner`}>
-                  <div className='text-base leading-7 text-black dark:text-dark2 '>{faq.answer}</div>
+                  {(() => {
+                    if (faq.id === 7) {
+                      return (
+                        <div className='text-base leading-7 text-black dark:text-dark2 '>
+                          Wheels of Mercy is powered by volunteers. Your help means more people
+                          get wheelchairs. You can donate a wheelchair, time, money, or expertise, repair
+                          wheelchairs, or you can organize shipment of chairs donated outside Southern
+                          California to our storage location. Please
+                          <span
+                            onClick={(e) => {
+                              e.preventDefault()
+                              setIsSlideOpen(true)
+                            }}
+                            className='underline cursor-pointer pl-1'>contact us here
+                          </span> if interested.
+                        </div>
+                      );
+                    } else if (faq.id === 8) {
+                      return (
+                        <div className='text-base leading-7 text-black dark:text-dark2 '>
+                          Fill out the contact form
+                          <span
+                            className='px-1 underline cursor-pointer'
+                            onClick={(e) => {
+                              e.preventDefault()
+                              setIsSlideOpen(true)
+                            }}
+                          >
+                            found here
+                          </span>
+                          and check 'donate wheelchair'.  Please include a photo of
+                          the chair and whether or not it is functional. If it is a power chair please let
+                          us know if it has a battery and charger. If you don’t have all of this info,
+                          provide as much as possible.
+                        </div>
+                      )
+                    } else {
+                      return (
+                        <div className='text-base leading-7 text-black dark:text-dark2 '>{faq.answer}</div>
+                      );
+                    }
+                  })()}
                 </div>
               </div>
             </div>
           ))}
         </dl>
+        <SlideOver isOpen={isSlideOpen} onClose={() => setIsSlideOpen(false)} />
       </div>
     </div>
   )
