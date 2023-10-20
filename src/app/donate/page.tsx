@@ -34,7 +34,7 @@ export default function Donate() {
                         of wheelchairs where sponorships or donations in-kind are unavailable.
                     </p>
                     <p className="mt-8 text-lg leading-8">
-                        We are grateful for your donation and will be good stewards of your investment.
+                        We are grateful for your donation and commit to the diligent stewardship of your gift.
                         Please click the donate button below to make a donation.
                     </p>
                     <div className="mt-8" onClick={handleButtonClick}>
