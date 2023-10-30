@@ -62,7 +62,7 @@ export default function DonationForm() {
 
   return (
     <form ref={form} action='post' onSubmit={handleFormSumbit}>
-      {success ? <Success message={message} onClose={() => handleSuccessClose()} /> : null}
+      <Success message={message} onClose={() => handleSuccessClose()} visible={success} />
       <p className='text-lg lg:font-2xl font-bold dark:text-dark'>Thank you for your donation!</p>
       <p className='text-lg lg:font-2xl mt-4 dark:text-dark'>Please fill out this form for our records, no payment information is saved.</p>
       <div className="border-b border-gray-900/10 pb-12">
