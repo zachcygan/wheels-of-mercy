@@ -222,6 +222,18 @@ useEffect(() => {
   };
 }, []);
 
+useEffect(() => {
+  if(error) {
+    window.scrollTo(0, 0);
+  }
+}, [error])
+
+useEffect(() => {
+  if(success) {
+    window.scrollTo(0, 0);
+  }
+}, [success])
+
   return (
     <form ref={form} onSubmit={sendEmail}>
       {success ? <Success message={SuccessMessage} onClose={() => handleCloseSuccess()} /> : null}

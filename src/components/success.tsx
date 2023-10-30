@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Transition } from '@headlessui/react'
 import { CheckCircleIcon, XMarkIcon } from '@heroicons/react/20/solid'
 
@@ -10,6 +10,12 @@ type SuccessProps = {
 
 export default function Success({ message, onClose }: SuccessProps) {
   const [show, setShow] = useState<boolean>(true)
+
+  useEffect(() => {
+    if(show) {
+      window.scrollTo(0, 0);
+    }
+  }, [show])
 
   return (
     <div className='flex justify-center'>
