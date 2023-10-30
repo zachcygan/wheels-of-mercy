@@ -51,6 +51,12 @@ export default function ContactForm() {
     if (selectedCheckboxes.length === 0 || !firstName || !lastName || !email || !subject || !message) {
       setError(true);
       setErrorMessage('Please fill out all required fields.');
+      setSending(false)
+      return;
+    } else if(selectedCheckboxes.includes('Donate a Wheelchair') && previewImages.length === 0) {
+      setError(true);
+      setErrorMessage('Please upload an image.');
+      setSending(false)
       return;
     }
 
@@ -200,6 +206,7 @@ export default function ContactForm() {
     if(storedData.message) setMessage(storedData.message);
 }, []);
 
+//clears localstorage whenever the user leaves the page
 useEffect(() => {
   // Function to clear localStorage
   const clearStorage = () => {
