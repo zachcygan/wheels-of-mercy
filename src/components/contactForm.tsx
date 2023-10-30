@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import { PhotoIcon } from '@heroicons/react/24/solid'
 import emailjs from '@emailjs/browser'
 import Success from './success'
 import Error from './error'
@@ -21,19 +21,29 @@ export default function ContactForm() {
   const SuccessMessage = 'Thank you for your message, we will get back to you as soon as possible.'
   const [errorMessage, setErrorMessage] = useState<string>('')
   const [sending, setSending] = useState<boolean>(false)
+  const [formData, setFormData] = useState<Object>({})
 
 
   const form = useRef<HTMLFormElement>(null);
 
   const handleCheckboxChange = (value: string) => {
-    if (selectedCheckboxes.includes(value)) {
-      // If the checkbox value is already in the array, remove it
-      setSelectedCheckboxes(selectedCheckboxes.filter((item) => item !== value));
+    const storedData = JSON.parse(localStorage.getItem('formData') || '{}');
+    let updatedCheckboxes = storedData.checkboxes || [];
+
+    if (updatedCheckboxes.includes(value)) {
+      updatedCheckboxes = updatedCheckboxes.filter((item: string) => item !== value);
     } else {
-      // If the checkbox value is not in the array, add it
-      setSelectedCheckboxes([...selectedCheckboxes, value]);
+      updatedCheckboxes.push(value);
     }
-  };
+
+    setSelectedCheckboxes(updatedCheckboxes);
+
+    // Save back in localStorage
+    localStorage.setItem('formData', JSON.stringify({
+      ...storedData,
+      checkboxes: updatedCheckboxes
+    }));
+};
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -55,6 +65,7 @@ export default function ContactForm() {
           }
           setSending(false)
           setSuccess(true)
+          localStorage.removeItem('formData')
         }, (error) => {
           console.log(error.text);
         });
@@ -108,6 +119,66 @@ export default function ContactForm() {
     }
   };
 
+  const handleFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    setFirstName(value)
+
+    const currentFormData = JSON.parse(localStorage.getItem('formData') || '{}')
+
+    localStorage.setItem('formData', JSON.stringify({
+      ...currentFormData,
+      firstName: value
+    }))
+  }
+
+  const handleLastNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    setLastName(value)
+
+    const currentFormData = JSON.parse(localStorage.getItem('formData') || '{}')
+
+    localStorage.setItem('formData', JSON.stringify({
+      ...currentFormData,
+      lastName: value
+    }))
+  }
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    setEmail(value)
+
+    const currentFormData = JSON.parse(localStorage.getItem('formData') || '{}')
+
+    localStorage.setItem('formData', JSON.stringify({
+      ...currentFormData,
+      email: value
+    }))
+  }
+
+  const handleSubjectChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    setSubject(value)
+
+    const currentFormData = JSON.parse(localStorage.getItem('formData') || '{}')
+
+    localStorage.setItem('formData', JSON.stringify({
+      ...currentFormData,
+      subject: value
+    }))
+  }
+
+  const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const value = e.target.value
+    setMessage(value)
+
+    const currentFormData = JSON.parse(localStorage.getItem('formData') || '{}')
+
+    localStorage.setItem('formData', JSON.stringify({
+      ...currentFormData,
+      message: value
+    }))
+  }
+
   const handleCloseError = () => {
     console.log(error)
     setError(false);
@@ -117,6 +188,17 @@ export default function ContactForm() {
   const handleCloseSuccess = () => {
     setSuccess(false);
   }
+
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem('formData') || '{}');
+    
+    if(storedData.checkboxes) setSelectedCheckboxes(storedData.checkboxes);
+    if(storedData.firstName) setFirstName(storedData.firstName);
+    if(storedData.lastName) setLastName(storedData.lastName);
+    if(storedData.email) setEmail(storedData.email);
+    if(storedData.subject) setSubject(storedData.subject);
+    if(storedData.message) setMessage(storedData.message);
+}, []);
 
   return (
     <form ref={form} onSubmit={sendEmail}>
@@ -128,7 +210,7 @@ export default function ContactForm() {
             <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900 dark:text-dark pb-2">
               Reason for Contact
             </label>
-            <fieldset className=''>
+            <fieldset>
               <legend className="sr-only">Notifications</legend>
               <div className="space-y-5">
                 <div className="relative flex items-start">
@@ -139,17 +221,18 @@ export default function ContactForm() {
                       name="checkbox"
                       type="checkbox"
                       className="outline-none h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                      value='Volunter'
+                      value='Volunteer'
                       onChange={(e) => handleCheckboxChange(e.target.value)}
+                      checked={selectedCheckboxes.includes('Volunteer')}
                     />
                   </div>
                   <div className="ml-3 text-sm leading-6">
                     <label htmlFor="comments" className="font-medium text-gray-900 dark:text-dark">
-                      Volunter
+                      Volunteer
                     </label>{' '}
                   </div>
                 </div>
-                <div className="relative flex items-start">
+                {/* <div className="relative flex items-start">
                   <div className="flex h-6 items-center">
                     <input
                       id="donateInKind"
@@ -159,6 +242,7 @@ export default function ContactForm() {
                       className="outline-none h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       value='Donate in Kind'
                       onChange={(e) => handleCheckboxChange(e.target.value)}
+                      checked={selectedCheckboxes.includes('DonateInKind')}
                     />
                   </div>
                   <div className="ml-3 text-sm leading-6">
@@ -166,7 +250,7 @@ export default function ContactForm() {
                       Donate in Kind
                     </label>{' '}
                   </div>
-                </div>
+                </div> */}
                 <div className="relative flex items-start">
                   <div className="flex h-6 items-center">
                     <input
@@ -177,6 +261,7 @@ export default function ContactForm() {
                       className="outline-none h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       value='Donate a Wheelchair'
                       onChange={(e) => handleCheckboxChange(e.target.value)}
+                      checked={selectedCheckboxes.includes('Donate a Wheelchair')}
                     />
                   </div>
                   <div className="ml-3 text-sm leading-6">
@@ -191,13 +276,14 @@ export default function ContactForm() {
                 <div className="relative flex items-start">
                   <div className="flex h-6 items-center">
                     <input
-                      id="candidates"
-                      aria-describedby="candidates-description"
+                      id="generalInquiry"
+                      aria-describedby="generalInquiry"
                       name="checkbox"
                       type="checkbox"
                       className="outline-none h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       value='General Inquiry'
                       onChange={(e) => handleCheckboxChange(e.target.value)}
+                      checked={selectedCheckboxes.includes('General Inquiry')}
                     />
                   </div>
                   <div className="ml-3 text-sm leading-6">
@@ -223,13 +309,12 @@ export default function ContactForm() {
                     autoComplete="firstName"
                     className="outline-none block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 dark:text-dark placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     value={firstName}
-                    onChange={(e) => { setFirstName(e.target.value) }}
+                    onChange={handleFirstNameChange}
                     placeholder='John'
                   />
                 </div>
               </div>
             </div>
-
             <div className="sm:col-span-3">
               <label htmlFor="last-name" className="block text-sm font-medium leading-6 text-gray-900 dark:text-dark">
                 Last name
@@ -240,11 +325,11 @@ export default function ContactForm() {
                   <input
                     type="text"
                     name="lastName"
-                    id="last-name"
-                    autoComplete="last-name"
+                    id="lastName"
+                    autoComplete="lastName"
                     className="outline-none block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 dark:text-dark placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     value={lastName}
-                    onChange={(e) => { setLastName(e.target.value) }}
+                    onChange={handleLastNameChange}
                     placeholder='Smith'
                   />
                 </div>
@@ -262,7 +347,7 @@ export default function ContactForm() {
                   type="email"
                   autoComplete="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={handleEmailChange}
                   onBlur={() => setEmailTouched(true)}
                   placeholder='example@email.com'
                   className={`outline-none block w-full bg-transparent rounded-md border-0 py-1.5 pl-1 text-gray-900 dark:text-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${emailTouched && !isValidEmail(email) ? 'ring-2 ring-red-500' : ''}`}
@@ -282,7 +367,7 @@ export default function ContactForm() {
                     autoComplete="subject"
                     className="outline-none block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 dark:text-dark placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     value={subject}
-                    onChange={(e) => { setSubject(e.target.value) }}
+                    onChange={handleSubjectChange}
                     placeholder='Wheel Chair Donation'
                   />
                 </div>
@@ -299,7 +384,7 @@ export default function ContactForm() {
                   rows={7}
                   className="outline-none block bg-transparent w-full rounded-md p-2 border-0 py-1.5 text-gray-900 dark:text-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={message}
-                  onChange={(e) => { setMessage(e.target.value) }}
+                  onChange={handleMessageChange}
                   placeholder='Hello, I would like to donate a wheel chair.'
                 />
               </div>
