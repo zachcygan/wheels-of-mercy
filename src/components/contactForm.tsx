@@ -200,6 +200,21 @@ export default function ContactForm() {
     if(storedData.message) setMessage(storedData.message);
 }, []);
 
+useEffect(() => {
+  // Function to clear localStorage
+  const clearStorage = () => {
+    localStorage.removeItem('formData');
+  };
+
+  // Add event listener to window to listen for the 'beforeunload' event
+  window.addEventListener('beforeunload', clearStorage);
+
+  // Cleanup the listener when the component is unmounted
+  return () => {
+    window.removeEventListener('beforeunload', clearStorage);
+  };
+}, []);
+
   return (
     <form ref={form} onSubmit={sendEmail}>
       {success ? <Success message={SuccessMessage} onClose={() => handleCloseSuccess()} /> : null}
