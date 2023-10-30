@@ -67,7 +67,7 @@ export default function MailingListSubForm({ switchToUnsub }: MailingListSubForm
 
   return (
     <form ref={form} onSubmit={handleFormSubmit} className=' bg-white dark:bg-zinc-900 p-20 rounded-md'>
-      {success ? <Success message={message} onClose={() => handleCloseSuccess()} /> : null}
+      <Success message={message} onClose={() => handleCloseSuccess()} visible={success} />
       <div className="space-y-12">
         <p className='text-center text-xl font-bold dark:text-dark'>Join Our Mailing List!</p>
         <p className='text-center dark:text-dark'>Sign up to recieve updates about what Wheels of Mercy is up to and how we are putting your donations to use.</p>
