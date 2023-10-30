@@ -186,7 +186,6 @@ export default function ContactForm() {
   }
 
   const handleCloseError = () => {
-    console.log(error)
     setError(false);
     setErrorMessage(''); // Reset the error message
   };
@@ -222,22 +221,10 @@ useEffect(() => {
   };
 }, []);
 
-useEffect(() => {
-  if(error) {
-    window.scrollTo(0, 0);
-  }
-}, [error])
-
-useEffect(() => {
-  if(success) {
-    window.scrollTo(0, 0);
-  }
-}, [success])
-
   return (
     <form ref={form} onSubmit={sendEmail}>
-      {success ? <Success message={SuccessMessage} onClose={() => handleCloseSuccess()} /> : null}
-      {error ? <Error message={errorMessage} onClose={() => handleCloseError()} /> : null}
+      <Success message={SuccessMessage} onClose={() => handleCloseSuccess()} visible={success}/>
+      <Error message={errorMessage} onClose={() => handleCloseError()} visible={error} />
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
           <div>

@@ -5,11 +5,28 @@ import { XCircleIcon, XMarkIcon } from '@heroicons/react/20/solid'
 
 type ErrorProps = {
   message: string,
-  onClose: () => void
+  onClose: () => void,
+  visible: boolean
 }
 
-export default function Error({ message, onClose }: ErrorProps) {
+export default function Error({ message, onClose, visible }: ErrorProps) {
   const [show, setShow] = useState<boolean>(true)
+
+  useEffect(() => {
+    if (visible !== show) {
+      setShow(visible);
+    }
+  }, [visible]);
+
+  useEffect(() => {
+    if (show) {
+      console.log('scrolling to top');
+      window.scrollTo(0, 0);
+    }
+  }, [show]);
+
+  if (!show) return null;
+
 
   return (
     <div className='flex justify-center'>
