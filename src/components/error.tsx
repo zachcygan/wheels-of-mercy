@@ -21,7 +21,12 @@ export default function Error({ message, onClose, visible }: ErrorProps) {
   useEffect(() => {
     if (show) {
       console.log('scrolling to top');
-      window.scrollTo(0, 0);
+      const container = document.querySelector('.slideOverWindow');
+      if (container) {
+        container.scrollTop = 0;
+      } else {
+        window.scrollTo(0, 0);
+      }
     }
   }, [show]);
 
