@@ -12,7 +12,7 @@ type ErrorProps = {
 
 const Error = forwardRef<HTMLDivElement, ErrorProps>(
   ({ message, onClose, visible }, ref) => {
-    const [show, setShow] = useState<boolean>(false);
+    const [show, setShow] = useState<boolean>(true);
 
     useEffect(() => {
       if (visible !== show) {

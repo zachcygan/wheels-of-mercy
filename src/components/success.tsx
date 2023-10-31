@@ -12,7 +12,7 @@ type SuccessProps = {
 
 const Success = forwardRef<HTMLDivElement, SuccessProps>(
   ({ message, onClose, visible }, ref) => {
-    const [show, setShow] = useState<boolean>(false);
+    const [show, setShow] = useState<boolean>(true);
 
     useEffect(() => {
       if (visible !== show) {
