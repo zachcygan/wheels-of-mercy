@@ -56,7 +56,7 @@ export default function ContactForm() {
       return;
     } else if (selectedCheckboxes.includes('Donate a Wheelchair') && previewImages.length === 0) {
       setError(true);
-      setErrorMessage('Please upload an image.');
+      setErrorMessage('Please attach an image.');
       setSending(false)
       return;
     }
@@ -72,6 +72,7 @@ export default function ContactForm() {
           }
           setSending(false)
           setSuccess(true)
+          clearForm()
           localStorage.clear()
         }, (error) => {
           console.log(error.text);
@@ -212,6 +213,17 @@ export default function ContactForm() {
       localStorage.clear();
     }
   }, []);
+
+  const clearForm = () => {
+    setFirstName('')
+    setLastName('')
+    setEmail('')
+    setSubject('')
+    setMessage('')
+    setEmailTouched(false)
+    setPreviewImages([])
+    setTotalSize(0)
+  }
 
   useEffect(() => {
     if (success && successRef.current) {
