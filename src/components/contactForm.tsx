@@ -209,10 +209,29 @@ export default function ContactForm() {
 
   //clears localstorage whenever the user leaves the page
   useEffect(() => {
-    window.onbeforeunload = function () {
+    function clearLocalStorage() {
       window.localStorage.clear();
     }
-  }, []);
+    
+    // Clear localStorage on beforeunload for browsers that support it
+    window.addEventListener('beforeunload', clearLocalStorage);
+
+    // Clear localStorage on pagehide for browsers like Safari on iOS
+    window.addEventListener('pagehide', clearLocalStorage);
+
+    // You can also consider the visibilitychange event if the above two aren't sufficient
+    window.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') {
+        clearLocalStorage();
+      }
+    });
+
+    return () => {
+      window.removeEventListener('beforeunload', clearLocalStorage);
+      window.removeEventListener('pagehide', clearLocalStorage);
+      window.removeEventListener('visibilitychange', clearLocalStorage);
+    };
+}, []);
 
   const clearForm = () => {
     setSelectedCheckboxes([])
