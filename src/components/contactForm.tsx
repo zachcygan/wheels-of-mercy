@@ -72,7 +72,7 @@ export default function ContactForm() {
           }
           setSending(false)
           setSuccess(true)
-          localStorage.removeItem('formData')
+          localStorage.clear()
         }, (error) => {
           console.log(error.text);
         });
