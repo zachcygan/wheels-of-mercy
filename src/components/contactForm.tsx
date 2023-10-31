@@ -215,6 +215,7 @@ export default function ContactForm() {
   }, []);
 
   const clearForm = () => {
+    setSelectedCheckboxes([])
     setFirstName('')
     setLastName('')
     setEmail('')
