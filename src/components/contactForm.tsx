@@ -23,8 +23,9 @@ export default function ContactForm() {
   const [sending, setSending] = useState<boolean>(false)
   const [formData, setFormData] = useState<Object>({})
 
-
   const form = useRef<HTMLFormElement>(null);
+  const successRef = useRef<HTMLDivElement>(null);
+  const errorRef = useRef<HTMLDivElement>(null);
 
   const handleCheckboxChange = (value: string) => {
     const storedData = JSON.parse(localStorage.getItem('formData') || '{}');
@@ -43,7 +44,7 @@ export default function ContactForm() {
       ...storedData,
       checkboxes: updatedCheckboxes
     }));
-};
+  };
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -53,7 +54,7 @@ export default function ContactForm() {
       setErrorMessage('Please fill out all required fields.');
       setSending(false)
       return;
-    } else if(selectedCheckboxes.includes('Donate a Wheelchair') && previewImages.length === 0) {
+    } else if (selectedCheckboxes.includes('Donate a Wheelchair') && previewImages.length === 0) {
       setError(true);
       setErrorMessage('Please upload an image.');
       setSending(false)
@@ -196,35 +197,38 @@ export default function ContactForm() {
 
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem('formData') || '{}');
-    
-    if(storedData.checkboxes) setSelectedCheckboxes(storedData.checkboxes);
-    if(storedData.firstName) setFirstName(storedData.firstName);
-    if(storedData.lastName) setLastName(storedData.lastName);
-    if(storedData.email) setEmail(storedData.email);
-    if(storedData.subject) setSubject(storedData.subject);
-    if(storedData.message) setMessage(storedData.message);
-}, []);
 
-// Function to clear localStorage
-const clearStorage = () => {
-  localStorage.removeItem('formData');
-};
+    if (storedData.checkboxes) setSelectedCheckboxes(storedData.checkboxes);
+    if (storedData.firstName) setFirstName(storedData.firstName);
+    if (storedData.lastName) setLastName(storedData.lastName);
+    if (storedData.email) setEmail(storedData.email);
+    if (storedData.subject) setSubject(storedData.subject);
+    if (storedData.message) setMessage(storedData.message);
+  }, []);
 
-//clears localstorage whenever the user leaves the page
-useEffect(() => {
-  // Add event listener to window to listen for the 'beforeunload' event
-  
-  window.onbeforeunload = function() {
-    localStorage.clear();
- }
+  //clears localstorage whenever the user leaves the page
+  useEffect(() => {
+    window.onbeforeunload = function () {
+      localStorage.clear();
+    }
+  }, []);
 
-
-}, []);
+  useEffect(() => {
+    if (success && successRef.current) {
+      successRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else if (error && errorRef.current) {
+      errorRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, [success, error]);
 
   return (
     <form ref={form} onSubmit={sendEmail}>
-      <Success message={SuccessMessage} onClose={() => handleCloseSuccess()} visible={success}/>
-      <Error message={errorMessage} onClose={() => handleCloseError()} visible={error} />
+      <div ref={errorRef}>
+        <Error message={errorMessage} onClose={handleCloseError} visible={error} />
+      </div>
+      <div ref={successRef}>
+        <Success message={SuccessMessage} onClose={handleCloseSuccess} visible={success} />
+      </div>
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
           <div>
