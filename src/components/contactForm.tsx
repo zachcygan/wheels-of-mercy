@@ -210,7 +210,7 @@ export default function ContactForm() {
   //clears localstorage whenever the user leaves the page
   useEffect(() => {
     window.onbeforeunload = function () {
-      localStorage.clear();
+      window.localStorage.clear();
     }
   }, []);
 
