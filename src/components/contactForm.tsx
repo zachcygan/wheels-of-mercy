@@ -7,11 +7,8 @@ import Success from './success'
 import Error from './error'
 
 export default function ContactForm() {
-  const {formData,updateFormData} = useFormData()
-  const [emailTouched, setEmailTouched] = useState<boolean>(false);
+  const { formData, updateFormData, handleStatus, clearState, handleCheckboxChange, setEmailTouched, handleFileUpload, emailTouched, success, error } = useFormData()
   const [totalSize, setTotalSize] = useState<number>(0);
-  const [success, setSuccess] = useState<boolean>(false)
-  const [error, setError] = useState<boolean>(false)
   const SuccessMessage = 'Thank you for your message, we will get back to you as soon as possible.'
   const [errorMessage, setErrorMessage] = useState<string>('')
   const [sending, setSending] = useState<boolean>(false)
@@ -23,13 +20,13 @@ export default function ContactForm() {
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSending(true)
-    if (formData.selectedCheckboxes.length === 0 || !formData.firstName || !formData.lastName || !formData.email || !formData.subject || !formData.message) {
-      setError(true);
+    if (formData.checkboxes.length === 0 || !formData.firstName || !formData.lastName || !formData.email || !formData.subject || !formData.message) {
+      handleStatus('error', true);
       setErrorMessage('Please fill out all required fields.');
       setSending(false)
       return;
-    } else if (formData.selectedCheckboxes.includes('Donate a Wheelchair') && formData.images.length === 0) {
-      setError(true);
+    } else if (formData.checkboxes.includes('Donate a Wheelchair') && formData.images.length === 0) {
+      handleStatus('error', true);
       setErrorMessage('Please attach an image.');
       setSending(false)
       return;
@@ -40,13 +37,14 @@ export default function ContactForm() {
         .then((result) => {
           console.log(result.text)
           if (error) {
-            setError(false)
+            handleStatus('error', false);
             setErrorMessage('')
             setSending(false)
           }
           setSending(false)
-          setSuccess(true)
-          clearForm()
+          handleStatus('success', true);
+          setEmailTouched(false);
+          clearState();
           localStorage.clear()
         }, (error) => {
           console.log(error.text);
@@ -74,8 +72,8 @@ export default function ContactForm() {
 
     if (totalSizeInMB > 2) {
       setErrorMessage('File size is too large. Please upload files less than 2MB.');
-      setSuccess(false)
-      setError(true);
+      handleStatus('success', false)
+      handleStatus('error', true);
       e.target.value = ''
       return; // Exit the function early if the file size is too large
     }
@@ -92,7 +90,7 @@ export default function ContactForm() {
             imagePreviews.push(e.target.result);
 
             if (imagePreviews.length === files.length) {
-              setPreviewImages(imagePreviews);
+              handleFileUpload(imagePreviews)
             }
           }
         };
@@ -102,12 +100,12 @@ export default function ContactForm() {
   };
 
   const handleCloseError = () => {
-    setError(false);
+    handleStatus('error', false);
     setErrorMessage(''); // Reset the error message
   };
 
   const handleCloseSuccess = () => {
-    setSuccess(false);
+    handleStatus('success', false);
   }
 
   //clears localstorage whenever the user leaves the page
@@ -150,12 +148,12 @@ export default function ContactForm() {
                     <input
                       id="volunteer"
                       aria-describedby="Volunteer-description"
-                      name="checkbox"
+                      name="checkboxes"
                       type="checkbox"
                       className="outline-none h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       value='Volunteer'
-                      onChange={updateFormData}
-                      checked={formData.selectedCheckboxes.includes('Volunteer')}
+                      onChange={(e) => handleCheckboxChange(e, 'Volunteer')}
+                      checked={formData.checkboxes.includes('Volunteer')}
                     />
                   </div>
                   <div className="ml-3 text-sm leading-6">
@@ -169,12 +167,12 @@ export default function ContactForm() {
                     <input
                       id="donateInKind"
                       aria-describedby="candidates-description"
-                      name="checkbox"
+                      name="checkboxes"
                       type="checkbox"
                       className="outline-none h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       value='Donate in Kind'
-                      onChange={(e) => handleCheckboxChange(e.target.value)}
-                      checked={selectedCheckboxes.includes('DonateInKind')}
+                      onChange={(e) => handleCheckboxChange(e, 'Donate in Kind')}
+                      checked={checkboxes.includes('DonateInKind')}
                     />
                   </div>
                   <div className="ml-3 text-sm leading-6">
@@ -188,12 +186,12 @@ export default function ContactForm() {
                     <input
                       id="offers"
                       aria-describedby="offers-description"
-                      name="checkbox"
+                      name="checkboxes"
                       type="checkbox"
                       className="outline-none h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       value='Donate a Wheelchair'
-                      onChange={updateFormData}
-                      checked={formData.selectedCheckboxes.includes('Donate a Wheelchair')}
+                      onChange={(e) => handleCheckboxChange(e, 'Donate a Wheelchair')}
+                      checked={formData.checkboxes.includes('Donate a Wheelchair')}
                     />
                   </div>
                   <div className="ml-3 text-sm leading-6">
@@ -210,12 +208,12 @@ export default function ContactForm() {
                     <input
                       id="generalInquiry"
                       aria-describedby="generalInquiry"
-                      name="checkbox"
+                      name="checkboxes"
                       type="checkbox"
                       className="outline-none h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       value='General Inquiry'
-                      onChange={updateFormData}
-                      checked={formData.selectedCheckboxes.includes('General Inquiry')}
+                      onChange={(e) => handleCheckboxChange(e, 'General Inquiry')}
+                      checked={formData.checkboxes.includes('General Inquiry')}
                     />
                   </div>
                   <div className="ml-3 text-sm leading-6">
@@ -279,10 +277,12 @@ export default function ContactForm() {
                   type="email"
                   autoComplete="email"
                   value={formData.email}
-                  onChange={updateFormData}
-                  onBlur={() => setEmailTouched(true)}
+                  onChange={(e) => {
+                    setEmailTouched(true)
+                    updateFormData(e)
+                  }}
                   placeholder='example@email.com'
-                  className={`outline-none block w-full bg-transparent rounded-md border-0 py-1.5 pl-1 text-gray-900 dark:text-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${emailTouched && !isValidEmail(email) ? 'ring-2 ring-red-500' : ''}`}
+                  className={`outline-none block w-full bg-transparent rounded-md border-0 py-1.5 pl-1 text-gray-900 dark:text-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${emailTouched && !isValidEmail(formData.email) ? 'ring-2 ring-red-500 focus:outline-none' : ''}`}
                 />
               </div>
             </div>
@@ -311,8 +311,8 @@ export default function ContactForm() {
               </label>
               <div className="mt-2">
                 <textarea
-                  id="text"
-                  name="text"
+                  id="message"
+                  name="message"
                   rows={7}
                   className="outline-none block bg-transparent w-full rounded-md p-2 border-0 py-1.5 text-gray-900 dark:text-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   value={formData.message}
@@ -341,7 +341,7 @@ export default function ContactForm() {
                         multiple
                         className="sr-only"
                         accept='image/*'
-                        onChange={updateFormData}
+                        onChange={handleImageUpload}
                       />
                     </label>
                     <p className="pl-1 dark:text-dark">or drag and drop</p>

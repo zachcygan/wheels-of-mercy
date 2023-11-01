@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react';
+import { FormDataProvider, useFormData } from '../components/formContext'
 import Navbar from "../components/navbar"
 import Footer from "../components/footer"
 
@@ -24,14 +25,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className='bg-light dark:bg-dark bg-cover'>
-        <header>
-          <Navbar />
-        </header>
-        <div className='min-h-[73vh]'>
-          {children}
-          <Analytics />
-        </div>
-        <Footer />
+        <FormDataProvider>
+          <header>
+            <Navbar />
+          </header>
+          <div className='min-h-[73vh]'>
+            {children}
+            <Analytics />
+          </div>
+          <Footer />
+        </FormDataProvider>
       </body>
     </html>
   )

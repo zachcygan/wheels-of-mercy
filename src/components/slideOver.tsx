@@ -24,7 +24,6 @@ export default function SlideOver({ isOpen, onClose }: SlideOverProps) {
 
 
   return (
-    <FormDataProvider>
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>
           <Transition.Child
@@ -83,6 +82,5 @@ export default function SlideOver({ isOpen, onClose }: SlideOverProps) {
           </div>
         </Dialog>
       </Transition.Root>
-    </FormDataProvider>
   )
 }
