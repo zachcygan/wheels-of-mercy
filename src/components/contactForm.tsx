@@ -278,7 +278,11 @@ export default function ContactForm() {
                   autoComplete="email"
                   value={formData.email}
                   onChange={(e) => {
-                    setEmailTouched(true)
+                    if(emailTouched && !formData.email.length) {
+                      setEmailTouched(false)
+                    } else {
+                      setEmailTouched(true)
+                    }
                     updateFormData(e)
                   }}
                   placeholder='example@email.com'
