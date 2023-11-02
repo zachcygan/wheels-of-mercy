@@ -278,7 +278,8 @@ export default function ContactForm() {
                   autoComplete="email"
                   value={formData.email}
                   onChange={(e) => {
-                    if(emailTouched && !formData.email.length) {
+                    const value = e.target.value
+                    if(value === '') {
                       setEmailTouched(false)
                     } else {
                       setEmailTouched(true)
@@ -286,7 +287,7 @@ export default function ContactForm() {
                     updateFormData(e)
                   }}
                   placeholder='example@email.com'
-                  className={`outline-none block w-full bg-transparent rounded-md border-0 py-1.5 pl-1 text-gray-900 dark:text-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${emailTouched && !isValidEmail(formData.email) ? 'ring-2 ring-red-500 focus:outline-none' : ''}`}
+                  className={`outline-none block w-full bg-transparent rounded-md border-0 py-1.5 pl-1 text-gray-900 dark:text-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${emailTouched && !isValidEmail(formData.email) ? 'ring-2 ring-red-500 focus:outline-none focus:ring-red-500' : ''}`}
                 />
               </div>
             </div>
