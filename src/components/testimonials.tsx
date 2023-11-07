@@ -73,7 +73,7 @@ export default function Testimonials() {
     }, []);
 
     return (
-        <div className="py-24 sm:py-32">
+        <div className="py-4 sm:py-10">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl pb-10 text-center">
                     {/* <h2 className="text-lg font-semibold leading-8 tracking-tight text-indigo-600">Testimonials</h2> */}
