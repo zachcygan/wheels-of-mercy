@@ -12,7 +12,7 @@ export default function HomeDonate() {
             <div className="text-2xl md:text-4xl">EVERY gift makes a difference</div>
             <div className="text-2xl md:text-4xl">EVERY gift is accepted with gratitude</div>
             <div className="text-2xl md:text-4xl">GIVE TODAY!</div>
-            <div className="py-5">
+            <div className="py-5 scale-75">
               <DonationButton />
             </div>
           </div>
@@ -20,8 +20,7 @@ export default function HomeDonate() {
             <Image
               src={'/assets/images/homeDonate.jpg'}
               alt="Donate Image"
-              layout="responsive"
-              width={500}
+              width={650}
               height={500}
             />
           </div>
