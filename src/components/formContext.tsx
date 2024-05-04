@@ -9,6 +9,8 @@ interface FormData {
   subject: string;
   message: string;
   images: string[];
+  city: string;
+  state: string;
 }
 
 interface FormDataContextProps {
@@ -16,27 +18,33 @@ interface FormDataContextProps {
   updateFormData: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
+  handleSelectChange: (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => void;
   handleStatus: (state: string, value: boolean) => void;
   success: boolean;
   error: boolean;
   clearState: () => void;
-  handleCheckboxChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, value: string) => void;
+  handleCheckboxChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    value: string
+  ) => void;
   emailTouched: boolean;
   setEmailTouched: (value: boolean) => void;
   handleFileUpload: (data: string[]) => void;
 }
 
-
-
 const FormDataContext = createContext<FormDataContextProps | undefined>(undefined);
+
 interface FormDataProviderProps {
   children: ReactNode;
 }
+
 export const FormDataProvider = ({ children }: FormDataProviderProps) => {
   const [emailTouched, setEmailTouched] = useState<boolean>(false);
   const [success, setSuccess] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     checkboxes: [''],
     firstName: '',
     lastName: '',
@@ -44,27 +52,37 @@ export const FormDataProvider = ({ children }: FormDataProviderProps) => {
     subject: '',
     message: '',
     images: [],
+    city: '',
+    state: '',
   });
 
   function updateFormData(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     e.preventDefault();
-    if (e.target.name === 'file-upload') {
 
+    // Check if the input element is a file upload input
+    if (e.target.type === 'file') {
+      // File uploads should be handled separately
+      return;
     }
+
+    // Regular form field updates
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
+    });
   }
 
   const handleFileUpload = (data: string[]) => {
     setFormData({
       ...formData,
-      images: data as never
-    })
-  }
+      images: data,
+    });
+  };
 
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, value: string) => {
+  const handleCheckboxChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    value: string
+  ) => {
     const data = formData.checkboxes;
     let checkboxes = data || [];
 
@@ -77,7 +95,14 @@ export const FormDataProvider = ({ children }: FormDataProviderProps) => {
     // Save back in localStorage
     setFormData({
       ...formData,
-      checkboxes: checkboxes
+      checkboxes: checkboxes,
+    });
+  };
+
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -90,6 +115,8 @@ export const FormDataProvider = ({ children }: FormDataProviderProps) => {
       subject: '',
       message: '',
       images: [],
+      city: '',
+      state: '',
     });
   }
 
@@ -102,7 +129,21 @@ export const FormDataProvider = ({ children }: FormDataProviderProps) => {
   }
 
   return (
-    <FormDataContext.Provider value={{ formData, updateFormData, handleStatus, clearState, handleCheckboxChange, setEmailTouched, handleFileUpload, emailTouched, success, error }}>
+    <FormDataContext.Provider
+      value={{
+        formData,
+        updateFormData,
+        handleStatus,
+        clearState,
+        handleCheckboxChange,
+        setEmailTouched,
+        handleFileUpload,
+        emailTouched,
+        success,
+        error,
+        handleSelectChange,
+      }}
+    >
       {children}
     </FormDataContext.Provider>
   );

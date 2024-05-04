@@ -1,5 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/react';
 import { FormDataProvider, useFormData } from '../components/formContext'
 import Navbar from "../components/navbar"
@@ -34,6 +35,10 @@ export default function RootLayout({
             <Analytics />
           </div>
           <Footer />
+          <Script
+            type='text/javascript'
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+          />
         </FormDataProvider>
       </body>
     </html>

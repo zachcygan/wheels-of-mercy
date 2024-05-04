@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { EmblaOptionsType } from 'embla-carousel-react'
 import { Roboto } from "next/font/google"
 import Carousel from './carousel';
@@ -16,6 +16,26 @@ const slides = Array.from(Array(slideCount).keys())
 
 export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show')
+        }
+      })
+    });
+    const hiddenElements = document.querySelectorAll('.hiddenTransition');
+    hiddenElements.forEach((element) => {
+      observer.observe(element);
+    });
+
+    // Cleanup observer on component unmount
+    return () => {
+      hiddenElements.forEach((element) => {
+        observer.unobserve(element);
+      });
+    };
+  }, []);
 
   return (
     <div className='bg-transparent'>

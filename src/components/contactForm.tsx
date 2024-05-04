@@ -7,11 +7,19 @@ import Success from './success'
 import Error from './error'
 
 export default function ContactForm() {
-  const { formData, updateFormData, handleStatus, clearState, handleCheckboxChange, setEmailTouched, handleFileUpload, emailTouched, success, error } = useFormData()
+  const { formData, updateFormData, handleStatus, clearState, handleCheckboxChange, setEmailTouched, handleFileUpload, handleSelectChange, emailTouched, success, error } = useFormData()
   const [totalSize, setTotalSize] = useState<number>(0);
   const SuccessMessage = 'Thank you for your message, we will get back to you as soon as possible.'
   const [errorMessage, setErrorMessage] = useState<string>('')
   const [sending, setSending] = useState<boolean>(false)
+  const states = [
+    'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia',
+    'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
+    'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+    'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania',
+    'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington',
+    'West Virginia', 'Wisconsin', 'Wyoming'
+  ];
 
   const form = useRef<HTMLFormElement>(null);
   const successRef = useRef<HTMLDivElement>(null);
@@ -225,6 +233,50 @@ export default function ContactForm() {
               </div>
             </fieldset>
           </div>
+          {formData.checkboxes.includes('Donate a Wheelchair') && (
+            <div className='grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 pt-6'>
+              <div className="sm:col-span-3">
+                <label htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900 dark:text-dark">
+                  City
+                </label>
+                <div className="mt-2">
+                  <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                    <input
+                      type="text"
+                      name="city"
+                      id="city"
+                      autoComplete="city"
+                      className="outline-none block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 dark:text-dark placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                      value={formData.city}
+                      onChange={updateFormData}
+                      placeholder='Newport Beach'
+                    />
+                  </div>
+                </div>
+              </div>
+              {/* State select */}
+              <div className="sm:col-span-3">
+                <label htmlFor="state" className="block text-sm font-medium leading-6 text-gray-900 dark:text-dark">
+                  State
+                </label>
+                <div className="mt-2">
+                  <select
+                    id="state"
+                    name="state"
+                    autoComplete="state"
+                    value={formData.state}
+                    onChange={handleSelectChange}
+                    className="outline-none block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 dark:text-dark placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                  >
+                    <option value="">Select a state</option>
+                    {states.map((state, index) => (
+                      <option key={index} value={state}>{state}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+          )}
           <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 pt-6">
             <div className="sm:col-span-3">
               <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900 dark:text-dark">
@@ -279,7 +331,7 @@ export default function ContactForm() {
                   value={formData.email}
                   onChange={(e) => {
                     const value = e.target.value
-                    if(value === '') {
+                    if (value === '') {
                       setEmailTouched(false)
                     } else {
                       setEmailTouched(true)

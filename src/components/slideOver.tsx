@@ -2,7 +2,6 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import { FormDataProvider } from './formContext'
 import ContactForm from './contactForm'
 
 type SlideOverProps = {
@@ -51,16 +50,16 @@ export default function SlideOver({ isOpen, onClose }: SlideOverProps) {
                   leaveTo="translate-x-full"
                 >
                   <Dialog.Panel className="pointer-events-auto w-screen max-w-2xl .slideOverWindow">
-                    <div className="flex h-full flex-col overflow-y-scroll bg-white dark:bg-zinc-900 py-6 shadow-xl">
+                    <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl dark:bg-gray-700">
                       <div className="px-4 sm:px-6">
                         <div className="flex items-start justify-between">
-                          <Dialog.Title className="text-base font-semibold leading-6 text-gray-900 dark:text-dark">
+                          <Dialog.Title className="text-base font-semibold leading-6 text-gray-900">
                             Contact Form
                           </Dialog.Title>
                           <div className="ml-3 flex h-7 items-center">
                             <button
                               type="button"
-                              className="relative rounded-md bg-white dark:bg-dark text-gray-400 hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                              className="relative rounded-md bg-white text-gray-400 hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                               onClick={() => handleClose()}
                             >
                               <span className="absolute -inset-2.5" />
