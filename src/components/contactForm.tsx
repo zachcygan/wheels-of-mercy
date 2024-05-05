@@ -235,7 +235,7 @@ export default function ContactForm() {
                 <label htmlFor="state" className="block text-sm font-medium leading-6 text-gray-900 dark:text-dark">
                   State
                 </label>
-                <Select name='test' className={`w-full mt-2`}>
+                <Select name='state' className={`w-full mt-2`}>
                   {states.map((state, index) => {
                     return(
                       <option key={index} value={state}>{state}</option>
