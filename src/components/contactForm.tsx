@@ -36,7 +36,7 @@ export default function ContactForm() {
       return;
     } else if (formData.checkboxes.includes('Donate a Wheelchair') && formData.images.length === 0) {
       handleStatus('error', true);
-      setErrorMessage('Please attach an image.'); 
+      setErrorMessage('Please attach an image.');
       setSending(false)
       return;
     } else if (formData.checkboxes.includes('Donate a Wheelchair') && (!formData.city || !formData.state)) {
@@ -121,16 +121,6 @@ export default function ContactForm() {
   const handleCloseSuccess = () => {
     handleStatus('success', false);
   }
-
-  //clears localstorage whenever the user leaves the page
-  useEffect(() => {
-    window.onbeforeunload = function () {
-      window.localStorage.clear();
-    }
-    window.onpagehide = function () {
-      window.localStorage.clear();
-    }
-  }, []);
 
   useEffect(() => {
     if (success && successRef.current) {
@@ -241,7 +231,19 @@ export default function ContactForm() {
                   </div>
                 </div>
               </div>
-              <div className="sm:col-span-3">
+              <div className='sm:col-span-3'>
+                <label htmlFor="state" className="block text-sm font-medium leading-6 text-gray-900 dark:text-dark">
+                  State
+                </label>
+                <Select name='test' className={`w-full mt-2`}>
+                  {states.map((state, index) => {
+                    return(
+                      <option key={index} value={state}>{state}</option>
+                    )
+                  })}
+                </Select>
+              </div>
+              {/* <div className="sm:col-span-3">
                 <label htmlFor="state" className="block text-sm font-medium leading-6 text-gray-900 dark:text-dark">
                   State
                 </label>
@@ -260,7 +262,7 @@ export default function ContactForm() {
                     ))}
                   </select>
                 </div>
-              </div>
+              </div> */}
             </div>
           )}
           <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 pt-6">
