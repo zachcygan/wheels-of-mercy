@@ -50,7 +50,7 @@ export default function SlideOver({ isOpen, onClose }: SlideOverProps) {
                   leaveTo="translate-x-full"
                 >
                   <Dialog.Panel className="pointer-events-auto w-screen max-w-2xl .slideOverWindow">
-                    <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl dark:bg-gray-700">
+                    <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl dark:bg-zinc-800">
                       <div className="px-4 sm:px-6">
                         <div className="flex items-start justify-between">
                           <Dialog.Title className="text-base font-semibold leading-6 text-gray-900 dark:text-dark">
