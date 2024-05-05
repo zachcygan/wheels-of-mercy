@@ -2,7 +2,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { PhotoIcon } from '@heroicons/react/24/solid'
 import { useFormData } from './formContext'
-import { Field, Label } from '@/components/fieldset'
 import { Select } from './select'
 import emailjs from '@emailjs/browser'
 import Success from './success'
