@@ -100,7 +100,7 @@ const faqs = [
     answer: `If you receive Medicare or Medicaid your first step should be contact a
         wheelchair vendor in your community and have a wheelchair custom
         designed for you. Those agencies will pay for it. If you have no resources
-        contact us at charles@wheelsofmercy.org`,
+        contact us at charlesmonson@wheelsofmercy.org`,
   },
   // More questions...
 ]
