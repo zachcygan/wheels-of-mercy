@@ -21,7 +21,6 @@ export default function SlideOver({ isOpen, onClose }: SlideOverProps) {
     if (onClose) onClose()
   }
 
-
   return (
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>
