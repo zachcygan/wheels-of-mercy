@@ -21,6 +21,10 @@ export default function ContactForm() {
     'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington',
     'West Virginia', 'Wisconsin', 'Wyoming'
   ];
+  const templateID = process.env.NEXT_PUBLIC_TEMPLATE_ID
+  const serviceID = process.env.NEXT_PUBLIC_SERVICE_ID
+  const publicKey = process.env.NEXT_PUBLIC_USER_ID
+
 
   const form = useRef<HTMLFormElement>(null);
   const successRef = useRef<HTMLDivElement>(null);
@@ -47,7 +51,7 @@ export default function ContactForm() {
     }
 
     if (form.current !== null) {
-      emailjs.sendForm('service_fzix91g', 'template_2wbljac', form.current, 'jUyA5LHa70k8i0tEl')
+      emailjs.sendForm(`${serviceID}`, `${templateID}`, form.current, `${publicKey}`)
         .then((result) => {
           console.log(result.text)
           if (error) {
