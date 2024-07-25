@@ -23,7 +23,7 @@ export default function ContactForm() {
   ];
   const templateID = process.env.NEXT_PUBLIC_TEMPLATE_ID
   const serviceID = process.env.NEXT_PUBLIC_SERVICE_ID
-  const publicKey = process.env.NEXT_PUBLIC_USER_ID
+  const publicKey = process.env.NEXT_PUBLIC_PUBLIC_ID
   
 
 
